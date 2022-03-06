@@ -1,0 +1,31 @@
+.books .container {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.books article {
+    margin: 15px;
+}
+
+.books img {
+    width: 180px;
+    max-width: 280px;
+    margin: auto;
+    display: block;
+    box-shadow: 5px 5px 3px grey;
+}
+
+.books h3, h4, h5 {
+    text-align: center;
+}
+
+@media (min-width:1024px) {
+    .books .container {
+        display: flex;
+        margin-top: 80px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

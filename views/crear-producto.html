@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %>
+    <!--<title>Gutenberg Libros</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="stylesheets/fontello.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/registro.css">
+    <script src="https://kit.fontawesome.com/c1eae85dfa.js" cross=""></script>-->
+</head>
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+           <!---- <div class="contenedor">
+                <img class="logo" src="../images/isologomoradosmall.png" alt="gutenberg logo">
+                <input type="checkbox" id="menu-bar">
+                <label class="icon-menu" for="menu-bar"></label>
+                <nav class="menu">
+                    <a class="active" href="/">Inicio</a>
+                    <a href="#">Géneros</a>
+                    <a href="#">Ofertas</a>
+                    <a href="#">Crowfounding</a>
+                    <a href="/detalle-producto">Detalle producto</a>
+                    <a href="/carrito-compras">Carrito de compras</a>
+                    <a href="/registro">Registro</a>
+                    <a href="/login">Login</a>                
+                </nav>
+            </div>
+            <div class="lowerbar">  
+                <form>
+                    <input class="searchbox" type="text" placeholder="Buscar">
+                    <button type="submit" class="fa fa-search" aria-hidden="true"></button>
+                  </form>
+                </div> -->
+            
+        </header>
+   <form method="get" class="create-form">
+       <h2>Crear Producto</h2>
+    
+        <div>
+            <br>
+            <label>Titulo</label>
+            <br>
+            <input type="text" name="titulo" id="titulo" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Autor</label>
+            <br>
+            <input type="text" name="autor" id="autor" required="">
+        </div>
+        
+        <div>
+            <br>
+            <label>Editorial</label>
+            <br>
+            <input type="text" name="editorial" id="editorial" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Reseña</label>
+            <br>
+            <input type="text" name="Reseña" id="Reseña" required="">
+        </div>
+
+        <div>
+            <br>
+            <ul>
+              <li><label>Detalle</label>
+                 <ol>
+                    <br>
+                    <label>Número de páginas</label>
+                    <br>
+                    <input type="text" name="paginas" id="paginas" required="">
+                    <br>
+                    <label>Peso</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Formato</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Edición</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Idioma</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>ISBN</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                 </ol>
+              </li>
+           </ul>
+        </div>
+
+        <div>
+            <br>
+            <label>Precio</label>
+            <br>
+            <input type="number" name="precio" id="precio" required="">
+        </div>
+        <div>
+            <br>
+            <label>Oferta</label>
+            <br>
+            <select name="oferta" id="oferta">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+        <div>
+            <br>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/">Guardar</a></button>
+        </div>
+    </form>
+    <footer>
+        <%- include('./partials/footer') %>
+       <!---- <div class="container">
+            <div>Gutenberg</div>
+            <div>Contacto</div>
+            <div>Política de privacidad</div>
+            <div>Guía de compra</div>
+            <div>Atención al cliente</div>
+            <div>Promociones</div>
+            <div>Preguntas frecuentes</div>
+            <div class="copyright">
+                <h6>Copyright © 2022 Gutenberg Libros S.A.</h6>
+            </div>
+        </div>-->
+        
+    </footer>
+    
+ </body>
+</html>

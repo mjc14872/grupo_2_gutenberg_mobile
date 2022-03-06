@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>   
+<main>
+
+    <section class="candadito">
+        <div class="caja-proceso-candado">
+            <div>
+                <img class="logo-candado" src="images/dashicons_lock-alt.svg" alt="">
+            </div>
+            <div>
+                <p>Inicia tu proceso de compra</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="productos-carrito">
+            <div class="imagen-datos">
+                <!-- <div class="img-libro">
+                    <img src="/img/clubPsicopatas_1.svg" alt="">
+                </div> -->
+                <div class="caja-datos">
+                    <div class="datos">
+                        <h4 class="parrafos titulo"><strong>EL CLUB DE LOS PSICÓPATAS</strong></h4>
+                        <p class="parrafos"></p>
+                        <p class="parrafos par">Autor: <strong>John Katzenbach</strong></p>
+                        <p class="parrafos par">ISBN: 9789877802443</p>
+                    </div>
+                </div>
+            </div >
+            
+            <div class="select-precio">
+                <div class="select-parrafo">
+                    <select class="select" name="select">
+                        <option value="value1">1</option>
+                        <option value="value2" selected>2</option>
+                        <option value="value3">3</option>
+                      </select>
+                      <p class="eliminar"><a href="#">Eliminar</a></p>
+                </div>
+
+                <div class="precio">
+                    <p>AR$ 3.149,00</p>
+                </div>
+            </div>
+    </section>
+<!-- otro libro -->
+    <section class="productos-carrito">
+        <div class="imagen-datos">
+            <!-- <div class="img-libro">
+                <img src="/img/sieteMaridos_1.svg" alt="">
+            </div> -->
+            <div class="caja-datos">
+                <div class="datos">
+                    <h4 class="parrafos titulo"><strong>LOS SIETE MARIDOS DE EVELYN HUGO</strong></h4>
+                    <p class="parrafos"></p>
+                    <p class="parrafos par">Autor: <strong>Tylor Junkins Reid</strong></p>
+                    <p class="parrafos par">ISBN: 9789874777737</p>
+                </div>
+            </div>
+        </div >
+        <div class="select-precio">
+            <div class="select-parrafo">
+                <select name="select">
+                    <option value="value1" selected>1</option>
+                    <option value="value2">2</option>
+                    <option value="value3">3</option>
+                  </select>
+                  <p class="eliminar"><a href="#">Eliminar</a></p>
+            </div>
+            <div class="precio">
+                <p>AR$ 3.149,00</p>
+            </div>
+        </div>
+</section>
+</main>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+</body>
+

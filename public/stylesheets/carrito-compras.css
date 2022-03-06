@@ -1,0 +1,176 @@
+.caja-proceso-candado {
+    margin-top: 80px;
+    width: 100%;
+    background-color: rgb(241, 239, 122);
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    align-items: center;
+}
+
+.candadito {
+    margin-top: 100px;
+    padding-top: 60px;
+    margin: auto;
+    width: 90%;
+    padding-bottom: 30px;
+}
+
+.candadito div div p {
+    color: rgb(67, 72, 106);
+}
+
+
+/* Marisol */
+
+.productos-carrito {
+    /* padding-top: 113px; */
+    border-top: 2px #000 dashed;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    height: 241px;
+
+}
+
+.par {
+    line-height: 30px;
+    float: left;
+    width: 50%;
+    display: table;
+}
+
+.titulo {
+    font-weight: 500;
+    float: left ;
+}
+
+.autor {
+    font-weight: 200;
+    float: left;
+}
+
+.imagen-datos {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    /* display: none; */
+    align-items: center;
+}
+
+.select-precio {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.img-libro {
+    width: 30%;
+    min-width: 80px;
+    margin: auto;
+}
+.caja-datos {
+    width: 100%;
+
+}
+
+.parrafos {
+    font-size: 11px;
+    float: left;
+}
+
+
+
+.precio {
+    width: 30%;
+}
+
+.select-parrafo {
+    width: 35%;
+    margin: auto;
+    text-align: center;
+
+}
+
+.precio {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+a {
+    color: #000;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+
+}
+
+.imagen {
+    width: 200px;
+}
+
+.imagen-boton {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+}
+
+.caja-header {
+    width: 90%;
+    margin: auto;
+
+}
+
+.caja-buscar-precios {
+    width: 90%;
+    margin: auto;
+}
+
+.caja-buscar {
+    width: 100%;
+    display: flex;
+}
+
+.botonB {
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+    
+}
+
+.buscar {
+    width: 50%;
+    padding: 15px;
+    min-width: 200px;
+}
+
+.eliminar {
+    font-size: 13px;
+}
+
+.precio p {
+    font-size: 14px;
+}
+
+.select {
+    width: 30px;
+}
+
+@media (min-width:1024px) {
+    .precio p {
+        font-size: 20px;
+    }
+
+    .parrafos {
+        font-size: 20px;
+        float: left;
+    }
+}

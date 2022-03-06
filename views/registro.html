@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<%- include('./partials/head') %)
+
+    <body>
+        
+<%- include('./partials/header') %)
+<form  method="get" class="create-form">
+    <h2>Registro de Usuario</h2>
+    
+        <div>
+            <br>
+            <label>Nombres</label>
+            <br>
+            <input type="text" name="nombre" id="nombre" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Apellidos</label>
+            <br>
+            <input type="text" name="apellido" id="apellido" required>
+        </div>
+        
+        <div>
+            <br>
+            <label>Email</label>
+            <br>
+            <input type="email" name="correo" id="email" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Confirmar Email</label>
+            <br>
+            <input type="email" name="check_email" id="check_email"  required>
+        </div>
+
+        <div>
+            <br>
+            <label>Password</label>
+            <br>
+            <input type="password" name="password" id="password" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Confirmar Password</label>
+            <br>
+            <input type="password" name="check_password" id="check_password" required>
+        </div>
+        <br>
+        <label class="categorias">Categorias de Interés:
+            <div>
+            <label> <input type="checkbox" name="interes" value="Comedia">Comedia</label>
+            <label> <input type="checkbox" name="interes" value="Accion">Accion</label>
+            <label> <input type="checkbox" name="interes" value="Romance">Romance</label>
+            <label> <input type="checkbox" name="interes" value="Infantiles">Infantiles</label>
+            <label> <input type="checkbox" name="interes" value="Editoriales">Editoriales</label>
+            </div>
+        </label>
+
+        <label class="perfilUsuario"> <!--En radio se pone required en una opción-->   
+            <div for="perfilUsuario">Perfil de Usuario:
+                    <div>
+                    <br>
+                    <input type="radio" name="perfilUsuario" id="perfilUsuario" required>Publicar Libros
+                    <input type="radio" name="perfilUsuario" id="perfilUsuario">Leer Libros 
+                    </div>
+                </div>  
+            </label>
+
+        <div>
+            <br>
+            <label> <input type="checkbox" name="novedades" value="Email"> Si, Deseo recibir novedades</label>
+        </div>
+        
+        <br>
+        <div>
+            <br>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/">Guardar</a></button>
+        </div>
+
+        <div>
+            <br>
+            <button type="reset" value="Borrar" class="boton-personalizado"><a href="/registro">Registrarme</a></button>
+        </div>
+
+    </form>
+    
+<%- include('./partials/footer') %)
+    
+</body> 

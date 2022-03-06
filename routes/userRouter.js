@@ -5,11 +5,11 @@ const express = require('express');
 const router = express.Router();
 
 //TODO: agregar el mainController
-const mainController = require('../controllers/mainController');
+const userController = require('../controllers/userController');
 
-//TODO: agregar el controller home, carrito de compras y detalle producto
-router.get("/", mainController.index);
+//TODO: agregar el controller login y registro
+router.get("/login", userController.login);
+router.get("/registro", userController.registro);
 
 //TODO: agregar el modulo
 module.exports = router;
-

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<%- include('./partials/head') %)
+
+    <body>
+        
+<%- include('./partials/header') %)
+        <form  method="get" class="create-formlogin">
+            <h2>Iniciar Sesion</h2>
+       
+              <div>
+                  <br>
+                  <label>Nombre de Usuario</label>
+                  <br>
+                  <input type="login" name="loginUsuario" id="loginUsuario" required>
+              </div>
+      
+              <div>
+                  <br>
+                  <label>Password</label>
+                  <br>
+                  <input type="password" name="password" id="password" required>
+              </div>
+              <br>
+              <div>
+                  <br>
+                  <button type="login" value="Ingresar y volver al Home" class="boton-personalizado boton-personalizado booktitle"><a href="/">Iniciar Sesion</a></button>
+              </div>
+      
+              <div>
+                  <br>
+                  <button type="registro" value="Registrarse" class="boton-personalizado boton-personalizado booktitle"><a href="/registro">Registrarme</a></button>
+              </div>
+          </form>
+          
+        
+<%- include('./partials/footer') %)
+    </body>

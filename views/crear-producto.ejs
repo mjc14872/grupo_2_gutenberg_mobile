@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %>
+</head>
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+   <form method="get" class="create-form">
+       <h2>Crear Producto</h2>
+    
+        <div>
+            <br>
+            <label>Titulo</label>
+            <br>
+            <input type="text" name="titulo" id="titulo" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Autor</label>
+            <br>
+            <input type="text" name="autor" id="autor" required="">
+        </div>
+        
+        <div>
+            <br>
+            <label>Editorial</label>
+            <br>
+            <input type="text" name="editorial" id="editorial" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Reseña</label>
+            <br>
+            <input type="text" name="Reseña" id="Reseña" required="">
+        </div>
+
+        <div>
+            <br>
+            <ul>
+              <li><label>Detalle</label>
+                 <ol>
+                    <br>
+                    <label>Número de páginas</label>
+                    <br>
+                    <input type="text" name="paginas" id="paginas" required="">
+                    <br>
+                    <label>Peso</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Formato</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Edición</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Idioma</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>ISBN</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                 </ol>
+              </li>
+           </ul>
+        </div>
+
+        <div>
+            <br>
+            <label>Precio</label>
+            <br>
+            <input type="number" name="precio" id="precio" required="">
+        </div>
+        <div>
+            <br>
+            <label>Oferta</label>
+            <br>
+            <select name="oferta" id="oferta">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+        <div>
+            <br>
+            <label>Crowfounding</label>
+            <br>
+            <select name="oferta" id="oferta">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+        <div>
+            <br>
+            <label>Best Seller</label>
+            <br>
+            <select name="oferta" id="oferta">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+        <div>
+            <br>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/">Guardar</a></button>
+        </div>
+    </form>
+    <footer>
+        <%- include('./partials/footer') %>
+        
+    </footer>
+    
+ </body>
+</html>
