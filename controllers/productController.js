@@ -33,7 +33,7 @@ const productController = {
 
         //creo el nuevo producto para agregar
         let newProduct = {
-            //id: products.length + 1, esta linea no va porque lo que hace es guardar y sumar un registro mas y solo estamos modificando
+            id: products.length + 1,
             nombre: req.body.nombre ,      
             autor: req.body.price,
             editorial: req.body.editorial,
@@ -56,11 +56,11 @@ const productController = {
         products.push(newProduct);
 
         //modifico mi base de datos
-        writeFile(products)
+        writeFile(products);
         
         //devuelvo una respuesta 
         //redirecciono al index
-        res.redirect("/");
+        res.redirect("/product/listado-productos");
     },
 	edit: function(req, res){
         //obtengo los productos
@@ -84,7 +84,7 @@ const productController = {
         })
 
         //modifico el produto que busque
-        productFound.id =  products.length + 1;
+       // productFound.id =  products.length + 1;
 		productFound.nombre = req.body.nombre ;      
 		productFound.autor = req.body.price;
 		productFound.editorial = req.body.editorial;
@@ -105,7 +105,7 @@ const productController = {
         writeFile(products)
 
         //redirecciono al index
-        res.redirect("/")
+        res.redirect("/product/listado-productos");
 
     },
 	destroy: function(req, res){
@@ -117,8 +117,6 @@ const productController = {
             return producto.id == req.params.id	;
 
         })
-		
-		
 
         //elimino el producto que busque, pasando su indice 
         products.splice(productIndex, 1)
@@ -127,7 +125,7 @@ const productController = {
         writeFile(products) 
 
         //redirecciono al index
-        res.redirect("/");
+        res.redirect("/product/listado-productos");
 
     }
 }
