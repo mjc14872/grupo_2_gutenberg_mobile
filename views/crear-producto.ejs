@@ -7,7 +7,7 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-   <form method="get" class="create-form">
+   <form class="create-form" action="/product/create" method= "POST">
        <h2>Crear Producto</h2>
     
         <div>
@@ -119,7 +119,7 @@
         </div>
         <div>
             <br>
-            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/">Guardar</a></button>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
         </div>
     </form>
     <footer>

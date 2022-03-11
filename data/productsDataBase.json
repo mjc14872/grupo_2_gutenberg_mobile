@@ -1,22 +1,20 @@
-[    
+[
     {
         "id": 1,
         "nombre": "LOS 7 MARIDOS DE EVELYN HUGO",
         "autor": "Taylor Jenkins Reid",
         "editorial": "UMBRIEL",
         "genero": " Libros - Ficción y Literatura - Novelas - General",
-        "precio": 2190,
-        "descuento": true,
-        "crowfounding": false,
-        "bestSeller": true,
+        "precio": "2190",
+        "crowfounding": "false",
+        "bestSeller": "true",
         "resenia": "Evelyn Hugo, el ícono de Hollywood que se ha recluido en su edad madura, decide al fin contar la verdad sobre su vida llena de glamour y de escándalos. Pero cuando elige para ello a Monique Grant, una periodista desconocida, nadie se sorprende más que la misma Monique. Por qué ella? Por qué ahora ? Monique no está precisamente en su mejor momento. Su marido la abandonó, y su vida profesional no avanza. Aún ignorando por que Evelyn la ha elegido para escribir su biografía. Monique esta decidida a aprovechar esa oportunidad para dar impulso a su carrera. Convocada al lujoso apartamento de Evelyn, Monique escucha fascinada mientras la actriz le cuenta su historia. Desde su llegada a Los Angeles en los años 50 hasta su decisión de abandonar su carrera en el espectáculo en los 80 - y desde luego, los siete maridos que tuvo en ese tiempo - Evelyn narra una historia de ambición implacable, amistad inesperada y un gran amor prohibido.",
         "image": "sieteMaridos_1.svg",
-        "paginas": 384,
-        "peso": 510,
-        "formato": "rustica",
-        "edicion": 2020,
+        "paginas": "384",
+        "peso": "510",
+        "edicion": "2020",
         "idioma": "castellano",
-        "isbn": 9789874777737
+        "isbn": "9789874777737"
     },
     {
         "id": 2,

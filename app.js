@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const methodOverride = require("method-override")
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
@@ -21,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // Define la ubicación de la carpeta de las Vistas
-//app.use(methodOverride("_method"));
+app.use(methodOverride("_method")); 
 
 // Rutas
 app.use("/", indexRouter);

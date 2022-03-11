@@ -35,7 +35,7 @@ const productController = {
         let newProduct = {
             id: products.length + 1,
             nombre: req.body.nombre ,      
-            autor: req.body.price,
+            autor: req.body.autor,
             editorial: req.body.editorial,
             genero: req.body.genero,
             precio: req.body.precio,
@@ -43,7 +43,7 @@ const productController = {
             crowfounding: req.body. crowfounding,
             bestSeller: req.body.bestSeller,
             resenia: req.body.resenia,
-            paginas: req.body. paginas,
+            paginas: req.body.paginas,
             peso: req.body.peso,
             formato: req.body.formato,
             edicion: req.body.edicion,
@@ -86,7 +86,7 @@ const productController = {
         //modifico el produto que busque
        // productFound.id =  products.length + 1;
 		productFound.nombre = req.body.nombre ;      
-		productFound.autor = req.body.price;
+		productFound.autor = req.body.autor;
 		productFound.editorial = req.body.editorial;
 		productFound.genero = req.body.genero;
 		productFound.precio = req.body.precio;
