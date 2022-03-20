@@ -49,6 +49,7 @@ const productController = {
             edicion: req.body.edicion,
             idioma: req.body.idioma,
             isbn: req.body.isbn,
+            image: req.file.filename
 
         }
         
@@ -84,7 +85,6 @@ const productController = {
         })
 
         //modifico el produto que busque
-       // productFound.id =  products.length + 1;
 		productFound.nombre = req.body.nombre ;      
 		productFound.autor = req.body.autor;
 		productFound.editorial = req.body.editorial;
@@ -94,6 +94,7 @@ const productController = {
 		productFound.crowfounding = req.body. crowfounding;
 		productFound.bestSeller = req.body.bestSeller;
 		productFound.resenia = req.body.resenia;
+        //productFound.image= req.file.filename;
 		productFound.paginas = req.body. paginas;
 		productFound.peso = req.body.peso;
 		productFound.formato = req.body.formato;

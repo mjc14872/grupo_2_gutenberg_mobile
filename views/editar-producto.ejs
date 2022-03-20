@@ -8,7 +8,7 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PUT" method="POST">
+    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PATCH" method="POST">
         <h2>Editar Producto</h2>
 
         <div>
@@ -85,7 +85,7 @@
         <div>
             <br>
             <label>Oferta</label>
-            <textarea name="oferta" id="oferta" class="form-input"><%= producto.descuento %></textarea>
+            <textarea name="descuento" id="descuento" class="form-input"><%= producto.descuento %></textarea>
             <br>
         
         </div>
@@ -115,6 +115,12 @@
             </select>-->
                 
         </div>
+        
+        <!--- <div>
+            <br>
+            <label for="img" class="form-label">Imagen</label>
+            <input type="file" id="img" name="img"  multiple> 
+        </div>-->
 
         <div>
             <div>

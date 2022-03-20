@@ -7,7 +7,7 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-   <form class="create-form" action="/product/create" method= "POST">
+   <form class="create-form" action="/product/create" method= "POST" enctype="multipart/form-data">
        <h2>Crear Producto</h2>
     
         <div>
@@ -86,9 +86,9 @@
         </div>
         <div>
             <br>
-            <label>Oferta</label>
+            <label for="descuento">Oferta</label>
             <br>
-            <select name="oferta" id="oferta">
+            <select name="descuento" id="descuento" class="form-input">
                 <option value=" "></option>
                 <option value="si">Si</option>
                 <option value="no">No</option>
@@ -97,9 +97,9 @@
         </div>
         <div>
             <br>
-            <label>Crowfounding</label>
+            <label for="crowfounding">Crowfounding</label>
             <br>
-            <select name="oferta" id="oferta">
+            <select name="crowfounding" id="crowfounding" class="form-input">
                 <option value=" "></option>
                 <option value="si">Si</option>
                 <option value="no">No</option>
@@ -108,15 +108,22 @@
         </div>
         <div>
             <br>
-            <label>Best Seller</label>
+            <label for="bestSeller">Best Seller</label>
             <br>
-            <select name="oferta" id="oferta">
+            <select name="bestSeller" id="bestSeller" class="form-input">
                 <option value=" "></option>
                 <option value="si">Si</option>
                 <option value="no">No</option>
             </select>
                 
         </div>
+
+        <div>
+            <br>
+            <label for="img" class="form-label">Imagen</label>
+            <input type="file" id="img" name="img" multiple>
+        </div>
+
         <div>
             <br>
             <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
