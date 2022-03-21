@@ -1,25 +1,30 @@
-//TODO: agregar express
+//Agregar librerias 
 const express = require('express');
-
-//TODO: agregar el router
 const router = express.Router();
 
-//TODO: agregar Multer
+//Agregar Multer
 const multer = require('multer');
 
-//TODO: agregar el mainController
+//Agregar el mainController
 const userController = require('../controllers/userController');
 
-//TODO: agregar el controller registro
+//Agregar el controller registro
 router.get("/registro", userController.registro);
 router.post("/registro", userController.usuario);
 
-//TODO: agregar el controller login
+//Agregar el controller login
 router.get("/login", userController.login);
 
+//Crear usuario
+router.get("/create", userController.create);  
+router.post("/create", userController.usuario);
 
+//editar usuario
+router.get('/edit/:id', userController.edit); 
+router.patch('/edit/:id', userController.update); 
 
-
+//eliminar producto
+router.delete('/delete/:id', userController.destroy); 
 
 //TODO: agregar el modulo
 module.exports = router;

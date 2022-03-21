@@ -8,28 +8,28 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-<form  method="get" class="create-form">
-    <h2>Registro de Usuario</h2>
+<form class="create-form" action="/user/create" method="POST" >
+        <h2>Registro de Usuario</h2>
     
         <div>
             <br>
             <label>Nombres</label>
             <br>
-            <input type="text" name="nombre" id="nombre" required>
+            <input type="text" name="nombres" id="nombres" required>
         </div>
 
         <div>
             <br>
             <label>Apellidos</label>
             <br>
-            <input type="text" name="apellido" id="apellido" required>
+            <input type="text" name="apellidos" id="apellidos" required>
         </div>
         
         <div>
             <br>
             <label>Email</label>
             <br>
-            <input type="email" name="correo" id="email" required>
+            <input type="text" name="email" id="email" required>
         </div>
 
         <div>
@@ -52,44 +52,84 @@
             <br>
             <input type="password" name="check_password" id="check_password" required>
         </div>
-        <br>
-        <label class="categorias">Categorias de Interés:
+
+        <label >Categorias e Interés:</label> 
+           
             <div>
-            <label> <input type="checkbox" name="interes" value="Comedia">Comedia</label>
-            <label> <input type="checkbox" name="interes" value="Accion">Accion</label>
-            <label> <input type="checkbox" name="interes" value="Romance">Romance</label>
-            <label> <input type="checkbox" name="interes" value="Infantiles">Infantiles</label>
-            <label> <input type="checkbox" name="interes" value="Editoriales">Editoriales</label>
+                <label>Comedia</label>
+                <select name="comedia" id="comedia">
+                    <option value=" "></option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label>Accion</label>
+                <select name="accion" id="accion"> 
+                    <option value=" "></option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label>Romance</label>
+                <select name="romance" id="romance"> 
+                    <option value=" "></option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label>Infantiles</label>
+                <select name="infantiles" id="infantiles"> Infantiles:
+                    <option value=" "></option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+                
+                <label>Editoriales</label>
+                <select name="editoriales" id="editoriales"> 
+                    <option value=" "></option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
             </div>
         </label>
 
-        <label class="perfilUsuario"> <!--En radio se pone required en una opción-->   
-            <div for="perfilUsuario">Perfil de Usuario:
-                    <div>
-                    <br>
-                    <input type="radio" name="perfilUsuario" id="perfilUsuario" required>Publicar Libros
-                    <input type="radio" name="perfilUsuario" id="perfilUsuario">Leer Libros 
-                    </div>
-                </div>  
-            </label>
+        <br>
+        <label for="categoria" class="form-label"> Perfil:</label>  
+            <div>
+                <select name="categoria" id="categoria" class="form-input">
+                    <option value="">Elegí</option>
+                    <option type="radio"  value="publicar libros" required>Publicar Libros</option>
+                    <option type="radio"  value="leer libros" required>leer Libros</option>
+                </select>        
+            </div>
 
-        <div>
             <br>
-            <label> <input type="checkbox" name="novedades" value="Email"> Si, Deseo recibir novedades</label>
-        </div>
+            <label for="novedades" class="form-label">Recibir Novedades:</label>   
+            <div>
+                <select name="novedades" id="novedades" class="form-input">
+                    <option type="radio"  value="si" required>Si</option>
+                    <option type="radio"  value="no" required>No</option>
+                </select>        
+            </div>    
+            
+        <!--div>
+            <br>
+            <label> <input type="checkbox" name="novedades" value="novedades"> Si, Deseo recibir novedades</label>
+        </div-->
         
         <br>
         <div>
             <br>
-            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/product/listado-productos">Guardar</a></button>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
         </div>
 
         <div>
             <br>
-            <button type="reset" value="Borrar" class="boton-personalizado"><a href="/registro">Registrarme</a></button>
+            <button type="reset" value="Borrar" class="boton-personalizado">Registrarme</button>
         </div>
 
     </form>
+    
     <footer>
         <%- include('./partials/footer') %>
     </footer>
