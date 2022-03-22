@@ -8,7 +8,7 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PATCH" method="POST">
+    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
         <h2>Editar Producto</h2>
 
         <div>
@@ -116,11 +116,11 @@
                 
         </div>
         
-        <!--- <div>
+        <div>
             <br>
             <label for="img" class="form-label">Imagen</label>
             <input type="file" id="img" name="img"  multiple> 
-        </div>-->
+        </div>
 
         <div>
             <div>
