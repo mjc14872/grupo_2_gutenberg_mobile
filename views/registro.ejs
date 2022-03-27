@@ -8,7 +8,7 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-<form class="create-form" action="/user/create" method="POST" >
+<form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST" >
         <h2>Registro de Usuario</h2>
     
         <div>
@@ -32,12 +32,12 @@
             <input type="text" name="email" id="email" required>
         </div>
 
-        <div>
+        <!--div>
             <br>
             <label>Confirmar Email</label>
             <br>
             <input type="email" name="check_email" id="check_email"  required>
-        </div>
+        </div-->
 
         <div>
             <br>
@@ -46,86 +46,94 @@
             <input type="password" name="password" id="password" required>
         </div>
 
-        <div>
+        <!--div>
             <br>
             <label>Confirmar Password</label>
             <br>
             <input type="password" name="check_password" id="check_password" required>
-        </div>
+        </div-->
+        
+        <br>
+        <label>Categorias e Interés:
+            <br>
+            <label for="comedia" class="form-label">Comedia</label> 
+                <div>
+                    <select name="comedia" id="comedia" class="form-input">
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
 
-        <label >Categorias e Interés:</label> 
-           
-            <div>
-                <label>Comedia</label>
-                <select name="comedia" id="comedia">
-                    <option value=" "></option>
-                    <option value="si">Si</option>
-                    <option value="no">No</option>
-                </select>
+            <br>
+            <label for="accion" class="form-label">Accion</label>
+                <div>
+                    <select name="accion" id="accion" class="form-input"> 
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+            
+            <br>
+            <label for="romance" class="form-label">Romance</label>
+                <div>
+                    <select name="romance" id="romance" class="form-input"> 
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
 
-                <label>Accion</label>
-                <select name="accion" id="accion"> 
-                    <option value=" "></option>
-                    <option value="si">Si</option>
-                    <option value="no">No</option>
-                </select>
-
-                <label>Romance</label>
-                <select name="romance" id="romance"> 
-                    <option value=" "></option>
-                    <option value="si">Si</option>
-                    <option value="no">No</option>
-                </select>
-
-                <label>Infantiles</label>
-                <select name="infantiles" id="infantiles"> Infantiles:
-                    <option value=" "></option>
-                    <option value="si">Si</option>
-                    <option value="no">No</option>
-                </select>
-                
-                <label>Editoriales</label>
-                <select name="editoriales" id="editoriales"> 
-                    <option value=" "></option>
-                    <option value="si">Si</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-        </label>
+            <br>
+            <label for="infantiles" class="form-label">Infantiles</label>
+                <div>
+                    <select name="infantiles" id="infantiles" class="form-input">
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+            
+            <br>
+            <label for="editoriales" class="form-label">Editoriales</label>
+                <div>
+                    <select name="editoriales" id="editoriales" class="form-input"> 
+                        <option value=" "required></option>
+                        <option type="radio" value="si" >Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+        </label> 
 
         <br>
         <label for="categoria" class="form-label"> Perfil:</label>  
             <div>
                 <select name="categoria" id="categoria" class="form-input">
-                    <option value="">Elegí</option>
-                    <option type="radio"  value="publicar libros" required>Publicar Libros</option>
-                    <option type="radio"  value="leer libros" required>leer Libros</option>
+                <option value="">Elegí</option>
+                <option type="radio"  value="publicar libros" required>Publicar Libros</option>
+                <option type="radio"  value="leer libros" required>leer Libros</option>
                 </select>        
             </div>
 
-            <br>
-            <label for="novedades" class="form-label">Recibir Novedades:</label>   
+        <div>
+            <label for="img" class="form-label">Avatar</label>
+            <input type="file" id="img" name="img" class="form-control">
+        </div>>
+
+        <br>
+        <label for="novedades" class="form-label">Recibir Novedades:</label>   
             <div>
                 <select name="novedades" id="novedades" class="form-input">
                     <option type="radio"  value="si" required>Si</option>
                     <option type="radio"  value="no" required>No</option>
                 </select>        
             </div>    
-            
-        <!--div>
-            <br>
-            <label> <input type="checkbox" name="novedades" value="novedades"> Si, Deseo recibir novedades</label>
-        </div-->
         
         <br>
         <div>
             <br>
             <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
-        </div>
-
-        <div>
-            <br>
-            <button type="reset" value="Borrar" class="boton-personalizado">Registrarme</button>
         </div>
 
     </form>

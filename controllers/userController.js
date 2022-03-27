@@ -1,6 +1,7 @@
 //TODO: agregar el path
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require("bcryptjs");
 
 //Llamamos y "re-escribimos" el JSON.
 function findAll(){
@@ -8,6 +9,7 @@ function findAll(){
 	let users = JSON.parse(data);
 	return users
  }
+
  function writeFile(array){
     let string = JSON.stringify(array, null, 4)
     fs.writeFileSync(path.join(__dirname, "../data/usersDataBase.json"), string)
@@ -38,16 +40,16 @@ const userController = {
         nombres: req.body.nombres,
         apellidos: req.body.apellidos,
         email: req.body.email,
-        check_email: req.body.check_email,
-        password: req.body.password,
-        check_password: req.body.check_password,
-        /*comedia: req.body.comedia,
+        //check_email: req.body.check_email,
+        password: bcrypt.hashSync(req.body.password, 10),
+        //check_password: req.body.check_password,
+        comedia: req.body.comedia,
         accion: req.body.accion,
         romance: req.body.romance,
         infantiles: req.body.infantiles,
-        editoriales: req.body.editoriales,*/
-        intereses: req.body.intereses,
+        editoriales: req. body.editoriales,
         categoria: req.body.categoria,
+        image: req.file.filename,
         novedades: req.body.novedades
         }
     
@@ -58,7 +60,7 @@ const userController = {
         writeFile(user);
     
         //redirecciono a registro
-        res.redirect("/user/registro");
+        res.redirect("/user/registro"); //redireccionar a login cambiarlo cuando este ok todo el codigo
     },
 
       edit: function(req, res){
@@ -87,16 +89,16 @@ const userController = {
         userFound.nombres = req.body.nombres,
         userFound.apellidos = req.body.apellidos,
         userFound.email = req.body.email,
-        userFound.check_email = req.body.check_email,
+        //userFound.check_email = req.body.check_email,
         userFound.password = req.body.password,
-        userFound.check_password = req.body.check_password,
-        /*userFound.comedia = req.body.comedia,
-        userFound.accion = req.body.accion,
+        //userFound.check_password = req.body.check_password,
+        userFound.comedia = req.body.comedia,
+        userFound.accion =req.body.accion,
         userFound.romance = req.body.romance,
         userFound.infantiles = req.body.infantiles,
-        userFound.editoriales = req.body.editoriales,*/
-        userController.intereses = req.body.intereses,
+        userFound.editoriales = req. body.editoriales,
         userFound.categoria = req.body.categoria,
+        userFount.avatar = req.file.filename,
         userFound.novedades = req.body.novedades
     
         //modifico mi base de datos

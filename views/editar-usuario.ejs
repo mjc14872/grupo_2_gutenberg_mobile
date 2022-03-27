@@ -31,11 +31,11 @@
                 <textarea name="email" id="email" class="form-input"><%= usuario.email %></textarea>
             </div>
 
-            <div>
+            <!--div>
                 <br>
                 <label>Confirmar Email</label>
                 <textarea name="check_email" id="check_email" class="form-input"><%= usuario.check_email %></textarea>
-            </div>
+            </div-->
 
             <div>
                 <br>
@@ -44,31 +44,41 @@
                 <br>
             </div>
 
-            <div>
+            <!--div>
                 <br>
                 <label>Confirmar Password</label>
                 <textarea name="check_password" id="check_password" class="form-input"><%= usuario.check_password %></textarea>
                 <br>
-            </div>
+            </div-->
 
             <br>
-            <label> Categorias e Interés:</label>  
+            <label for="intereses" class="form-label"> Categorias e Interés:</label>  
         
                 <div>
                     <label>Comedia</label>
-                    <textarea name="comedia" id="comedia" class="form-input"><%= usuario.comedia %></textarea>
+                    <select name="comedia" id="comedia" class="form-input">
+                        <option name="comedia" id="comedia" class="form-input"><%= usuario.comedia %></option>
+                    </select>
                     
                     <label>Accion</label>
-                    <textarea name="accion" id="accion" class="form-input"><%= usuario.accion %></textarea>
+                    <select name="accion" id="accion" class="form-input">
+                        <option name="accion" id="accion" class="form-input"><%= usuario.accion %></option>
+                    </select>
                     
                     <label>Romance</label>
-                    <textarea name="romance" id="romance" class="form-input"><%= usuario.romance %></textarea>
+                    <select name="romance" id="romance" class="form-input">
+                        <option name="romance" id="romance" class="form-input"><%= usuario.romance %></option>
+                    </select>
                     
                     <label>Infantiles</label>
-                    <textarea name="infantiles" id="infantiles" class="form-input"><%= usuario.infantiles %></textarea>
+                    <select name="infantiles" id="infantiles" class="form-input">
+                        <option name="infantiles" id="infantiles" class="form-input"><%= usuario.infantiles %></option>
+                    </select>
 
                     <label>Editoriales</label>
-                    <textarea name="editoriales" id="editoriales" class="form-input"><%= usuario.editoriales %></textarea>
+                    <select name="editoriales" id="editoriales" class="form-input">
+                        <option name="editoriales" id="editoriales" class="form-input"><%= usuario.editoriales %></option>
+                    </select>
                 </div>
             </label>
 
@@ -79,12 +89,12 @@
                         <option name="categoria" id="categoria" class="form-input"><%= usuario.categoria %></option>
                     </select>        
                 </div>
-
+                        
                 <br>
                 <label for="novedades" class="form-label"> Recibir Novedades:</label> 
                 <div>
                     <select name="novedades" id="novedades" class="form-input">
-                        <option name="categoria" id="categoria" class="form-input"><%= usuario.novedades %></option>
+                        <option name="novedades" id="novedades" class="form-input"><%= usuario.novedades %></option>
                     </select>        
                 </div>
                         
