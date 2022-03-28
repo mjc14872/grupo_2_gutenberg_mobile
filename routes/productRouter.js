@@ -1,7 +1,10 @@
-//Agregar librerias 
+//Agregar librerias
+const path = require('path');
 const express = require('express');
 const router = express.Router();
-const path = require('path');
+
+//Agregar el productController
+const productController = require('../controllers/productController');
 
 //TODO: agregar Multer
 const multer = require('multer');
@@ -11,14 +14,10 @@ const storage = multer.diskStorage({
     },
     filename:(req, file, cb)=> {
         const newFile = file.fieldname + Date.now() + path.extname(file.originalname);
-     cb(null, newFile)
+        cb(null, newFile)
     }
   }) 
-  const upload = multer({ storage: storage })
-
-
-//Agregar el productController
-const productController = require('../controllers/productController');
+  const upload = multer({ storage: storage });
 
 //Agregar el controller de productos
 router.get("/detalle-producto", productController.detalleProducto);

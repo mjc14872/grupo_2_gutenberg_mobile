@@ -30,17 +30,25 @@
         "novedades": "si"
     },
     {
-        "id": 4,
-        "nombres": "luis",
-        "apellidos": "lopez",
-        "email": "luil@gmail.com",
-        "password": "$2a$10$0jTLZU3VddE.vnjqubiYCuhP0CU01H51GOO.LsE5ywg7lFfvAQyPC",
+        "id": 4
+    },
+    {
+        "id": 5,
+        "image": "img1648421959884.png"
+    },
+    {
+        "id": 6,
+        "nombres": "liz",
+        "apellidos": "moran perez",
+        "email": "l@gmail.com",
+        "password": "$2a$10$BYiIUmZn7YWvQpIJ8V4aa.WXD9k9SyjkdBlkQ8wgzYcOCy4K0BC9G",
         "comedia": "no",
         "accion": "si",
         "romance": "si",
         "infantiles": "si",
         "editoriales": "si",
-        "categoria": "leer libros",
-        "novedades": "no"
+        "categoria": "publicar libros",
+        "image": "img1648423205339.png",
+        "novedades": "si"
     }
 ]

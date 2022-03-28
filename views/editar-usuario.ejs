@@ -56,50 +56,42 @@
         
                 <div>
                     <label>Comedia</label>
-                    <select name="comedia" id="comedia" class="form-input">
-                        <option name="comedia" id="comedia" class="form-input"><%= usuario.comedia %></option>
-                    </select>
+                        <textarea name="comedia" id="comedia" class="form-input"><%= usuario.comedia %></textarea>
                     
                     <label>Accion</label>
-                    <select name="accion" id="accion" class="form-input">
-                        <option name="accion" id="accion" class="form-input"><%= usuario.accion %></option>
-                    </select>
+                        <textarea name="accion" id="accion" class="form-input"><%= usuario.accion %></textarea>
                     
                     <label>Romance</label>
-                    <select name="romance" id="romance" class="form-input">
-                        <option name="romance" id="romance" class="form-input"><%= usuario.romance %></option>
-                    </select>
+                        <textarea name="romance" id="romance" class="form-input"><%= usuario.romance %></textarea>
                     
                     <label>Infantiles</label>
-                    <select name="infantiles" id="infantiles" class="form-input">
-                        <option name="infantiles" id="infantiles" class="form-input"><%= usuario.infantiles %></option>
-                    </select>
+                        <textarea name="infantiles" id="infantiles" class="form-input"><%= usuario.infantiles %></textarea>
 
                     <label>Editoriales</label>
-                    <select name="editoriales" id="editoriales" class="form-input">
-                        <option name="editoriales" id="editoriales" class="form-input"><%= usuario.editoriales %></option>
-                    </select>
+                        <textarea name="editoriales" id="editoriales" class="form-input"><%= usuario.editoriales %></textarea>
                 </div>
             </label>
 
             <br>
-            <label for="categoria" class="form-label"> Perfil:</label>  
-                <div>
-                    <select name="categoria" id="categoria" class="form-input">
-                        <option name="categoria" id="categoria" class="form-input"><%= usuario.categoria %></option>
-                    </select>        
-                </div>
-                        
-                <br>
-                <label for="novedades" class="form-label"> Recibir Novedades:</label> 
-                <div>
-                    <select name="novedades" id="novedades" class="form-input">
-                        <option name="novedades" id="novedades" class="form-input"><%= usuario.novedades %></option>
-                    </select>        
-                </div>
-                        
             <div>
-                <br>
+                <label> Perfil:</label>  
+                <textarea name="categoria" id="categoria" class="form-input"><%= usuario.categoria %></textarea> 
+            </div>
+
+            <br>
+            <div>
+                <label>Avatar</label>
+                <textarea type="file" name="img" id="img" class="form-control"><%= usuario.image %></textarea>
+            </div>
+
+            <br>
+            <div>
+                <label> Recibir Novedades:</label> 
+                        <textarea name="novedades" id="novedades" class="form-input"><%= usuario.novedades %></textarea>
+            </div>
+
+            <br>
+            <div>
                 <button type="submit" value="Guardar y volver" class="boton-personalizado">Guardar Cambios</button>
             </div>
 

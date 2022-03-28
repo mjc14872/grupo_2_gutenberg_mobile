@@ -50,6 +50,7 @@ const userController = {
         editoriales: req. body.editoriales,
         categoria: req.body.categoria,
         image: req.file.filename,
+        //image: req.file ? req.file.filename : "image-default",
         novedades: req.body.novedades
         }
     
@@ -98,7 +99,7 @@ const userController = {
         userFound.infantiles = req.body.infantiles,
         userFound.editoriales = req. body.editoriales,
         userFound.categoria = req.body.categoria,
-        userFount.avatar = req.file.filename,
+        //userFound.image = req.file.filename,
         userFound.novedades = req.body.novedades
     
         //modifico mi base de datos

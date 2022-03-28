@@ -56,7 +56,6 @@ const productController = {
             idioma: req.body.idioma,
             isbn: req.body.isbn,
             image: req.file.filename
-
         }
         
         //agrego el nuevo producto a mi listado de productos 

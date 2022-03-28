@@ -21,11 +21,10 @@ const storage = multer.diskStorage({
 
 //Agregar el controller registro
 router.get("/registro", userController.registro);
-router.post("/registro", userController.registro);
 
 //Crear usuario
 router.get("/create", userController.create);  
-router.post("/create", upload.single(img), userController.usuario);
+router.post("/create", upload.single('img'), userController.usuario);
 
 //editar usuario
 router.get('/edit/:id', userController.edit); 
