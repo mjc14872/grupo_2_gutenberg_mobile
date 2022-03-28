@@ -8,7 +8,7 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PATCH" method="POST">
         <h2>Editar Producto</h2>
 
         <div>
@@ -48,33 +48,41 @@
         </div>
 
         <div>
-          <label>Detalle</label>
-                <br>
-                <label>Número de páginas</label>
-                <textarea name="paginas" id="paginas"class="form-input"><%= producto.paginas%></textarea>
-
-                <br>
-                <label>Peso</label>
-                <textarea name="peso" id="peso" class="form-input"><%= producto.peso %></textarea>
-
-                <br>
-                <label>Formato</label>
-                <textarea name="Reseña" id="Reseña" class="form-input"><%= producto.formato %></textarea>
-               
-                <br>
-                <label>Edición</label>
-                <textarea name="edicion" id="edicion" class="form-input"><%= producto.edicion %></textarea>
-                
-                <br>
-                <label>Idioma</label>
-                <textarea name="idioma" id="idioma" class="form-input"><%= producto.idioma %></textarea>
-               
-                <br>
-                <label>ISBN</label>
-                <textarea name="isbn" id="isbn" class="form-input"><%= producto.isbn %></textarea>
-            
+            <br>
+            <h3>Detalle</h3>
         </div>
-
+        <div>
+            <br>
+            <label>Número de páginas</label>
+            <textarea name="paginas" id="paginas" class="form-input"><%= producto.paginas%></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Peso</label>
+            <textarea name="peso" id="peso" class="form-input"><%= producto.peso %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Formato</label>
+            <textarea name="formato" id="formato" class="form-input"><%= producto.formato %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Edición</label>
+            <textarea name="edicion" id="edicion" class="form-input"><%= producto.edicion %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Idioma</label>
+            <textarea name="idioma" id="idioma" class="form-input"><%= producto.idioma %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>ISBN</label>
+            <textarea name="isbn" id="isbn" class="form-input"><%= producto.isbn %></textarea>
+        
+        </div>
+        
         <div>
             <br>
             <label>Precio</label>
@@ -116,11 +124,11 @@
                 
         </div>
         
-        <div>
+        <!---<div>
             <br>
             <label for="img" class="form-label">Imagen</label>
             <input type="file" id="img" name="img"  multiple> 
-        </div>
+        </div>-->
 
         <div>
             <div>

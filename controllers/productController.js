@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
+//Llamamos y "re-escribimos" el JSON.
 function findAll(){
 	let data = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), "utf-8")
 	let productos = JSON.parse(data);
@@ -11,6 +12,8 @@ function findAll(){
     let string = JSON.stringify(array, null, 4)
     fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), string)
 }
+
+//Crear el Controller del producto. 
 const productController = {
 
     detalleProducto: function(req, res){
@@ -20,13 +23,16 @@ const productController = {
     carritoCompras: function(req, res){
         res.render("carrito-compras");
     },
+
     listadoProductos: function(req, res){
         res.render("listado-productos");
     },
+
 	create: function(req, res){
         //devuelvo el formulario de creacion de producto
         res.render("crear-producto")
     },
+
 	store: function(req, res){
         //obtengo los productos
         let products = findAll()
@@ -59,10 +65,10 @@ const productController = {
         //modifico mi base de datos
         writeFile(products);
         
-        //devuelvo una respuesta 
         //redirecciono al index
         res.redirect("/product/listado-productos");
     },
+
 	edit: function(req, res){
         //obtengo los productos
         let products = findAll()
@@ -75,6 +81,7 @@ const productController = {
         //devuelvo el formulario de edicion con informacion del producto a editar
         res.render("editar-producto", {producto: productFound})
     },
+
 	update: function(req, res){
         //obtengo los productos
         let products = findAll()
@@ -94,7 +101,7 @@ const productController = {
 		productFound.crowfounding = req.body. crowfounding;
 		productFound.bestSeller = req.body.bestSeller;
 		productFound.resenia = req.body.resenia;
-        productFound.image= req.file.filename;
+        //productFound.image= req.file.filename;
 		productFound.paginas = req.body. paginas;
 		productFound.peso = req.body.peso;
 		productFound.formato = req.body.formato;
@@ -109,6 +116,7 @@ const productController = {
         res.redirect("/product/listado-productos");
 
     },
+
 	destroy: function(req, res){
         //obtengo todos los productos
         let products = findAll()
@@ -131,88 +139,5 @@ const productController = {
     }
 }
 
+//Exportar el modulo
 module.exports = productController;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-
-//TODO: crear el mainController con el index, login, registro, carrito compras. detalle producto 
-const productController = {
-    detalleProducto: function(req, res){
-        res.render("detalle-producto");
-    },
-
-    carritoCompras: function(req, res){
-        res.render("carrito-compras");
-    },
-	create: function(req, res){
-        res.render("crear-producto");
-    },
-	// Create -  Method to store
-	store: (req, res) => {
-		let newProduct = {
-			id: products[products.length - 1].id + 1,
-			...req.body,
-			image: 'default-image.png'
-		};
-		products.push(newProduct)
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-		res.redirect('/');
-	},
-	edit: (req, res) => {
-		let id = req.params.id
-		let productToEdit = products.find(product => product.id == id)
-		res.render('editar-producto', {productToEdit})
-	},
-	// Update - Method to update
-	update: (req, res) => {
-		let id = req.params.id;
-		let productToEdit = products.find(product => product.id == id)
-
-		productToEdit = {
-			id: productToEdit.id,
-			...req.body,
-			image: productToEdit.image,
-		};
-		
-		let newProducts = products.map(product => {
-			if (product.id == productToEdit.id) {
-				return product = {...productToEdit};
-			}
-			return product;
-		})
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-		res.redirect('/');
-	},
-	destroy : (req, res) => {
-		let id = req.params.id;
-		let finalProducts = products.filter(product => product.id != id);
-		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-		res.redirect('/');
-	}
-
-};
-
-
-
-//TODO: agregar exportar el modulo
-module.exports = productController;*/

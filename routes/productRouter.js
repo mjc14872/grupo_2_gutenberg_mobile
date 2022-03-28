@@ -35,7 +35,7 @@ router.post("/create", upload.single('img'), productController.store);
 
 //editar producto
 router.get('/edit/:id', productController.edit); 
-router.patch('/edit/:id', upload.single('img'), productController.update); 
+router.patch('/edit/:id', productController.update); 
 
 //eliminar producto
 router.delete('/delete/:id', productController.destroy); 
