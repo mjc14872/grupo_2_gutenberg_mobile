@@ -1,5 +1,54 @@
 [
     {
-        
+        "id": 1,
+        "nombres": "Margaret",
+        "apellidos": "perez",
+        "email": "m@gmail.com",
+        "password": "$2a$10$2hhtJnwigpB0/2tlsNuI/u7AG9QSbB./TrL4kBAbt6CusepS7LqoC",
+        "comedia": "si",
+        "categoria": "publicar libros",
+        "novedades": "no"
+    },
+    {
+        "id": 2,
+        "nombres": "luis",
+        "apellidos": "lopez",
+        "email": "l@gmail.com",
+        "password": "$2a$10$z1e2Hf6y7QKWRoYLBe4YWOMtJzIyKZ/Y56b90K607WrIJ3kTz9V72",
+        "comedia": "no",
+        "categoria": "leer libros",
+        "novedades": "si"
+    },
+    {
+        "id": 3,
+        "nombres": "pedro",
+        "apellidos": "Molina",
+        "email": "l@gmail.com",
+        "password": "$2a$10$WFaRZyhgiezXlM/Ujm7puuE0Ezhdk/zj3zLdKWEbPQh.yTS2x5Kpi",
+        "comedia": "no",
+        "categoria": "leer libros",
+        "novedades": "si"
+    },
+    {
+        "id": 4
+    },
+    {
+        "id": 5,
+        "image": "img1648421959884.png"
+    },
+    {
+        "id": 6,
+        "nombres": "liz",
+        "apellidos": "moran perez",
+        "email": "l@gmail.com",
+        "password": "$2a$10$BYiIUmZn7YWvQpIJ8V4aa.WXD9k9SyjkdBlkQ8wgzYcOCy4K0BC9G",
+        "comedia": "no",
+        "accion": "si",
+        "romance": "si",
+        "infantiles": "si",
+        "editoriales": "si",
+        "categoria": "publicar libros",
+        "image": "img1648423205339.png",
+        "novedades": "si"
     }
 ]

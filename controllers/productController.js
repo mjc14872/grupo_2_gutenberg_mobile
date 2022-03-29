@@ -17,8 +17,11 @@ function findAll(){
 const productController = {
 
     detalleProducto: function(req, res){
-        res.render("detalle-producto");
-    },
+        let products = findAll()
+            let id = req.params.id
+            let producto = products.find(producto => producto.id == id)
+            res.render('detalle-producto', {producto: producto})
+        },
 
     carritoCompras: function(req, res){
         res.render("carrito-compras");
@@ -56,7 +59,6 @@ const productController = {
             idioma: req.body.idioma,
             isbn: req.body.isbn,
             image: req.file.filename
-
         }
         
         //agrego el nuevo producto a mi listado de productos 

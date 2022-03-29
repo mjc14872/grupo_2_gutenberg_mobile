@@ -8,8 +8,8 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-<form  method="get" class="create-form">
-    <h2>Registro de Usuario</h2>
+<form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST" >
+        <h2>Registro de Usuario</h2>
     
         <div>
             <br>
@@ -34,59 +34,92 @@
 
         <div>
             <br>
-            <label>Confirmar Email</label>
-            <br>
-            <input type="email" name="check_email" id="check_email"  required>
-        </div>
-
-        <div>
-            <br>
             <label>Password</label>
             <br>
             <input type="password" name="password" id="password" required>
         </div>
-
-        <div>
-            <br>
-            <label>Confirmar Password</label>
-            <br>
-            <input type="password" name="check_password" id="check_password" required>
-        </div>
+        
         <br>
-        <label class="categorias">Categorias de Interés:
-            <div>
-            <label> <input type="checkbox" name="interes" value="Comedia">Comedia</label>
-            <label> <input type="checkbox" name="interes" value="Accion">Accion</label>
-            <label> <input type="checkbox" name="interes" value="Romance">Romance</label>
-            <label> <input type="checkbox" name="interes" value="Infantiles">Infantiles</label>
-            <label> <input type="checkbox" name="interes" value="Editoriales">Editoriales</label>
-            </div>
-        </label>
+        <label>Categorias e Interés:
+            <br>
+            <label for="comedia" class="form-label">Comedia</label> 
+                <div>
+                    <select name="comedia" id="comedia" class="form-input">
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
 
-        <label class="perfilUsuario"> <!--En radio se pone required en una opción-->   
-            <div for="perfilUsuario">Perfil de Usuario:
-                    <div>
-                    <br>
-                    <input type="radio" name="perfilUsuario" id="perfilUsuario" required>Publicar Libros
-                    <input type="radio" name="perfilUsuario" id="perfilUsuario">Leer Libros 
-                    </div>
-                </div>  
-            </label>
+            <br>
+            <label for="accion" class="form-label">Accion</label>
+                <div>
+                    <select name="accion" id="accion" class="form-input"> 
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+            
+            <br>
+            <label for="romance" class="form-label">Romance</label>
+                <div>
+                    <select name="romance" id="romance" class="form-input"> 
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+
+            <br>
+            <label for="infantiles" class="form-label">Infantiles</label>
+                <div>
+                    <select name="infantiles" id="infantiles" class="form-input">
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+            
+            <br>
+            <label for="editoriales" class="form-label">Editoriales</label>
+                <div>
+                    <select name="editoriales" id="editoriales" class="form-input"> 
+                        <option value=" "required></option>
+                        <option type="radio" value="si" >Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div>
+        </label> 
+
+        <br>
+        <label for="categoria" class="form-label"> Perfil:</label>  
+            <div>
+                <select name="categoria" id="categoria" class="form-input">
+                <option value="">Elegí</option>
+                <option type="radio"  value="publicar libros" required>Publicar Libros</option>
+                <option type="radio"  value="leer libros" required>leer Libros</option>
+                </select>        
+            </div>
 
         <div>
-            <br>
-            <label> <input type="checkbox" name="novedades" value="Email"> Si, Deseo recibir novedades</label>
+            <label for="img" class="form-label">Avatar</label>
+            <input type="file" id="img" name="img" class="form-control">
         </div>
+
+        <br>
+        <label for="novedades" class="form-label">Recibir Novedades:</label>   
+            <div>
+                <select name="novedades" id="novedades" class="form-input">
+                    <option type="radio"  value="si" required>Si</option>
+                    <option type="radio"  value="no" required>No</option>
+                </select>        
+            </div>    
         
         <br>
         <div>
             <br>
             <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/product/listado-productos">Guardar</a></button>
-        </div>
-
-        <div>
-            <br>
-            <button type="reset" value="Borrar" class="boton-personalizado"><a href="/registro">Registrarme</a></button>
         </div>
 
     </form>
