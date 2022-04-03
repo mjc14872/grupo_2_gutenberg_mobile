@@ -17,8 +17,11 @@ function findAll(){
 const productController = {
 
     detalleProducto: function(req, res){
-        res.render("detalle-producto");
-    },
+        let products = findAll()
+            let id = req.params.id
+            let producto = products.find(producto => producto.id == id)
+            res.render('detalle-producto', {producto: producto})
+        },
 
     carritoCompras: function(req, res){
         res.render("carrito-compras");
@@ -100,7 +103,7 @@ const productController = {
 		productFound.crowfounding = req.body. crowfounding;
 		productFound.bestSeller = req.body.bestSeller;
 		productFound.resenia = req.body.resenia;
-        //productFound.image= req.file.filename;
+        productFound.image = req.file? req.file.filename : productFound.image;
 		productFound.paginas = req.body. paginas;
 		productFound.peso = req.body.peso;
 		productFound.formato = req.body.formato;

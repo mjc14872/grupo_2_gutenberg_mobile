@@ -1,6 +1,8 @@
 //Agregar librerias
 const path = require('path');
 const express = require('express');
+
+//TODO: agregar el router
 const router = express.Router();
 
 //Agregar el productController
@@ -19,8 +21,8 @@ const storage = multer.diskStorage({
   }) 
   const upload = multer({ storage: storage });
 
-//Agregar el controller de productos
-router.get("/detalle-producto", productController.detalleProducto);
+//TODO: agregar el controller login y registro
+router.get("/detalle-producto/:id", productController.detalleProducto);
 router.get("/carrito-compras", productController.carritoCompras);
 router.get("/listado-productos", productController.listadoProductos);
 

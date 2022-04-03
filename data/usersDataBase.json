@@ -7,7 +7,11 @@
         "password": "$2a$10$2hhtJnwigpB0/2tlsNuI/u7AG9QSbB./TrL4kBAbt6CusepS7LqoC",
         "comedia": "si",
         "categoria": "publicar libros",
-        "novedades": "no"
+        "novedades": "no",
+        "accion": "",
+        "romance": "",
+        "infantiles": "",
+        "editoriales": ""
     },
     {
         "id": 2,
