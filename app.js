@@ -3,7 +3,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require("method-override")
+const methodOverride = require("method-override");
+const {check, body} = require("express-validator");
+const session = require("express-session");
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
@@ -17,6 +19,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Configuración
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

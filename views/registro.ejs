@@ -10,33 +10,46 @@
         </header>
 <form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST" >
         <h2>Registro de Usuario</h2>
-    
+
+         
+        <div>
+            <br>
+            <label>Email</label>
+            <input type="email" name="email" id="email">
+            <br>
+            <% if(locals.errors && locals.errors.email){ %>
+                <span style="color: red"> <%= errors.email.msg  %> </span>
+            <% } %> 
+        </div>
+
         <div>
             <br>
             <label>Nombres</label>
+            <input type="text" name="nombres" id="Nombres">
             <br>
-            <input type="text" name="nombre" id="nombre" required>
+            <% if(locals.errors && locals.errors.nombres){ %>
+                <span style="color: red"> <%= errors.nombres.msg  %> </span>
+            <% } %> 
         </div>
 
         <div>
             <br>
             <label>Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos">
             <br>
-            <input type="text" name="apellido" id="apellido" required>
-        </div>
-        
-        <div>
-            <br>
-            <label>Email</label>
-            <br>
-            <input type="email" name="correo" id="email" required>
+            <% if(locals.errors && locals.errors.apellidos){ %>
+                <span style="color: red"> <%= errors.apellidos.msg  %> </span>
+            <% } %> 
         </div>
 
         <div>
             <br>
             <label>Password</label>
+            <input type="password" name="password" id="password">
             <br>
-            <input type="password" name="password" id="password" required>
+            <% if(locals.errors && locals.errors.password){ %>
+                <span style="color: red"> <%= errors.password.msg  %> </span>
+            <% } %> 
         </div>
         
         <br>
@@ -101,10 +114,11 @@
                 <option type="radio"  value="leer libros" required>leer Libros</option>
                 </select>        
             </div>
-
+        
+        <br>
         <div>
             <label for="img" class="form-label">Avatar</label>
-            <input type="file" id="img" name="img" class="form-control">
+            <input type="file" class="form-control" id="img" name="img">
         </div>
 
         <br>
@@ -119,7 +133,7 @@
         <br>
         <div>
             <br>
-            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado"><a href="/product/listado-productos">Guardar</a></button>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
         </div>
 
     </form>

@@ -8,33 +8,50 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-        <form  method="get" class="create-formlogin">
+        <form  class="create-formlogin" action="/user/login" method="POST">
             <h2>Iniciar Sesion</h2>
        
               <div>
                   <br>
-                  <label>Nombre de Usuario</label>
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" id="email">
                   <br>
-                  <input type="login" name="loginUsuario" id="loginUsuario" required>
+                  <% if(locals.errorsLogin && locals.errorsLogin.email){ %>
+                    <span style="color: red;"> <%= locals.errorsLogin.email.msg %> </span>
+                  <% } %> 
               </div>
       
               <div>
                   <br>
-                  <label>Password</label>
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" id="password">
                   <br>
-                  <input type="password" name="password" id="password" required>
+                  <% if(locals.errorsLogin && locals.errorsLogin.password){ %>
+                    <span style="color: red;"> <%= locals.errorsLogin.password.msg %> </span>
+                  <% } %> 
               </div>
+              
+              <div>
+                <br>
+                <input type="checkbox" name="recordarme" class="form-check-input" id="recordarme">
+                <label class="form-check-label" for="recordarme">Recordar usuario</label>
+              </div>
+
               <br>
               <div>
                   <br>
-                  <button type="login" value="Ingresar y volver al Home" class="boton-personalizado boton-personalizado booktitle"><a href="/">Iniciar Sesion</a></button>
+                  <button type="submit" value="Ingresar" class="boton-personalizado">Iniciar Sesion</button>
               </div>
       
               <div>
                   <br>
-                  <button type="registro" value="Registrarse" class="boton-personalizado boton-personalizado booktitle"><a href="/registro">Registrarme</a></button>
+                  <button type="submit" value="Registrarse" class="boton-personalizado"><a href="/user/registro">Registrarme</a></button>
               </div>
           </form>
+
+          <% if(locals.errorMsg){ %>
+            <span style="color: red;"> <%= errorMsg %> </span>
+          <% } %> 
           
         <footer>
             <%- include('./partials/footer') %>

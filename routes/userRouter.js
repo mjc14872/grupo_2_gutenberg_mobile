@@ -2,6 +2,8 @@
 const path = require("path")
 const express = require('express');
 const router = express.Router();
+const { body } = require("express-validator");
+const validator = require("../validator/validationForm");
 
 //Agregar el mainController
 const userController = require('../controllers/userController');
@@ -24,7 +26,7 @@ router.get("/registro", userController.registro);
 
 //Crear usuario
 router.get("/create", userController.create);  
-router.post("/create", upload.single('img'), userController.usuario);
+router.post("/create", upload.single('img'), validator.registro ,userController.usuario);
 
 //editar usuario
 router.get('/edit/:id', userController.edit); 
@@ -35,6 +37,9 @@ router.delete('/delete/:id', userController.destroy);
 
 //Agregar el controller login
 router.get("/login", userController.login);
+router.post("/login", validator.login , userController.processLogin)
+
+router.post("/logout", userController.logout);
 
 //TODO: agregar el modulo
 module.exports = router;

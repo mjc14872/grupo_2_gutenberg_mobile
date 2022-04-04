@@ -2,17 +2,17 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs");
+const { validationResult } = require("express-validator");
 
 //Llamamos y "re-escribimos" el JSON.
 function findAll(){
-	let data = fs.readFileSync(path.join(__dirname, "../data/usersDataBase.json"), "utf-8")
-	let users = JSON.parse(data);
-	return users
+	const users = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/usersDataBase.json"), "utf-8"));
+    return users;
  }
 
  function writeFile(array){
-    let string = JSON.stringify(array, null, 4)
-    fs.writeFileSync(path.join(__dirname, "../data/usersDataBase.json"), string)
+    const arrayString = JSON.stringify(array, null, 4)
+    fs.writeFileSync(path.join(__dirname, "../data/usersDataBase.json"), arrayString);
 }
 
 //Crear el Controller con login y registro. 
@@ -33,16 +33,20 @@ const userController = {
     usuario: function(req,res){
         //obtengo los productos
         let user = findAll()
+
+        //validacion de datos
+        const errors = validationResult(req)
+        if(errors.errors.length > 0){
+           return res.render("registro", {errors: errors.mapped()})
+        }
     
         //creo el nuevo producto para agregar
         let newUser = {
         id: user.length + 1,
+        email: req.body.email,
         nombres: req.body.nombres,
         apellidos: req.body.apellidos,
-        email: req.body.email,
-        //check_email: req.body.check_email,
         password: bcrypt.hashSync(req.body.password, 10),
-        //check_password: req.body.check_password,
         comedia: req.body.comedia,
         accion: req.body.accion,
         romance: req.body.romance,
@@ -61,7 +65,7 @@ const userController = {
         writeFile(user);
     
         //redirecciono a registro
-        res.redirect("/user/registro"); //redireccionar a login cambiarlo cuando este ok todo el codigo
+        res.redirect("registro"); //redireccionar a login cambiarlo cuando este ok todo el codigo
     },
 
       edit: function(req, res){
@@ -78,7 +82,7 @@ const userController = {
     },
 
     update: function(req,res){
-        //obtengo los productos
+        //obtengo los usuarios
         let user = findAll()
 
         //busco el usuario que voy a actualizar
@@ -87,12 +91,10 @@ const userController = {
         })
     
         //modifico el usuario que busque
+        userFound.email = req.body.email,
         userFound.nombres = req.body.nombres,
         userFound.apellidos = req.body.apellidos,
-        userFound.email = req.body.email,
-        //userFound.check_email = req.body.check_email,
         userFound.password = req.body.password,
-        //userFound.check_password = req.body.check_password,
         userFound.comedia = req.body.comedia,
         userFound.accion =req.body.accion,
         userFound.romance = req.body.romance,
@@ -127,7 +129,48 @@ const userController = {
 
         //redirecciono al index
         res.redirect("/user/registro");
+    },
+
+    processLogin: function(req, res){
+        let user = findAll()
+        const errors = validationResult(req);
+        
+        if(errors.errors.length > 0){
+            res.render("login", {errorsLogin: errors.mapped()})
+        }
+
+        const userFound = users.find(function(user){
+            return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
+        })
+
+        if(userFound){
+            //proceso session
+            let user = {
+                id: userFound.id,
+                name: userFound.name,
+                last_name: userFound.last_name,
+                avatar: userFound.avatar,
+            }
+
+            req.session.usuarioLogueado = user;
+
+            if(req.body.remember){
+                res.cookie("user", user.id, {maxAge: 60000 * 24})
+            }else{
+                res.redirect("/")
+            }
+
+        }else{
+            res.render("login", {errorMsg: "Error credenciales invalidas"})
+        }
+    },
+
+    logout:function(req, res){
+        req.session.destroy();       
+        res.clearCookie("user");
+        res.redirect("/");
     }
+
 };
 
 //Exportar el modulo
