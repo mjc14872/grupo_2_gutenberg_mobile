@@ -6,12 +6,13 @@
         "email": "m@gmail.com",
         "password": "$2a$10$2hhtJnwigpB0/2tlsNuI/u7AG9QSbB./TrL4kBAbt6CusepS7LqoC",
         "comedia": "si",
-        "categoria": "publicar libros",
-        "novedades": "no",
         "accion": "",
         "romance": "",
         "infantiles": "",
-        "editoriales": ""
+        "editoriales": "",
+        "categoria": "publicar libros",
+        "image": "img1648423205339.png",
+        "novedades": "si"
     },
     {
         "id": 2,

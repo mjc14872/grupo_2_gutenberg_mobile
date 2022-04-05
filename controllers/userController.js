@@ -163,6 +163,24 @@ const userController = {
         }
     },
 
+    perfil:function(req, res){
+       //obtengo los usuarios
+       let user = findAll()
+
+       //lo busco en session
+        if(req.session.usuarioLogueado){
+           res.locals.userLocals = req.session.usuarioLogueado;
+       }
+
+        //busco el usuario
+        let userFound = user.find(function(usuario){
+            return usuario.id == req.params.id
+        })
+
+        //devuelvo el formulario de edicion con informacion del usuario a editar
+        res.render("perfil-usuario", {usuario: userFound})
+    },
+
     logout:function(req, res){
         req.session.destroy();       
         res.clearCookie("user");
