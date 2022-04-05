@@ -72,5 +72,20 @@
         "categoria": "leer libros",
         "image": "image-default",
         "novedades": "si"
+    },
+    {
+        "id": 6,
+        "email": "c@gmail.com",
+        "nombres": "Cristian",
+        "apellidos": "Figueroa",
+        "password": "$2a$10$QOU7TO8eCTwlZHMiMrvF4uTNpR8w6yC6tG3VdrsuZ1ZN0.0e82GAS",
+        "comedia": "no",
+        "accion": "si",
+        "romance": "no",
+        "infantiles": "no",
+        "editoriales": "no",
+        "categoria": "leer libros",
+        "image": "image-default",
+        "novedades": "no"
     }
 ]
