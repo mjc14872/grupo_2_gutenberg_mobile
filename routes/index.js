@@ -9,7 +9,7 @@ const mainController = require('../controllers/mainController');
 
 //TODO: agregar el controller home, carrito de compras y detalle producto
 router.get("/", mainController.index);
-
+router.get("/ofertas", mainController.ofertas);
 //TODO: agregar el modulo
 module.exports = router;
 

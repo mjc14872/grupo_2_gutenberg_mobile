@@ -13,7 +13,6 @@
         "infantiles": "",
         "editoriales": ""
     },
-
     {
         "id": 2,
         "nombres": "liz",
@@ -42,6 +41,36 @@
         "editoriales": "no",
         "categoria": "leer libros",
         "image": "img1649040690649.png",
+        "novedades": "si"
+    },
+    {
+        "id": 4,
+        "email": "sofiaperalta2020@outlook.es",
+        "nombres": "Sofia",
+        "apellidos": "Peralta",
+        "password": "$2a$10$Dw59ATRyZO1kmQDDxiiZNOwA0rOk.mVfX/sAj7FWSmCcia7oZnSx6",
+        "comedia": "si",
+        "accion": "no",
+        "romance": "si",
+        "infantiles": "si",
+        "editoriales": "no",
+        "categoria": "leer libros",
+        "image": "img1649099266478.png",
+        "novedades": "no"
+    },
+    {
+        "id": 5,
+        "email": "p@gmail.com",
+        "nombres": "Patricio",
+        "apellidos": "Peralta",
+        "password": "$2a$10$gBsIdMKBUfk9Unoio.254.YN0INTCbTgMgt9X8Y4rk.HKXE9Tw/Aa",
+        "comedia": "si",
+        "accion": "si",
+        "romance": "si",
+        "infantiles": "si",
+        "editoriales": "no",
+        "categoria": "leer libros",
+        "image": "image-default",
         "novedades": "si"
     }
 ]

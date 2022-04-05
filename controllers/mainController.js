@@ -6,6 +6,9 @@ const mainController = {
     index: function(req, res){
         res.render("index");
     },
+    ofertas: function(req, res){
+        res.render("ofertas");
+    },
 };
 
 //TODO: agregar exportar el modulo

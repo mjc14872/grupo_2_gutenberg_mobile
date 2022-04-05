@@ -27,7 +27,7 @@ const userController = {
 
      create: function(req, res){
         //devuelvo el formulario de creacion de registro
-        res.render("registro")
+        res.render("login")
     },
 
     usuario: function(req,res){
@@ -53,8 +53,7 @@ const userController = {
         infantiles: req.body.infantiles,
         editoriales: req. body.editoriales,
         categoria: req.body.categoria,
-        image: req.file.filename,
-        //image: req.file ? req.file.filename : "image-default",
+        image: req.file ? req.file.filename : "image-default",
         novedades: req.body.novedades
         }
     
@@ -101,7 +100,7 @@ const userController = {
         userFound.infantiles = req.body.infantiles,
         userFound.editoriales = req. body.editoriales,
         userFound.categoria = req.body.categoria,
-        //userFound.image = req.file.filename,
+        userFound.image = req.file ? req.file.filename : userFound.image,
         userFound.novedades = req.body.novedades
     
         //modifico mi base de datos
@@ -132,13 +131,12 @@ const userController = {
     },
 
     processLogin: function(req, res){
-        let user = findAll()
+        let users = findAll();
         const errors = validationResult(req);
         
         if(errors.errors.length > 0){
             res.render("login", {errorsLogin: errors.mapped()})
         }
-
         const userFound = users.find(function(user){
             return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
         })
@@ -147,14 +145,14 @@ const userController = {
             //proceso session
             let user = {
                 id: userFound.id,
-                name: userFound.name,
-                last_name: userFound.last_name,
-                avatar: userFound.avatar,
+                nombres: userFound.nombres,
+                apellidos: userFound.apellidos,
+                image: userFound.image,
             }
 
             req.session.usuarioLogueado = user;
 
-            if(req.body.remember){
+            if(req.body.recordarme){
                 res.cookie("user", user.id, {maxAge: 60000 * 24})
             }else{
                 res.redirect("/")

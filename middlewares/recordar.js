@@ -1,0 +1,31 @@
+const fs = require("fs");
+const path = require("path");
+
+function findAll(){
+    const users = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
+    return users;
+}
+
+function recordame (req, res , next){
+    if(!req.session.usuarioLogueado && req.cookies.user){
+        const users = findAll()
+        const usuarioCookies = users.find(function(user){
+            return user.id == req.cookies.user
+        })
+
+        const user = {
+            id: usuarioCookies.id,
+            nombres: usuarioCookies.nombres,
+            apellidos: usuarioCookies.apellidos,
+            image: usuarioCookies.image,
+        }
+
+        req.session.usuarioLogueado = user;
+
+        return next()
+
+    }else{
+        return next()
+    }
+}
+module.exports = recordame;

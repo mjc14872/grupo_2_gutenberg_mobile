@@ -6,7 +6,8 @@ const logger = require('morgan');
 const methodOverride = require("method-override");
 const {check, body} = require("express-validator");
 const session = require("express-session");
-
+const recordame = require("./middlewares/recordar");
+const locals = require("./middlewares/locals");
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
@@ -30,6 +31,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // Define la ubicación de la carpeta de las Vistas
 app.use(methodOverride("_method")); 
+app.use(recordame);
+app.use(locals);
 
 // Rutas
 app.use("/", indexRouter);
