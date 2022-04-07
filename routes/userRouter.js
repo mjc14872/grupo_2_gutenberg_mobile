@@ -7,6 +7,7 @@ const validator = require("../validator/validationForm");
 
 //Agregar el mainController
 const userController = require('../controllers/userController');
+const administrador = require('../middlewares/admin');
 
 //Agregar Multer
 const multer = require('multer');
@@ -24,6 +25,9 @@ const storage = multer.diskStorage({
 //Agregar el controller registro
 router.get("/registro", userController.registro);
 
+router.get("/admin" , administrador, userController.admin);
+
+
 //Crear usuario
 router.get("/create", userController.create);  
 router.post("/create", upload.single('img'), validator.registro ,userController.usuario);
@@ -32,7 +36,7 @@ router.post("/create", upload.single('img'), validator.registro ,userController.
 router.get('/edit/:id', userController.edit); 
 router.patch('/edit/:id', userController.update); 
 
-//eliminar producto
+//eliminar usuario
 router.delete('/delete/:id', userController.destroy); 
 
 //Agregar el controller login
