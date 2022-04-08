@@ -5,9 +5,11 @@ let admins = ["fede", "maggi", "mari", "sara"];
 function adminValidator (req, res, next) {
     let user = req.query.user;
     if(user){
+        
         let admini = admins.find(function(admin){
            return user == admin;
         });
+
         if (admini != undefined){
             next();
         }else{
@@ -16,6 +18,7 @@ function adminValidator (req, res, next) {
     }else{
         res.send('usted no es un usuario :(');
     };
+
 }
 
 module.exports = adminValidator;

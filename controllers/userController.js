@@ -181,7 +181,7 @@ const userController = {
         })
 
         //devuelvo el formulario de edicion con informacion del usuario a editar
-        res.render("perfil-usuario", {usuario: userFound})
+        res.render("perfil-usuario", {usuario:req.session.usuarioLogueado })
     },
 
     logout:function(req, res){
