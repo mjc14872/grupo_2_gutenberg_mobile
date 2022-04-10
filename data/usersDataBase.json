@@ -1,21 +1,6 @@
 [
     {
         "id": 1,
-        "nombres": "Margaret",
-        "apellidos": "perez",
-        "email": "m@gmail.com",
-        "password": "$2a$10$2hhtJnwigpB0/2tlsNuI/u7AG9QSbB./TrL4kBAbt6CusepS7LqoC",
-        "comedia": "si",
-        "accion": "",
-        "romance": "",
-        "infantiles": "",
-        "editoriales": "",
-        "categoria": "publicar libros",
-        "image": "img1648423205339.png",
-        "novedades": "si"
-    },
-    {
-        "id": 2,
         "nombres": "liz",
         "apellidos": "moran perez",
         "email": "l@gmail.com",
@@ -30,7 +15,7 @@
         "novedades": "si"
     },
     {
-        "id": 3,
+        "id": 2,
         "email": "s@gmail.com",
         "nombres": "Sarai",
         "apellidos": "Franco",
@@ -42,10 +27,10 @@
         "editoriales": "no",
         "categoria": "leer libros",
         "image": "img1649040690649.png",
-        "novedades": "si"
+        "novedades": "no"
     },
     {
-        "id": 4,
+        "id": 3,
         "email": "sofiaperalta2020@outlook.es",
         "nombres": "Sofia",
         "apellidos": "Peralta",
@@ -60,7 +45,7 @@
         "novedades": "no"
     },
     {
-        "id": 5,
+        "id": 4,
         "email": "p@gmail.com",
         "nombres": "Patricio",
         "apellidos": "Peralta",
@@ -75,18 +60,18 @@
         "novedades": "si"
     },
     {
-        "id": 6,
-        "email": "c@gmail.com",
-        "nombres": "Cristian",
-        "apellidos": "Figueroa",
-        "password": "$2a$10$QOU7TO8eCTwlZHMiMrvF4uTNpR8w6yC6tG3VdrsuZ1ZN0.0e82GAS",
+        "id": 5,
+        "email": "m@gmail.com",
+        "nombres": "Margaret",
+        "apellidos": "Molina",
+        "password": "$2a$10$pLh8iQKyrlBSytsPejHuR.mwPxvb288r5MBWVp5.0yNGzKxM21t5W",
         "comedia": "no",
         "accion": "si",
-        "romance": "no",
-        "infantiles": "no",
-        "editoriales": "no",
+        "romance": "",
+        "infantiles": "",
+        "editoriales": "",
         "categoria": "leer libros",
         "image": "image-default",
-        "novedades": "no"
+        "novedades": "si"
     }
 ]
