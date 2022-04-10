@@ -1,15 +1,15 @@
-//TODO: agregar express
+//Agregamos lo que vamos a requerir
 const express = require('express');
-
-//TODO: agregar el router
 const router = express.Router();
 
-//TODO: agregar el mainController
+//Agregar el Controlador
 const mainController = require('../controllers/mainController');
+const adminValidator = require('../middlewares/admin');
 
 //TODO: agregar el controller home, carrito de compras y detalle producto
 router.get("/", mainController.index);
 router.get("/ofertas", mainController.ofertas);
-//TODO: agregar el modulo
+
+//Exportamos el modulo
 module.exports = router;
 

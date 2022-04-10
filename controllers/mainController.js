@@ -1,15 +1,16 @@
-//TODO: agregar el path
+//Agregar lo que requerimos
 const path = require('path');
 
-//TODO: crear el mainController con el index, login, registro, carrito compras. detalle producto 
+//TODO: crear el mainController
 const mainController = {
     index: function(req, res){
         res.render("index");
     },
+
     ofertas: function(req, res){
         res.render("ofertas");
     },
 };
 
-//TODO: agregar exportar el modulo
+//Exportar el modulo
 module.exports = mainController;

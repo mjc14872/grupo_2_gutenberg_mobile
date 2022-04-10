@@ -27,7 +27,6 @@ router.get("/registro", userController.registro);
 
 router.get("/admin" , administrador, userController.admin);
 
-
 //Crear usuario
 router.get("/create", userController.create);  
 router.post("/create", upload.single('img'), validator.registro ,userController.usuario);

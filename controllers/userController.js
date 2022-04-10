@@ -4,6 +4,7 @@ const path = require('path');
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
+
 //Llamamos y "re-escribimos" el JSON.
 function findAll(){
 	const users = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/usersDataBase.json"), "utf-8"));
@@ -24,11 +25,14 @@ const userController = {
     registro: function(req, res){
         res.render("registro");
     },
+
     admin: function(req, res){ 
         res.render("vistaAdmin");
     },
 
      create: function(req, res){
+
+        
         //devuelvo el formulario de creacion de registro
         res.render("login")
     },
@@ -40,24 +44,36 @@ const userController = {
         //validacion de datos
         const errors = validationResult(req)
         if(errors.errors.length > 0){
-           return res.render("registro", {errors: errors.mapped()})
-        }
-    
-        //creo el nuevo producto para agregar
-        let newUser = {
-        id: user.length + 1,
-        email: req.body.email,
-        nombres: req.body.nombres,
-        apellidos: req.body.apellidos,
-        password: bcrypt.hashSync(req.body.password, 10),
-        comedia: req.body.comedia,
-        accion: req.body.accion,
-        romance: req.body.romance,
-        infantiles: req.body.infantiles,
-        editoriales: req. body.editoriales,
-        categoria: req.body.categoria,
-        image: req.file ? req.file.filename : "image-default",
-        novedades: req.body.novedades
+           return res.render("registro", {errors: errors.mapped()});
+        }else{ 
+        req.session.email = req.body.email;
+        req.session.nombres = req.body.nombres;
+        req.session.apellidos = req.body.apellidos;
+        req.session.password = bcrypt.hashSync(req.body.password, 10);
+        req.session.comedia = req.body.comedia;
+        req.session.accion = req.body.accion;
+        req.session.romance = req.body.romance;
+        req.session.infantiles = req.body.infantiles;
+        req.session.editoriales = req. body.editoriales;
+        req.session.categoria = req.body.categoria;
+        req.session.image = req.file ? req.file.filename : "image-default";
+        req.session.novedades = req.body.novedades
+
+            //creo el nuevo usuario para agregar
+            let newUser = {
+            id: user.length + 1,
+            email: req.session.email,
+            nombres: req.session.nombres,
+            apellidos: req.session.apellidos,
+            password: bcrypt.hashSync(req.body.password, 10),
+            comedia: req.session.comedia,
+            accion: req.session.accion,
+            romance: req.session.romance,
+            infantiles: req.session.infantiles,
+            editoriales: req. session.editoriales,
+            categoria: req.session.categoria,
+            image: req.file ? req.file.filename : "image-default",
+            novedades: req.session.novedades
         }
     
         //agrego el nuevo usuario a mi listado 
@@ -67,7 +83,8 @@ const userController = {
         writeFile(user);
     
         //redirecciono a registro
-        res.redirect("loguin"); //redireccionar a login cambiarlo cuando este ok todo el codigo
+        res.redirect("login"); 
+    }
     },
 
       edit: function(req, res){
@@ -91,7 +108,7 @@ const userController = {
         let userFound = user.find(function(usuario){
             return usuario.id == req.params.id
         })
-    
+
         //modifico el usuario que busque
         userFound.email = req.body.email,
         userFound.nombres = req.body.nombres,
@@ -109,7 +126,7 @@ const userController = {
         //modifico mi base de datos
         writeFile(user)
 
-        //redirecciono al index
+        //redirecciono al perfil
         res.render("perfil-usuario", {usuario:req.session.usuarioLogueado });
     },
 

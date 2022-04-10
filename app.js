@@ -3,17 +3,17 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require("method-override");
-const {check, body} = require("express-validator");
-const session = require("express-session");
-const recordame = require("./middlewares/recordar");
-const locals = require("./middlewares/locals");
+const methodOverride = require('method-override');
+const {check, body} = require('express-validator');
+const session = require('express-session');
+const recordame = require('./middlewares/recordar');
+const locals = require('./middlewares/locals');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
 const { METHODS } = require('http');
-
 const app = express();
+const LogsMiddleware = require('./middlewares/userLogs.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // Define la ubicación
 app.use(methodOverride("_method")); 
 app.use(recordame);
 app.use(locals);
+app.use(LogsMiddleware);
 
 // Rutas
 app.use("/", indexRouter);
