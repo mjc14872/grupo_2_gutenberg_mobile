@@ -67,7 +67,7 @@ const userController = {
         writeFile(user);
     
         //redirecciono a registro
-        res.redirect("registro"); //redireccionar a login cambiarlo cuando este ok todo el codigo
+        res.redirect("loguin"); //redireccionar a login cambiarlo cuando este ok todo el codigo
     },
 
       edit: function(req, res){
@@ -110,7 +110,7 @@ const userController = {
         writeFile(user)
 
         //redirecciono al index
-        res.redirect("/user/registro");
+        res.render("perfil-usuario", {usuario:req.session.usuarioLogueado });
     },
 
     destroy: function(req, res){

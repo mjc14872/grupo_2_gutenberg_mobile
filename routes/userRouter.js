@@ -41,8 +41,8 @@ router.delete('/delete/:id', userController.destroy);
 
 //Agregar el controller login
 router.get("/login", userController.login);
-router.post("/login", validator.login , userController.processLogin)
-router.get("/perfil", userController.perfil)
+router.post("/login", validator.login , userController.processLogin);
+router.get("/perfil", userController.perfil);
 
 router.post("/logout", userController.logout);
 
