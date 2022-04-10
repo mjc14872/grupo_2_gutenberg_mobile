@@ -10,10 +10,6 @@ const mainController = {
     ofertas: function(req, res){
         res.render("ofertas");
     },
-
-    admin: function(req, res){
-        res.send('Sos Administrador ' + req.query.user)
-    }
 };
 
 //Exportar el modulo

@@ -25,6 +25,7 @@ const userController = {
     registro: function(req, res){
         res.render("registro");
     },
+
     admin: function(req, res){ 
         res.render("vistaAdmin");
     },
