@@ -64,14 +64,29 @@
         "email": "m@gmail.com",
         "nombres": "Margaret",
         "apellidos": "Molina",
-        "password": "$2a$10$pLh8iQKyrlBSytsPejHuR.mwPxvb288r5MBWVp5.0yNGzKxM21t5W",
-        "comedia": "no",
-        "accion": "si",
+        "password": "$2a$10$64NXHW8R4JS6nFjZiqpA9.R7/T0rIiGUNBNcUmfBf/3ikBF4ys/XC",
+        "comedia": "si",
+        "accion": "",
         "romance": "",
         "infantiles": "",
         "editoriales": "",
         "categoria": "leer libros",
         "image": "image-default",
-        "novedades": "si"
+        "novedades": "no"
+    },
+    {
+        "id": 6,
+        "email": "lu@gmail.com",
+        "nombres": "luis",
+        "apellidos": "Molina",
+        "password": "$2a$10$45WXQIinc/uwTL7iTp64xeRpHCR126JGallpOTf4v2j0t4evyiRkS",
+        "comedia": "si",
+        "accion": "",
+        "romance": "",
+        "infantiles": "",
+        "editoriales": "",
+        "categoria": "publicar libros",
+        "image": "image-default",
+        "novedades": "no"
     }
 ]

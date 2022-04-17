@@ -4,10 +4,12 @@ const router = express.Router();
 
 //Agregar el Controlador
 const mainController = require('../controllers/mainController');
-const adminValidator = require('../middlewares/admin');
+//const adminValidator = require('../middlewares/admin');
 
 //TODO: agregar el controller home, carrito de compras y detalle producto
-router.get("/", mainController.index);
+router.get("/", function(req, res, netx){
+    res.render("index", {title:'express'});
+});
 router.get("/ofertas", mainController.ofertas);
 
 //Exportamos el modulo
