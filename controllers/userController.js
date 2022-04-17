@@ -1,8 +1,8 @@
-//TODO: agregar el path
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
+
 
 //Llamamos y "re-escribimos" el JSON.
 function findAll(){
@@ -30,45 +30,60 @@ const userController = {
     },
 
      create: function(req, res){
+
+        
         //devuelvo el formulario de creacion de registro
         res.render("login")
     },
 
     usuario: function(req,res){
-            //obtengo los productos
-            let user = findAll()
-    
-            //validacion de datos
-            const errors = validationResult(req)
-            if(errors.errors.length > 0){
-               return res.render("registro", {errors: errors.mapped()})
-            }
-    
-            //creo el nuevo producto para agregar
+        //obtengo los productos
+        let user = findAll()
+
+        //validacion de datos
+        const errors = validationResult(req)
+        if(errors.errors.length > 0){
+           return res.render("registro", {errors: errors.mapped()});
+        }else{ 
+        req.session.email = req.body.email;
+        req.session.nombres = req.body.nombres;
+        req.session.apellidos = req.body.apellidos;
+        req.session.password = bcrypt.hashSync(req.body.password, 10);
+        req.session.comedia = req.body.comedia;
+        req.session.accion = req.body.accion;
+        req.session.romance = req.body.romance;
+        req.session.infantiles = req.body.infantiles;
+        req.session.editoriales = req. body.editoriales;
+        req.session.categoria = req.body.categoria;
+        req.session.image = req.file ? req.file.filename : "image-default";
+        req.session.novedades = req.body.novedades
+
+            //creo el nuevo usuario para agregar
             let newUser = {
             id: user.length + 1,
-            email: req.body.email,
-            nombres: req.body.nombres,
-            apellidos: req.body.apellidos,
+            email: req.session.email,
+            nombres: req.session.nombres,
+            apellidos: req.session.apellidos,
             password: bcrypt.hashSync(req.body.password, 10),
-            comedia: req.body.comedia,
-            accion: req.body.accion,
-            romance: req.body.romance,
-            infantiles: req.body.infantiles,
-            editoriales: req. body.editoriales,
-            categoria: req.body.categoria,
+            comedia: req.session.comedia,
+            accion: req.session.accion,
+            romance: req.session.romance,
+            infantiles: req.session.infantiles,
+            editoriales: req. session.editoriales,
+            categoria: req.session.categoria,
             image: req.file ? req.file.filename : "image-default",
-            novedades: req.body.novedades
-            }
+            novedades: req.session.novedades
+        }
     
-            //agrego el nuevo usuario a mi listado 
-            user.push(newUser);
+        //agrego el nuevo usuario a mi listado 
+        user.push(newUser);
+
+        //modifico mi base de datos
+        writeFile(user);
     
-            //modifico mi base de datos
-            writeFile(user);
-    
-            //redirecciono a registro
-            res.redirect("login"); 
+        //redirecciono a registro
+        res.redirect("login"); 
+    }
     },
 
       edit: function(req, res){
@@ -85,33 +100,33 @@ const userController = {
     },
 
     update: function(req,res){
-            //obtengo los usuarios
-            let user = findAll()
+        //obtengo los usuarios
+        let user = findAll()
+
+        //busco el usuario que voy a actualizar
+        let userFound = user.find(function(usuario){
+            return usuario.id == req.params.id
+        })
+
+        //modifico el usuario que busque
+        userFound.email = req.body.email,
+        userFound.nombres = req.body.nombres,
+        userFound.apellidos = req.body.apellidos,
+        userFound.password = req.body.password,
+        userFound.comedia = req.body.comedia,
+        userFound.accion =req.body.accion,
+        userFound.romance = req.body.romance,
+        userFound.infantiles = req.body.infantiles,
+        userFound.editoriales = req. body.editoriales,
+        userFound.categoria = req.body.categoria,
+        userFound.image = req.file ? req.file.filename : userFound.image,
+        userFound.novedades = req.body.novedades
     
-            //busco el usuario que voy a actualizar
-            let userFound = user.find(function(usuario){
-                return usuario.id == req.params.id
-            })
-    
-            //modifico el usuario que busque
-            userFound.email = req.body.email,
-            userFound.nombres = req.body.nombres,
-            userFound.apellidos = req.body.apellidos,
-            userFound.password = req.body.password,
-            userFound.comedia = req.body.comedia,
-            userFound.accion =req.body.accion,
-            userFound.romance = req.body.romance,
-            userFound.infantiles = req.body.infantiles,
-            userFound.editoriales = req. body.editoriales,
-            userFound.categoria = req.body.categoria,
-            userFound.image = req.file ? req.file.filename : userFound.image,
-            userFound.novedades = req.body.novedades
-    
-            //modifico mi base de datos
-            writeFile(user)
-    
-            //redirecciono al index
-            res.render("perfil-usuario", {usuario:req.session.usuarioLogueado });
+        //modifico mi base de datos
+        writeFile(user)
+
+        //redirecciono al perfil
+        res.render("perfil-usuario", {usuario:req.session.usuarioLogueado });
     },
 
     destroy: function(req, res){
@@ -153,9 +168,10 @@ const userController = {
                 apellidos: userFound.apellidos,
                 image: userFound.image,
             }
+
             req.session.usuarioLogueado = user;
 
-            if(req.body.recordar){
+            if(req.body.recordarme){
                 res.cookie("user", user.id, {maxAge: 60000 * 24})
             }else{
                 res.redirect("/")
