@@ -6,15 +6,14 @@ function findAll(){
     return users;
 }
 
-function recordame (req, res , next){
+function recordame (req, res, next){
     if(!req.session.usuarioLogueado && req.cookies.user){
-        const users = findAll()
-        
+        let users = findAll()
         const usuarioCookies = users.find(function(user){
             return user.id == req.cookies.user
         })
 
-        const user = {
+        let user = {
             id: usuarioCookies.id,
             nombres: usuarioCookies.nombres,
             apellidos: usuarioCookies.apellidos,
