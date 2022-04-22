@@ -13,7 +13,7 @@ const administrador = require('../middlewares/admin');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination:(req, file, cb)=> {
-        cb(null, path.join(__dirname,"../public/images/avatars"))
+        cb(null, path.join(__dirname,"../public/images/avatars"));
     },
     filename:(req, file, cb)=> {
         const newFile = file.fieldname + Date.now() + path.extname(file.originalname);
@@ -41,7 +41,7 @@ router.delete('/delete/:id', userController.destroy);
 //Agregar el controller login
 router.get("/login", userController.login);
 router.post("/login", validator.login , userController.processLogin);
-router.get("/perfil", userController.perfil);
+router.get("/perfil",  upload.single('img'), userController.perfil);
 
 router.post("/logout", userController.logout);
 

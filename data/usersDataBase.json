@@ -73,5 +73,20 @@
         "categoria": "leer libros",
         "image": "image-default",
         "novedades": "si"
+    },
+    {
+        "id": 6,
+        "email": "z@gmail.com",
+        "nombres": "pedro",
+        "apellidos": "perez",
+        "password": "$2a$10$PjPjNQiikK9Ml/.PtN549uTgnuiifkIulm/6R757Sm5HcsEEFzG2K",
+        "comedia": "no",
+        "accion": "no",
+        "romance": "si",
+        "infantiles": "si",
+        "editoriales": "si",
+        "categoria": "leer libros",
+        "image": "image-default.jpg",
+        "novedades": "no"
     }
 ]
