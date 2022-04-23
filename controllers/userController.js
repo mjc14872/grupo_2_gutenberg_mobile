@@ -1,4 +1,3 @@
-//TODO: agregar el path
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require("bcryptjs");
@@ -30,9 +29,7 @@ const userController = {
         res.render("vistaAdmin");
     },
 
-     create: function(req, res){
-
-        
+     create: function(req, res){   
         //devuelvo el formulario de creacion de registro
         res.render("login")
     },
@@ -137,7 +134,6 @@ const userController = {
         //busco el producto y obtengo su indice
         let userIndex = user.findIndex(function(usuario){
             return usuario.id == req.params.id	;
-
         })
 
         //elimino el producto que busque, pasando su indice 
@@ -172,12 +168,11 @@ const userController = {
 
             req.session.usuarioLogueado = user;
 
-            if(req.body.recordarme){
+            if(req.body.remember){ 
                 res.cookie("user", user.id, {maxAge: 60000 * 24})
-            }else{
-                res.redirect("/")
             }
-
+            res.redirect("/")
+            
         }else{
             res.render("login", {errorMsg: "Error credenciales invalidas"})
         }

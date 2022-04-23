@@ -1,4 +1,3 @@
-//Agregar librerias 
 const path = require("path")
 const express = require('express');
 const router = express.Router();
@@ -15,12 +14,12 @@ const storage = multer.diskStorage({
     destination:(req, file, cb)=> {
         cb(null, path.join(__dirname,"../public/images/avatars"));
     },
-    filename:(req, file, cb)=> {
-        const newFile = file.fieldname + Date.now() + path.extname(file.originalname);
+    filename: function(req, file, cb) {
+        const newFile = file.fieldname + Date.now() + "-" + path.extname(file.originalname);
         cb(null, newFile)
     }
   }) 
-  const upload = multer({ storage: storage });
+  const upload = multer({ storage });
 
 //Agregar el controller registro
 router.get("/registro", userController.registro);
