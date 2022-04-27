@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+        <form  class="create-formlogin" action="/user/login" method="POST">
+            <h2>Iniciar Sesion</h2>
+       
+              <div>
+                  <br>
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" id="email">
+                  <br>
+                  <% if(locals.errorsLogin && locals.errorsLogin.email){ %>
+                    <span style="color: red;"> <%= locals.errorsLogin.email.msg %> </span>
+                  <% } %> 
+              </div>
+      
+              <div>
+                  <br>
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" id="password">
+                  <br>
+                  <% if(locals.errorsLogin && locals.errorsLogin.password){ %>
+                    <span style="color: red;"> <%= locals.errorsLogin.password.msg %> </span>
+                  <% } %> 
+              </div>
+              
+              <div>
+                <br>
+                <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Recordar Usuario</label>
+              </div>
+              
+              <br>
+              <div>
+                  <br>
+                  <button type="submit" value="Ingresar" class="boton-personalizado">Iniciar Sesion</button>
+              </div>
+      
+              <div>
+                  <br>
+                  <button type="submit" value="Registrarse" class="boton-personalizado"><a href="/user/registro">Registrarme</a></button>
+              </div>
+          </form>
+
+          <% if(locals.errorMsg){ %>
+            <span style="color: red;"> <%= errorMsg %> </span>
+          <% } %> 
+          
+        <footer>
+            <%- include('./partials/footer') %>
+        </footer>
+    </body>

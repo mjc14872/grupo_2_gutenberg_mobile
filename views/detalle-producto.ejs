@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+        <div class="sieteMaridos">
+            <img src="/images/<%= producto.image %>">
+        </div>
+        <div class= "titulo">
+            <%= producto.nombre %>
+        </div>
+        <span class="autor" >Autor:</span><span  style="color: black">Jenkins Reid Taylor</span>
+        <span class= "editorial">Editorial:</span><span style="color: black"><%= producto.editorial %></span> 
+        
+        <div class="compra">
+            <div class="precio">
+                <h2>AR$ <%= producto.precio %></h2>
+           </div>
+           <div class="agregarProducto">
+                <img class="cartmas" width= "80" src="/images/cartmas.svg"> <h2>AGREGAR AL CARRITO</h2>
+           </div>
+           <div class="envio">
+                <img class="truck" width= "50" src="/images/bx_bxs-truck.svg"><h2>Costos de envío</h2>
+           </div>
+           <div class="metodos">
+                <img class="check" width= "50" src="/images/fa-solid_money-check-alt.svg"> <h2>Métodos de pago</h2>
+           </div>
+        </div>
+    
+        <div class="resenia">
+            <span class="res" style="color: black">Reseña del libro</span>
+            <span  class= "ress"style="color:#f68c5f" > <%= producto.nombre %></span>
+            <div class="textoRes">
+                <p>
+                    <%= producto.resenia %> 
+                </p>
+            </div>
+    
+            <div class="detalle">
+                <span class="deta" style="color: black">Detalles de</span>
+                <span class="au" style="color:#f68c5f"><%= producto.nombre %></span>
+            </div>
+    
+            <div class="descripcion">
+                <ul style="list-style: none;">
+                    <li>Número de páginas:<%= producto.paginas %></li>
+    
+                    <li>Peso:<%= producto.peso %></li>
+                    
+                    <li>Formato:<%= producto.formato %></li>
+                     
+                    <li>Edición:<%= producto.edicion %></li>
+                    
+                    <li>Idioma:<%= producto.idioma %></li>
+                    
+                    <li>ISBN:<%= producto.isbn %></li>
+                </ul>
+           </div>    
+        </div>
+        <footer>
+            <%- include('./partials/footer') %>
+        </footer>
+        
+    </body>

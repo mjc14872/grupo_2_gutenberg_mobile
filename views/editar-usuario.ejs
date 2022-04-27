@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+
+        <form class="create-form" action="/user/edit/<%= usuario.id %> ?_method=PATCH" method="POST">
+            <h2>Registro de Usuario</h2>
+    
+            <div>
+                <br>
+                <label>Nombres</label>
+                <textarea name="nombres" id="nombres" class="form-input"><%= usuario.nombres %></textarea>
+                <br>
+            </div>
+
+            <div>
+                <br>
+                <label>Apellidos</label>
+                <textarea name="apellidos" id="apellidos" class="form-input"><%= usuario.apellidos %></textarea>
+            </div>
+            
+            <div>
+                <br>
+                <label>Email</label>
+                <textarea name="email" id="email" class="form-input"><%= usuario.email %></textarea>
+            </div>
+
+            <div>
+                <br>
+                <label>Password</label>
+                <textarea name="password" id="password" class="form-input"><%= usuario.password %></textarea>
+                <br>
+            </div>
+
+            <br>
+            <label for="intereses" class="form-label"> Categorias e Interés:</label>  
+        
+                <div>
+                    <label>Comedia</label>
+                        <textarea name="comedia" id="comedia" class="form-input"><%= usuario.comedia %></textarea>
+                    
+                    <label>Accion</label>
+                        <textarea name="accion" id="accion" class="form-input"><%= usuario.accion %></textarea>
+                    
+                    <label>Romance</label>
+                        <textarea name="romance" id="romance" class="form-input"><%= usuario.romance %></textarea>
+                    
+                    <label>Infantiles</label>
+                        <textarea name="infantiles" id="infantiles" class="form-input"><%= usuario.infantiles %></textarea>
+
+                    <label>Editoriales</label>
+                        <textarea name="editoriales" id="editoriales" class="form-input"><%= usuario.editoriales %></textarea>
+                </div>
+            </label>
+
+            <br>
+            <div>
+                <label> Perfil:</label>  
+                <textarea name="categoria" id="categoria" class="form-input"><%= usuario.categoria %></textarea> 
+            </div>
+
+            <br>
+            <div>
+                <label>Avatar</label>
+                <textarea type="file" name="img" id="img" class="form-control"><%= usuario.image %></textarea>
+            </div>
+
+            <br>
+            <div>
+                <label> Recibir Novedades:</label> 
+                        <textarea name="novedades" id="novedades" class="form-input"><%= usuario.novedades %></textarea>
+            </div>
+
+            <br>
+            <div>
+                <button type="submit" value="Guardar y volver" class="boton-personalizado">Guardar Cambios</button>
+            </div>
+
+        </form>
+
+        <form class="create-form" action="/user/delete/<%= usuario.id %>?_method=DELETE" method="post">
+                <button class="boton-personalizado" type="delete" value="Borrar" >Eliminar Usuario</button>
+         </form>
+
+        <footer>
+            <%- include('./partials/footer') %>
+        </footer>
+    
+    </body> 
+
+</html>

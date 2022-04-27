@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %>
+</head>
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+   <form class="create-form" action="/product/create" method= "POST" enctype="multipart/form-data">
+       <h2>Crear Producto</h2>
+    
+        <div>
+            <br>
+            <label>Titulo</label>
+            <br>
+            <input type="text" name="nombre" id="nombre" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Autor</label>
+            <br>
+            <input type="text" name="autor" id="autor" required="">
+        </div>
+        
+        <div>
+            <br>
+            <label>Editorial</label>
+            <br>
+            <input type="text" name="editorial" id="editorial" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Reseña</label>
+            <br>
+            <input type="text" name="resenia" id="resenia" required="">
+        </div>
+        <div>
+            <br>
+            <label>Genero</label>
+            <br>
+            <input type="text" name="genero" id="genero" required="">
+        </div>
+        <div>
+            <br>
+            <ul>
+              <li><label>Detalle</label>
+                 <ol>
+                    <br>
+                    <label>Número de páginas</label>
+                    <br>
+                    <input type="text" name="paginas" id="paginas" required="">
+                    <br>
+                    <label>Peso</label>
+                    <br>
+                    <input type="text" name="peso" id="peso" required="">
+                    <br>
+                    <label>Formato</label>
+                    <br>
+                    <input type="text" name="formato" id="formato" required="">
+                    <br>
+                    <label>Edición</label>
+                    <br>
+                    <input type="text" name="edicion" id="edicion" required="">
+                    <br>
+                    <label>Idioma</label>
+                    <br>
+                    <input type="text" name="idioma" id="idioma" required="">
+                    <br>
+                    <label>ISBN</label>
+                    <br>
+                    <input type="text" name="isbn" id="isbn" required="">
+                    <br>
+                 </ol>
+              </li>
+           </ul>
+        </div>
+
+        <div>
+            <br>
+            <label>Precio</label>
+            <br>
+            <input type="number" name="precio" id="precio" required="">
+        </div>
+        <div>
+            <br>
+            <label for="descuento">Oferta</label>
+            <br>
+            <select name="descuento" id="descuento" class="form-input">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+        <div>
+            <br>
+            <label for="crowfounding">Crowfounding</label>
+            <br>
+            <select name="crowfounding" id="crowfounding" class="form-input">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+        <div>
+            <br>
+            <label for="bestSeller">Best Seller</label>
+            <br>
+            <select name="bestSeller" id="bestSeller" class="form-input">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+                
+        </div>
+
+        <div>
+            <br>
+            <label for="img" class="form-label">Imagen</label>
+            <input type="file" id="img" name="img" multiple>
+        </div>
+
+        <div>
+            <br>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
+        </div>
+    </form>
+    <footer>
+        <%- include('./partials/footer') %>
+        
+    </footer>
+    
+ </body>
+</html>

@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+//Agregamos lo que vamos a requerir
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+//Agregar el Controlador
+const mainController = require('../controllers/mainController');
+//const adminValidator = require('../middlewares/admin');
+
+//TODO: agregar el controller home, carrito de compras y detalle producto
+router.get("/", function(req, res, netx){
+    res.render("index", {title:'express'});
 });
+router.get("/ofertas", mainController.ofertas);
 
+//Exportamos el modulo
 module.exports = router;
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+        <form class="create-form" action="/user/perfil"  method="GET" >
+        <h2>Mi Perfil</h2>
+
+        <div>
+            <br>
+            <label>Nombre</label>
+            <textarea name="nombres" id="nombres" class="form-input"><%= usuario.nombres %></textarea>
+        </div>
+
+        <div>
+            <br>
+            <label>Apellido</label>
+            <textarea name="apellidos" id="apellidos" class="form-input"><%= usuario.apellidos %></textarea>
+        </div>
+
+        
+        <br>
+        <div>
+            <br>
+            <img src="/images/avatars/<%= usuario.image %>">
+        </div>
+        
+        <br>
+        <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= usuario.id %>">Editar perfil</a></button>
+     </form>
+
+    </form>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+    
+</body> 

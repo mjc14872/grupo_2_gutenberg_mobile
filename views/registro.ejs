@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+<form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST" >
+        <h2>Registro de Usuario</h2>
+
+         
+        <div>
+            <br>
+            <label>Email</label>
+            <input type="email" name="email" id="email">
+            <br>
+            <% if(locals.errors && locals.errors.email){ %>
+                <span style="color: red"> <%= errors.email.msg  %> </span>
+            <% } %> 
+        </div>
+
+        <div>
+            <br>
+            <label>Nombres</label>
+            <input type="text" name="nombres" id="Nombres">
+            <br>
+            <% if(locals.errors && locals.errors.nombres){ %>
+                <span style="color: red"> <%= errors.nombres.msg  %> </span>
+            <% } %> 
+        </div>
+
+        <div>
+            <br>
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos">
+            <br>
+            <% if(locals.errors && locals.errors.apellidos){ %>
+                <span style="color: red"> <%= errors.apellidos.msg  %> </span>
+            <% } %> 
+        </div>
+
+        <div>
+            <br>
+            <label>Password</label>
+            <input type="password" name="password" id="password">
+            <br>
+            <% if(locals.errors && locals.errors.password){ %>
+                <span style="color: red"> <%= errors.password.msg  %> </span>
+            <% } %> 
+        </div>
+       
+        <!--br>
+        <label>Categorias e Interés:
+            <br>
+            <label for="comedia" class="form-label">Comedia</label> 
+                <div>
+                    <select name="comedia" id="comedia" class="form-input">
+                        <option value=" "required></option>
+                        <option type="radio" value="si">Si</option>
+                        <option type="radio" value="no">No</option>
+                    </select>
+                </div-->
+        <br>
+        <label>Categorias e Interés:
+        <br>   
+            <br>
+            <label>Comedia</label>
+            <select name="comedia" id="comedia" class="form-input">
+                <option value="">Elegí</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>
+            <br>
+
+            <br>
+            <label>Accion</label>
+                <select name="accion" id="accion" class="form-input">
+                    <option value="">Elegí</option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+            <br>
+            
+            <br>
+            <label>Romance</label>
+                <select name="romance" id="romance" class="form-input"> 
+                    <option value="">Elegí</option>
+                    <option type="radio" value="si">Si</option>
+                    <option type="radio" value="no">No</option>
+                </select>
+                <br>
+
+            <br>
+            <label>Infantiles</label>
+                <select name="infantiles" id="infantiles" class="form-input">
+                    <option value="">Elegí</option>
+                    <option type="radio" value="si">Si</option>
+                    <option type="radio" value="no">No</option>
+                </select>
+                <br>
+            
+            <br>
+            <label>Editoriales</label>
+            <select name="editoriales" id="editoriales" class="form-input"> 
+                    <option value="">Elegí</option>
+                    <option type="radio" value="si" >Si</option>
+                    <option type="radio" value="no">No</option>
+            </select>
+            <br>
+        </label> 
+
+        <br>
+        <label for="categoria" class="form-label"> Perfil:</label>  
+            <select name="categoria" id="categoria" class="form-input">
+                <option value="">Elegí</option>
+                <option type="radio"  value="publicar libros" required>Publicar Libros</option>
+                <option type="radio"  value="leer libros" required>leer Libros</option>
+                <br>
+            </select>        
+        
+        <br>
+        <div>
+            <br>
+            <label for="img" class="form-label">Avatar</label>
+            <input type="file" class="form-control" id="img" name="img">
+        </div>
+
+        <br>
+        <label for="novedades" class="form-label">Recibir Novedades:</label>   
+            <select name="novedades" id="novedades" class="form-input">
+                <option value="">Elegí</option>
+                <option type="radio"  value="si" required>Si</option>
+                <option type="radio"  value="no" required>No</option>
+            </select>          
+        
+        <br>
+        <div>
+            <br>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
+        </div>
+
+    </form>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+    
+</body> 

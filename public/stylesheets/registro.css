@@ -1,0 +1,104 @@
+.create-form {
+    
+    justify-content: center;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	font-size: 14px;
+	padding-top: 150px;
+    padding-bottom: 10px;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+input {
+    padding: 1px 2px;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+
+
+.perfilUsuario {
+    padding:10px;
+}
+
+.body form perfilUsuario {
+    display:block;
+    padding :10px;
+}
+
+.categorias {
+    display:block;
+    padding:10px
+}
+
+.categorias div {
+    padding-top:10px;
+}
+
+
+input {
+    padding: 1px 2px;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+
+.boton-personalizado {
+    font-weight:600;
+    color:#ffffff;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:40px;
+    padding-right:40px;
+    background-color: rgb(241, 239, 122);
+    border-color: transparent;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    }
+
+.booktitle {
+font-size: 14px;
+font-weight: bold;
+text-align: center;
+}
+
+.create-formlogin {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	font-size: 14px;
+	padding-top: 60px;
+	padding-bottom: 75px;
+    flex-direction: column;
+    align-items: stretch;
+}
+.create-logout{
+    margin-right: 10px;
+   
+}
+
+@media (min-width:1024px) {
+    .create-form {
+        justify-content: center;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        font-size: 14px;
+        padding-top: 150px;
+        padding-bottom: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        }
+        .create-formlogin {
+            margin-top: 125px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            font-size: 14px;
+            padding-top: 75px;
+            padding-bottom: 75px;
+            flex-direction: column;
+            align-items: stretch;
+            }
+    }

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %>
+    
+</head>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <form class="create-form" action="/product/edit/<%= producto.id %>?_method=PATCH" method="POST">
+        <h2>Editar Producto</h2>
+
+        <div>
+            <br>
+            <label>Titulo</label>
+            <textarea name="nombre" id="nombre" class="form-input"><%= producto.nombre %></textarea>
+            <br>  
+        </div>
+
+        <div>
+            <br>
+            <label>Autor</label>
+            <textarea name="autor" id="autor" class="form-input"><%= producto.autor %></textarea>
+            <br>
+        
+        </div>
+    
+        <div>
+            <br>
+            <label>Editorial</label>
+            <textarea name="editorial" id="editorial" class="form-input"><%= producto.editorial %></textarea>
+            <br>
+        </div>
+
+        <div>
+            <br>
+            <label>Reseña</label>
+            <textarea name="resenia" id="resenia" class="form-input"><%= producto.resenia %></textarea>
+            <br>
+        </div>
+
+        <div>
+            <br>
+            <label>Genero</label>
+            <textarea name="genero" id="genero" class="form-input"><%= producto.genero %></textarea>
+            <br>
+        </div>
+
+        <div>
+            <br>
+            <h3>Detalle</h3>
+        </div>
+        <div>
+            <br>
+            <label>Número de páginas</label>
+            <textarea name="paginas" id="paginas" class="form-input"><%= producto.paginas%></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Peso</label>
+            <textarea name="peso" id="peso" class="form-input"><%= producto.peso %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Formato</label>
+            <textarea name="formato" id="formato" class="form-input"><%= producto.formato %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Edición</label>
+            <textarea name="edicion" id="edicion" class="form-input"><%= producto.edicion %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>Idioma</label>
+            <textarea name="idioma" id="idioma" class="form-input"><%= producto.idioma %></textarea>
+        </div>
+        <div>
+            <br>
+            <label>ISBN</label>
+            <textarea name="isbn" id="isbn" class="form-input"><%= producto.isbn %></textarea>
+        
+        </div>
+        
+        <div>
+            <br>
+            <label>Precio</label>
+            <textarea name="precio" id="precio" class="form-input"><%= producto.precio %></textarea>
+            <br>
+        </div>
+
+        <div>
+            <br>
+            <label>Oferta</label>
+            <textarea name="descuento" id="descuento" class="form-input"><%= producto.descuento %></textarea>
+            <br>
+        
+        </div>
+
+        <div>
+            <br>
+            <label>Crowfounding</label>
+            <textarea name="crowfounding" id="crowfounding" class="form-input"><%= producto.crowfounding %></textarea>
+            <br>
+        <!----<select name="oferta" id="oferta">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>-->
+                
+        </div>
+
+        <div>
+            <br>
+            <label>Best Seller</label>
+            <textarea name="bestSeller" id="bestSeller" class="form-input"><%= producto.bestSeller%></textarea>
+            <br>
+        <!--- <select name="oferta" id="oferta">
+                <option value=" "></option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+            </select>-->
+                
+        </div>
+        
+        <div>
+            <br>
+            <label for="img" class="form-label">Imagen</label>
+            <input type="file" id="img" name="img"  multiple> 
+        </div>
+
+        <div>
+            <div>
+                <br>
+                <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar Cambios</button>
+            </div>
+
+              
+        </div>
+        
+</form>
+<div>
+    <form  class="create-form" action="/product/delete/<%= producto.id %>?_method=DELETE" method="post">
+    <br>
+    <button class="boton-personalizado" type="delete" value="Borrar" >Eliminar Producto</button>
+    </form>
+  <!---- <br>
+    <button type="delete" value="Borrar" class="boton-personalizado">Eliminar Producto</button>-->
+</div>
+
+
+
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+</body>
+</html>
