@@ -14,7 +14,7 @@
         <div class= "titulo">
             <%= libro.titulo %>
         </div>
-        <span class="autor" >Autor:</span><span  style="color: black">Jenkins Reid Taylor</span>
+        <span class="autor" >Autor:</span><span  style="color: black"><%= libro.autores.nombres + " " + libro.autores.apellidos  %></span>
         <span class= "editorial">Editorial:</span><span style="color: black"><%= libro.editorial %></span> 
         
         <div class="compra">

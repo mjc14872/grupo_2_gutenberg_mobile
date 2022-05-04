@@ -16,14 +16,14 @@ module.exports = (sequelize, dataTypes) => {
         },
     };
     let config = {
-        tableNme:'autores',
+        tableName:'autores',
         timestamps: false,
         
     }
     const Autor = sequelize.define(alias, cols, config); 
 
     Autor.associate = function (models) {
-        Autor.hasMany(models.Autor, { 
+        Autor.hasMany(models.Libro, { 
             as: 'libros',
             foreignKey:'autores_id',
         });

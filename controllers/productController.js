@@ -19,6 +19,7 @@ const Generos = db.Genero;
 const productController = {
     'list': (req, res) => {
         db.Libro.findAll({
+            include: ["autores"]
           
         })
             .then(libros => {
@@ -26,10 +27,22 @@ const productController = {
             })
     },
     'detail': (req, res) => {
-        db.Libro.findByPk(req.params.id,)
+        db.Libro.findByPk(req.params.id,
+            {
+                include : ["autores"]
+            })
             .then(libro => {
                 res.render('detalle-producto.ejs', {libro});
             });
     },
+    'shop':(req, res) => {
+    db.Libro.findByPk(req.params.id,
+        {
+            include : ["autores"]
+        })
+    .then(libro => {
+        res.render('carrito-compras.ejs', {libro});
+    });
+},
 }
 module.exports = productController;
