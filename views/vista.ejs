@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+      
+    </head>
+
+    <body>
+        <header>
+          
+        </header>
+        <div>
+        <h1>Listado de libros</h1>
+    </div>
+    <section>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].titulo %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].editorial %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].precio_unitario %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].descuento %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].bestSeller %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].resenia %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].paginas %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].peso %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].edicion %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].isbn %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].cantidad %></a>
+            </li>
+            <% } %>
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].imagen %></a>
+            </li>
+            <% } %>
+            <img src="../images/<%= libros.imagen %>" alt="">
+        </ul>
+        <ul>
+            <% for( let i = 0; i < libros.length; i++ ) { %>
+            <li>
+                <a><%= libros[i].generos_id %></a>
+            </li>
+            <% } %>
+        </ul>
+    </section>
+          
+        <footer>
+         
+        </footer>
+    </body>

@@ -53,7 +53,7 @@ const userController = {
         req.session.infantiles = req.body.infantiles;
         req.session.editoriales = req. body.editoriales;
         req.session.categoria = req.body.categoria;
-        req.session.image = req.file ? req.file.filename : "image-default";
+        req.session.image = req.file ? req.file.filename : "image-default.jpg";
         req.session.novedades = req.body.novedades
 
             //creo el nuevo usuario para agregar
@@ -69,7 +69,7 @@ const userController = {
             infantiles: req.session.infantiles,
             editoriales: req. session.editoriales,
             categoria: req.session.categoria,
-            image: req.file ? req.file.filename : "image-default",
+            image: req.file ? req.file.filename : "image-default.jpg",
             novedades: req.session.novedades
         }
     
