@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
   }) 
   const upload = multer({ storage: storage });
 
-//TODO: agregar el controller login y registro
+router.get('/search', productController.search);
 router.get('/listado-productos', productController.list);
 router.get('/detalle-producto/:id', productController.detail);
 router.get("/carrito-compras/:id", productController.shop);

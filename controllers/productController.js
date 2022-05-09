@@ -17,13 +17,25 @@ const Generos = db.Genero;
 // const API = 'http://www.omdbapi.com/?apikey=8669f632';
 
 const productController = {
+    'search': (req, res) => {
+        db.Libro.findAll({
+            include: ["autores"],
+            where:{
+                titulo: {[Op.like]: '%' + req.query.search + '%'}
+            }   
+          
+        })
+            .then(libros => {
+                res.render('listado-productos.ejs', {libros});
+            })
+    },
     'list': (req, res) => {
         db.Libro.findAll({
             include: ["autores"]
           
         })
             .then(libros => {
-                res.render('listado-productos.ejs', {libros})
+                res.render('listado-productos.ejs', {libros});
             })
     },
     'detail': (req, res) => {
