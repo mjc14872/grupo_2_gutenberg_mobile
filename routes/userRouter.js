@@ -1,7 +1,6 @@
 const path = require("path")
 const express = require('express');
 const router = express.Router();
-const { body } = require("express-validator");
 const validator = require("../validator/validationForm");
 
 //Agregar el mainController
@@ -19,30 +18,31 @@ const storage = multer.diskStorage({
         cb(null, newFile)
     }
   }) 
-  const upload = multer({ storage });
+  const upload = multer({ storage: storage });
 
 //Agregar el controller registro
-router.get("/registro", userController.registro);
+router.get('/listado-usuarios', userController.list);
 
-router.get("/admin" , administrador, userController.admin);
+//router.get("/registro", userController.registro);
+//router.get("/admin" , administrador, userController.admin);
 
 //Crear usuario
-router.get("/create", userController.create);  
-router.post("/create", upload.single('img'), validator.registro ,userController.usuario);
+router.get('/registro', userController.add);
+router.post('/registro', upload.single('img'), userController.create);
 
 //editar usuario
-router.get('/edit/:id', userController.edit); 
-router.patch('/edit/:id', userController.update); 
+//router.get('/edit/:id', userController.edit); 
+//router.patch('/edit/:id', userController.update); 
 
 //eliminar usuario
-router.delete('/delete/:id', userController.destroy); 
+//router.delete('/delete/:id', userController.destroy); 
 
 //Agregar el controller login
-router.get("/login", userController.login);
-router.post("/login", validator.login , userController.processLogin);
-router.get("/perfil",  upload.single('img'), userController.perfil);
+//router.get("/login", userController.login);
+//router.post("/login", validator.login , userController.processLogin);
+//router.get("/perfil",  upload.single('img'), userController.perfil);
 
-router.post("/logout", userController.logout);
+//router.post("/logout", userController.logout);
 
 //TODO: agregar el modulo
 module.exports = router;

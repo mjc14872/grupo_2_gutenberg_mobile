@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <%- include('./partials/head') %>
-        
-    </head>
-    <body>
-    
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+
     <header>
         <div class="contenedor">
             <img class="logo" src="/images/isologomoradosmall.png" alt="gutenberg logo">
@@ -18,20 +19,17 @@
                 <a href="/product/detalle-producto">Detalle producto</a>
                 <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
                 <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
-                <!--a href="#">Géneros</a-->
                 <a href="/ofertas">Ofertas</a>
                 <a href="/product/listado-productos">Listado de Productos</a>
-                <!---- <a href="#">Crowfounding</a> Se comenta para poder visualizar todo el menu hambuguesa  (vista administrador)-->
-                <!----<a href="/product/detalle-producto">Detalle producto</a>-->
                 <a href="/product/create">Crear Productos</a>
                 <form class="create-logout" action="/user/logout" method="post">
                     <button type="submit">Cerrar Sesion</button>
                     <br>
                 </form>
                 <div>
-                    <p> Sos administrador/a </p> 
+                    <p> Sos administrador/a </p>
                 </div>
-               
+
             </nav>
         </div>
         <div class="lowerbar">
@@ -39,65 +37,65 @@
                 <input class="searchbox" type="text" placeholder="Buscar">
                 <button type="submit" class="fa fa-search"></button>
             </form>
-        
+
         </div>
         </div>
     </header>
-        <section class="title">
-            <h2>OFERTAS DE LA SEMANA</h2>
-        </section>   
-        <section class="books">
-                    <div class="container">
-                        <article>
-                            <img src="../images/sieteMaridos_1.svg" alt=""><br>
-                            <h3>LOS 7 MARIDOS DE EVELYN HUGO</h3>
-                            <h4>Taylor Jenkins Reid</h4>
-                            <h5>Libro</h5>
-                            <h5>AR$ 2.190</h5>
-                        </article>
-                        <article>
-                            <img src="../images/heartstopper_1.svg" alt=""><br>
-                            <h3>HEARTSTOPPER</h3>
-                            <h4>Alice Oseman</h4>
-                            <h5>Libro</h5>
-                            <h5>AR$ 3.000</h5>
-                        </article>
-                        <article>
-                            <img src="../images/clubPsicopatas_1.svg" alt=""><br>
-                            <h3>EL CLUB DE LOS PSICÓPATAS</h3>
-                            <h4>John Katzenbach</h4>
-                            <h5>Libro</h5>
-                            <h5>AR$ 3.500</h5>
-                        </article>
-                        <article>
-                            <img src="../images/libroMasLindoDelMundo_2.svg" alt=""><br>
-                            <h3>EL LIBRO MAS LINDO DEL MUNDO</h3>
-                            <h4>Rosario Oyhanarte</h4>
-                            <h5>Libro</h5>
-                            <h5>AR$ 2.600</h5>
-                        </article>
-                    </div>
-        </section>
-        <section class="title">
-            <h2>CROWFOUNDING</h2>
-        </section>
-        <section class="books">
-            <div class="container">
-                <article>
-                    <img src="../images/laVidaInvisible_1.svg" alt=""><br>
-                    <h3>LA VIDA INVISIBLE</h3>
-                    <h4>V.E. Schwab</h4>
-                    <h5>Libro</h5>
-                    <h5>AR$ 2.500</h5>
-                </article>
-                <article>
-                    <img src="../images/todoLoQueNuncaFuimos_1.svg" alt=""><br>
-                    <h3>TODO LO QUE NUNCA FUIMOS</h3>
-                    <h4>Alice Kellen</h4>
-                    <h5>Libro</h5>
-                    <h5>AR$ 2.100</h5>
-                </article>
-            </div>
-        </section>
-        <%- include('./partials/footer') %>
-    </body>
+    <section class="title">
+        <h2>OFERTAS DE LA SEMANA</h2>
+    </section>
+    <section class="books">
+        <div class="container">
+            <article>
+                <img src="../images/sieteMaridos_1.svg" alt=""><br>
+                <h3>LOS 7 MARIDOS DE EVELYN HUGO</h3>
+                <h4>Taylor Jenkins Reid</h4>
+                <h5>Libro</h5>
+                <h5>AR$ 2.190</h5>
+            </article>
+            <article>
+                <img src="../images/heartstopper_1.svg" alt=""><br>
+                <h3>HEARTSTOPPER</h3>
+                <h4>Alice Oseman</h4>
+                <h5>Libro</h5>
+                <h5>AR$ 3.000</h5>
+            </article>
+            <article>
+                <img src="../images/clubPsicopatas_1.svg" alt=""><br>
+                <h3>EL CLUB DE LOS PSICÓPATAS</h3>
+                <h4>John Katzenbach</h4>
+                <h5>Libro</h5>
+                <h5>AR$ 3.500</h5>
+            </article>
+            <article>
+                <img src="../images/libroMasLindoDelMundo_2.svg" alt=""><br>
+                <h3>EL LIBRO MAS LINDO DEL MUNDO</h3>
+                <h4>Rosario Oyhanarte</h4>
+                <h5>Libro</h5>
+                <h5>AR$ 2.600</h5>
+            </article>
+        </div>
+    </section>
+    <section class="title">
+        <h2>CROWFOUNDING</h2>
+    </section>
+    <section class="books">
+        <div class="container">
+            <article>
+                <img src="../images/laVidaInvisible_1.svg" alt=""><br>
+                <h3>LA VIDA INVISIBLE</h3>
+                <h4>V.E. Schwab</h4>
+                <h5>Libro</h5>
+                <h5>AR$ 2.500</h5>
+            </article>
+            <article>
+                <img src="../images/todoLoQueNuncaFuimos_1.svg" alt=""><br>
+                <h3>TODO LO QUE NUNCA FUIMOS</h3>
+                <h4>Alice Kellen</h4>
+                <h5>Libro</h5>
+                <h5>AR$ 2.100</h5>
+            </article>
+        </div>
+    </section>
+    <%- include('./partials/footer') %>
+</body>
