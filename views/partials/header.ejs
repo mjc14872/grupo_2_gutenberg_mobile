@@ -6,7 +6,9 @@
         <nav class="menu">
             <a class="active" href="/">Inicio</a>
             <a href="/user/listado-usuarios">Listado de Usuarios</a>
-            <% if(locals.userLocals){ %>            
+            <a class="nav-link active" aria-current="page" href="/user/perfil">Perfil</a>
+            <% if(locals.userLocals){ %>
+            
                 <a class="nav-link active" aria-current="page" href="/user/perfil">Perfil</a>
                 <a href="/product/carrito-compras/3">Carrito de compras</a>
                  
@@ -24,8 +26,7 @@
            
             <!--a href="#">Géneros</a-->
             <a href="/ofertas">Ofertas</a>
-            <a href="/product/listado-productos">Listado de Productos</a>
-            <a href="/product/listado-carrito">Listado de carrito</a>
+            <a href="/product/listado-productos">Listado de Productos</a> 
             
            <!---- <a href="#">Crowfounding</a> Se comenta para poder visualizar todo el menu hambuguesa  (vista administrador)-->
             <!----<a href="/product/detalle-producto">Detalle producto</a>-->
@@ -42,8 +43,8 @@
         </nav>
     </div>
     <div class="lowerbar">  
-        <form action="/product/search" method="GET">
-            <input class="searchbox" type="text" placeholder="Buscar" name="search" id=" ">
+        <form>
+            <input class="searchbox" type="text" placeholder="Buscar">
             <button type="submit" class="fa fa-search"></button>
           </form>
           

@@ -764,3 +764,16 @@ El usuario ingreso a la ruta: /
 El usuario ingreso a la ruta: /product/listado-carrito
 El usuario ingreso a la ruta: /
 El usuario ingreso a la ruta: /product/listado-carrito
+El usuario ingreso a la ruta: /
+El usuario ingreso a la ruta: /
+El usuario ingreso a la ruta: /user/listado-usuarios
+El usuario ingreso a la ruta: /images/avatars/image1652960542336-.jpg
+El usuario ingreso a la ruta: /images/avatars/image1653092288074-.jpg
+El usuario ingreso a la ruta: /ofertas
+El usuario ingreso a la ruta: /user/registro
+El usuario ingreso a la ruta: /user/login
+El usuario ingreso a la ruta: /user/perfil
+El usuario ingreso a la ruta: /product/listado-productos
+El usuario ingreso a la ruta: /user/listado-usuarios
+El usuario ingreso a la ruta: /images/avatars/image1652960542336-.jpg
+El usuario ingreso a la ruta: /images/avatars/image1653092288074-.jpg
