@@ -124,7 +124,7 @@ const userController = {
         }
     },
 
-    perfil: function (req, res) {
+    'perfil': function (req, res) {
         //obtengo los usuarios
         db.Usuario.findAll()
         let user = findAll()
@@ -143,7 +143,7 @@ const userController = {
         res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
     },
 
-    logout: function (req, res) {
+    'logout': function (req, res) {
         req.session.destroy();
         res.clearCookie("user");
         res.redirect("/");
