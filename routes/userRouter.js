@@ -28,21 +28,27 @@ router.get('/listado-usuarios', userController.list);
 
 //Crear usuario
 router.get('/registro', userController.add);
-router.post('/registro', upload.single('img'), userController.create);
+/*router.post('/registro', upload.single('img'), userController.create);*/
+router.post('/create', upload.single('image'), userController.create);
 
 //editar usuario
-//router.get('/edit/:id', userController.edit); 
+router.get('/edit/:id', userController.edit); 
 //router.patch('/edit/:id', userController.update); 
 
 //eliminar usuario
 //router.delete('/delete/:id', userController.destroy); 
 
 //Agregar el controller login
-//router.get("/login", userController.login);
-//router.post("/login", validator.login , userController.processLogin);
-//router.get("/perfil",  upload.single('img'), userController.perfil);
+router.get("/login", userController.login);
+router.post("/login", userController.processLogin);
+router.get("/perfil",  upload.single('img'), userController.perfil);
 
-//router.post("/logout", userController.logout);
+router.post("/logout", userController.logout);
 
 //TODO: agregar el modulo
+
+
+router.post('/delete/:id', userController.delete);
+router.get('/detail/:id', userController.detail);
+
 module.exports = router;

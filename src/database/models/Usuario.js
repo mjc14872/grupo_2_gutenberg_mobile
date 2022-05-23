@@ -26,7 +26,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(45),
             allowNull: false
         },
-        imagen: {
+        image: {
             type: dataTypes.STRING(100),
             allowNull: false
         },
@@ -34,10 +34,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
-        fechaCreacion: {
+        /*fechaCreacion: {
             type: dataTypes.DATE,
             allowNull: false
-        },
+        },*/
 
         administrador: {
             type: dataTypes.BOOLEAN,

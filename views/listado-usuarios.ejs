@@ -17,17 +17,19 @@
             <article>
                 <% for( let i=0; i < usuarios.length; i++ ) { %>
 
-                    <img src="../images/avatars<%= usuarios[i].imagen %>" alt=""><br>
+                <a href="/user/detail/<%=usuarios[i].id %>">
+                    <img src="/images/avatars/<%= usuarios[i].image %>" alt=""><br>
                     <h5>Usuario</h5>
                     <h5> <%= usuarios[i].nombres %></h5>
                     <h5> <%= usuarios[i].apellidos %></h5>
                     <h5> <%= usuarios[i].email %></h5>
                     <h5> <%= usuarios[i].password %></h5>
                     <h5> <%= usuarios[i].categoria %></h5>
-                    <h5> <%= usuarios[i].imagen %></h5>
+                    <h5> <%= usuarios[i].image %></h5>
                     <h5> <%= usuarios[i].novedades %></h5>
                     <h5> <%= usuarios[i].fechaCreacion %></h5>
                     <h5> <%= usuarios[i].administrador %></h5>
+                </a>
                     <% } %>
             </article>
     </section>
