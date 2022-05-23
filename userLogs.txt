@@ -871,3 +871,7 @@ El usuario ingreso a la ruta: /user/login
 El usuario ingreso a la ruta: /
 El usuario ingreso a la ruta: /
 El usuario ingreso a la ruta: /user/listado-usuarios
+El usuario ingreso a la ruta: /
+El usuario ingreso a la ruta: /favicon.ico
+El usuario ingreso a la ruta: /user/login
+El usuario ingreso a la ruta: /user/login
