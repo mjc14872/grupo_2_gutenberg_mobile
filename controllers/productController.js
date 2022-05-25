@@ -8,7 +8,7 @@ const moment = require('moment');
 
 //Aqui tienen otra forma de llamar a cada uno de los modelos
 const Libros = db.Libro;
-const Tipo_medio = db.Tipo_medio;
+const medios = db.Medio;
 const Autores = db.Autor;
 const Formatos = db.Formato;
 const Idiomas = db.Idioma;
@@ -59,9 +59,11 @@ const productController = {
     },
     'car': (req, res) => {
         db.Carrito.findAll({
+            include: ["medios", "usuarios"]
+
         })
-            .then(carrito => {
-                res.render('listado-carrito.ejs', { carrito });
+            .then(carritos => {
+                res.render('listado-carrito.ejs', { carritos });
             })
     }
 }
