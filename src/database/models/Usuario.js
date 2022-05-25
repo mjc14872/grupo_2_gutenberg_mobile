@@ -19,7 +19,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         password: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         categoria: {
@@ -52,7 +52,7 @@ module.exports = (sequelize, dataTypes) => {
     const Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = function (models) {
-        Usuario.hasMany(models.Usuario, { 
+        Usuario.hasMany(models.Carrito, { 
             as: 'carritos',
             foreignKey:'usuarios_id',
         });

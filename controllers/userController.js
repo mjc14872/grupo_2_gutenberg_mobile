@@ -6,23 +6,6 @@ const db = require('../src/database/models');
 const { Op } = require("sequelize");
 const sequelize = db.sequelize;
 
-//Aqui tienen otra forma de llamar a cada uno de los modelos
-const usuarios = db.Usuario;
-
-
-//Llamamos y "re-escribimos" el JSON.
-function findAll(){
-	const users = JSON.parse(fs.readFileSync(path.join(__dirname, "../src/database/models"), "utf-8"));
-    return users;
- }
-
- function writeFile(array){
-    const arrayString = JSON.stringify(array, null, 4)
-    fs.writeFileSync(path.join(__dirname, "../src/database/models"), arrayString);
-}
-
-
-
 const userController = {
     'login': function (req, res) {
         res.render("login");
@@ -90,38 +73,33 @@ const userController = {
     },
 
     'processLogin': function (req, res) {
-        db.Usuario.findAll()
-
-        let users = findAll();
         const errors = validationResult(req);
-       
+
         if (errors.errors.length > 0) {
-            res.render("login", { errorsLogin: errors.mapped() })
+            return res.render("login", { errorsLogin: errors.mapped() })
         }
-       
-        const userFound = users.find(function (user) {
-            return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
-        })
 
-        if (userFound) {
-            //proceso session
-            let user = {
-                id: userFound.id,
-                nombres: userFound.nombres,
-                apellidos: userFound.apellidos,
-                image: userFound.image,
-            }
+        db.Usuario.findOne({ where: { email: req.body.email } })
+            .then(userFound => {
+                if (userFound && bcrypt.compareSync(req.body.password, userFound.password)) {
+                    //proceso session
+                    let user = {
+                        id: userFound.id,
+                        nombres: userFound.nombres,
+                        apellidos: userFound.apellidos,
+                        image: userFound.image,
+                    }
 
-            req.session.usuarioLogueado = user;
+                    req.session.usuarioLogueado = user;
 
-            if (req.body.remember) {
-                res.cookie("user", user.id, { maxAge: 60000 * 24 })
-            }
-            res.redirect("/")
-
-        } else {
-            res.render("login", { errorMsg: "Error credenciales invalidas" })
-        }
+                    if (req.body.remember) {
+                        res.cookie("user", user.id, { maxAge: 60000 * 24 })
+                    }
+                    res.redirect("/")
+                } else {
+                    res.render("login", { errorMsg: "Error credenciales invalidas" })
+                }
+            })
     },
 
     'perfil': function (req, res) {
