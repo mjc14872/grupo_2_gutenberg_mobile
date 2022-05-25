@@ -36,21 +36,20 @@ module.exports = (sequelize, dataTypes) => {
         },
     };
     let config = {
-        tableName:'carritos',
+        tableName: 'carritos',
         timestamps: false,
     }
-    const Carrito = sequelize.define(alias, cols, config); 
+    const Carrito = sequelize.define(alias, cols, config);
 
     Carrito.associate = function (models) {
-        Carrito.belongsTo(models.Usuario, { 
+        Carrito.belongsTo(models.Usuario, {
             as: 'usuarios',
-            foreignKey:'usuarios_id',
+            foreignKey: 'usuarios_id',
         })
-        Carrito.belongsTo(models.Medio, { 
+        Carrito.belongsTo(models.Medio, {
             as: 'medios',
-            foreignKey:'medios_id',
+            foreignKey: 'medios_id',
         })
     }
-
     return Carrito
 }

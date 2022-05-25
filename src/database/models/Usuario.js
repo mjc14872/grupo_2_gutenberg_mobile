@@ -34,11 +34,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
-        /*fechaCreacion: {
-            type: dataTypes.DATE,
-            allowNull: false
-        },*/
-
         administrador: {
             type: dataTypes.BOOLEAN,
             allowNull: false
@@ -52,11 +47,10 @@ module.exports = (sequelize, dataTypes) => {
     const Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = function (models) {
-        Usuario.hasMany(models.Carrito, { 
+        Usuario.hasMany(models.Carrito, {
             as: 'carritos',
-            foreignKey:'usuarios_id',
+            foreignKey: 'usuarios_id',
         });
     }
-
     return Usuario
 }

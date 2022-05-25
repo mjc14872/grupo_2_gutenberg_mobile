@@ -11,6 +11,10 @@ const userController = {
         res.render("login");
     },
 
+    'admin': function (req, res) {
+        res.render("vistaAdmin");
+    },
+
     'list': (req, res) => {
         db.Usuario.findAll({
         })

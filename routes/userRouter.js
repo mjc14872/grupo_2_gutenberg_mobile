@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 router.get('/listado-usuarios', userController.list);
 
 //router.get("/registro", userController.registro);
-//router.get("/admin" , administrador, userController.admin);
+router.get("/admin" , administrador, userController.admin);
 
 //Crear usuario
 router.get('/registro', userController.add);
