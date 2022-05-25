@@ -33,7 +33,7 @@ router.post('/create', upload.single('image'), userController.create);
 
 //editar usuario
 router.get('/edit/:id', userController.edit); 
-//router.patch('/edit/:id', userController.update); 
+router.patch('/edit/:id', userController.update); 
 
 //eliminar usuario
 //router.delete('/delete/:id', userController.destroy); 

@@ -10,57 +10,57 @@
         <%- include('./partials/header') %>
     </header>
 
-    <form class="create-form" action="/user/edit/<%= usuario.id %> ?_method=PATCH" method="POST">
+    <form class="create-form" action="/user/edit/<%= usuarios.id %>?_method=PATCH" method="POST">
         <h2>Registro de Usuario</h2>
 
         <div>
             <br>
             <label>Nombres</label>
-            <textarea name="nombres" id="nombres" class="form-input"><%= usuario.nombres %></textarea>
+            <textarea name="nombres" id="nombres" class="form-input"><%= usuarios.nombres %></textarea>
             <br>
         </div>
 
         <div>
             <br>
             <label>Apellidos</label>
-            <textarea name="apellidos" id="apellidos" class="form-input"><%= usuario.apellidos %></textarea>
+            <textarea name="apellidos" id="apellidos" class="form-input"><%= usuarios.apellidos %></textarea>
         </div>
 
         <div>
             <br>
             <label>Email</label>
-            <textarea name="email" id="email" class="form-input"><%= usuario.email %></textarea>
+            <textarea name="email" id="email" class="form-input"><%= usuarios.email %></textarea>
         </div>
 
         <div>
             <br>
             <label>Password</label>
-            <textarea name="password" id="password" class="form-input"><%= usuario.password %></textarea>
+            <textarea name="password" id="password" class="form-input"><%= usuarios.password %></textarea>
             <br>
         </div>
 
         <div>
             <br>
             <label> Perfil:</label>
-            <textarea name="categoria" id="categoria" class="form-input"><%= usuario.categoria %></textarea>
+            <textarea name="categoria" id="categoria" class="form-input"><%= usuarios.categoria %></textarea>
         </div>
 
         <div>
             <br>
             <label>Imagen</label>
-            <textarea type="file" name="img" id="img" class="form-control"><%= usuario.imagen %></textarea>
+            <textarea type="file" name="img" id="img" class="form-control"><%= usuarios.imagen %></textarea>
         </div>
 
         <div>
             <br>
             <label>Recibir Novedades:</label>
-            <textarea name="novedades" id="novedades" class="form-input"><%= usuario.novedades %></textarea>
+            <textarea name="novedades" id="novedades" class="form-input"><%= usuarios.novedades %></textarea>
         </div>
 
         <div>
             <br>
             <label>Fecha de Creacion:</label>
-            <textarea name="fechaCreacion" id="fechaCreacion" class="form-input"><%= usuario.fechaCreacion %></textarea>
+            <textarea name="fechaCreacion" id="fechaCreacion" class="form-input"><%= usuarios.fechaCreacion %></textarea>
         </div>
 
         <div>
@@ -70,8 +70,8 @@
 
     </form>
 
-    <form class="create-form" action="/user/delete/<%= usuario.id %>?_method=DELETE" method="post">
-        <button class="boton-personalizado" type="delete" value="Borrar">Eliminar Usuario</button>
+    <form class="create-form" action="/user/delete/<%=usuarios.id%>" method="POST">
+        <button class="boton-personalizado" type="submit" value="Borrar">Eliminar Usuario</button>
     </form>
 
     <footer>

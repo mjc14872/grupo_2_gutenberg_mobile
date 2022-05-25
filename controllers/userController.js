@@ -27,6 +27,10 @@ const userController = {
     'login': function(req, res){
                res.render("login");
           },
+
+    'admin':  function(req, res){ 
+                res.render("vistaAdmin");
+               },
     
     'list': (req, res) => {
         db.Usuario.findAll({         
@@ -89,6 +93,28 @@ const userController = {
             })
     },
 
+     'update': function(req, res) {
+         db.Usuario.update({
+         nombres: req.body.nombres,
+         apellidos: req.body.apellidos,
+         email: req.body.email,
+         password: bcrypt.hashSync(req.body.password, 10),
+         categoria: req.body.categoria,
+         image: req.file ? req.file.filename : "image-default.jpg",
+         novedades: req.body.novedades,
+         fechaCreacion: req.body.fechaCreacion,
+         administrador: req.body.administrador,
+         }, {
+             where: {
+                 id: req.params.id
+             }
+         }), 
+
+         res.redirect("/user/listado-usuarios");
+
+        
+        
+        },
 
 
 processLogin: function(req, res){
@@ -131,12 +157,12 @@ processLogin: function(req, res){
               res.locals.userLocals = req.session.usuarioLogueado;
           }
     
-          // busco el usuario
+           //busco el usuario
            let userFound = user.find(function(usuario){
                return usuario.id == req.params.id
            })
     
-        //    devuelvo el formulario de edicion con informacion del usuario a editar
+            //devuelvo el formulario de edicion con informacion del usuario a editar
           res.render("perfil-usuario", {usuario:req.session.usuarioLogueado })
        },
     
@@ -145,7 +171,7 @@ processLogin: function(req, res){
            res.clearCookie("user");
            res.redirect("/");
        }
-};
+    };
 
 //Exportar el modulo
 module.exports = userController;
