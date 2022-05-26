@@ -2,9 +2,9 @@
     
     justify-content: center;
 	text-align: center;
-	background-color: rgb(255, 255, 255);
+    background: rgb(241, 239, 122);
 	font-size: 14px;
-	padding-top: 150px;
+	padding-top: 50px;
     padding-bottom: 10px;
     flex-direction: column;
     align-items: stretch;
@@ -43,12 +43,12 @@ input {
 
 .boton-personalizado {
     font-weight:600;
-    color:#ffffff;
-    padding-top:20px;
+    color:#0f0f0f;
+    padding-top:30px;
     padding-bottom:20px;
     padding-left:40px;
     padding-right:40px;
-    background-color: rgb(241, 239, 122);
+    background-color: rgb(255, 255, 255);
     border-color: transparent;
     align-items: center;
     padding: 10px;
@@ -62,11 +62,10 @@ text-align: center;
 }
 
 .create-formlogin {
-    margin-top: 60px;
     display: flex;
     justify-content: center;
 	text-align: center;
-	background-color: rgb(255, 255, 255);
+    background: rgb(241, 239, 122);
 	font-size: 14px;
 	padding-top: 60px;
 	padding-bottom: 75px;
@@ -82,19 +81,18 @@ text-align: center;
     .create-form {
         justify-content: center;
         text-align: center;
-        background-color: rgb(255, 255, 255);
+        background: rgb(241, 239, 122);
         font-size: 14px;
-        padding-top: 150px;
+        padding-top: 50px;
         padding-bottom: 10px;
         flex-direction: column;
         align-items: stretch;
         }
         .create-formlogin {
-            margin-top: 125px;
             display: flex;
             justify-content: center;
             text-align: center;
-            background-color: rgb(255, 255, 255);
+            background: rgb(241, 239, 122);
             font-size: 14px;
             padding-top: 75px;
             padding-bottom: 75px;

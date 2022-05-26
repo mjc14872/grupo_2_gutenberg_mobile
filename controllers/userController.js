@@ -39,7 +39,6 @@ const userController = {
     },
 
     'create': (req, res) => {
-
         db.Usuario.create({
             nombres: req.body.nombres,
             apellidos: req.body.apellidos,
@@ -55,8 +54,34 @@ const userController = {
         db.Usuario.findAll({
         })
             .then(usuarios => {
-                res.render('listado-usuarios.ejs', { usuarios })
+                res.render('login', { usuarios })
             })
+    },
+
+    'edit': function (req, res) {
+        db.Usuario.findByPk(req.params.id)
+            .then(function (usuarios) {
+                res.render('editar-usuario.ejs', { usuarios })
+            })
+    },
+
+    'update': function (req, res) {
+        db.Usuario.update({
+            nombres: req.body.nombres,
+            apellidos: req.body.apellidos,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            categoria: req.body.categoria,
+            image: req.file ? req.file.filename : "image-default.jpg",
+            novedades: req.body.novedades,
+            administrador: req.body.administrador,
+
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/user/listado-usuarios")
     },
 
     'delete': function (req, res) {
@@ -65,15 +90,7 @@ const userController = {
                 id: req.params.id
             }
         })
-
         res.redirect('/user/listado-usuarios');
-    },
-
-    'edit': function (req, res) {
-        db.Usuario.findByPk(req.params.id)
-            .then(function (usuarios) {
-                res.render('editar-usuario.ejs', { usuarios })
-            })
     },
 
     'processLogin': function (req, res) {
@@ -107,21 +124,6 @@ const userController = {
     },
 
     'perfil': function (req, res) {
-        //obtengo los usuarios
-        db.Usuario.findAll()
-        let user = findAll()
-
-        //lo busco en session
-        if (req.session.usuarioLogueado) {
-            res.locals.userLocals = req.session.usuarioLogueado;
-        }
-
-        // busco el usuario
-        let userFound = user.find(function (usuario) {
-            return usuario.id == req.params.id
-        })
-
-        //    devuelvo el formulario de edicion con informacion del usuario a editar
         res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
     },
 

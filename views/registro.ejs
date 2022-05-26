@@ -9,9 +9,12 @@
     <header>
         <%- include('./partials/header') %>
     </header>
-    <form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST">
-        <h2>Registro de Usuario</h2>
 
+    <section class="title">
+        <h2>REGISTRO DE USUARIOS</h2>
+    </section>
+
+    <form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST">
         <div>
             <br>
             <label>Nombres</label>
@@ -78,8 +81,8 @@
 
         <div>
             <br>
-            <label for="img" class="form-label">Imagen</label>
-            <input type="file" class="form-control" id="img" name="img">
+            <label for="image" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="image" name="image">
         </div>
 
         <div>
@@ -93,18 +96,6 @@
             <% if(locals.errors && locals.errors.novedades){ %>
                 <span style="color: red">
                     <%= errors.novedades.msg %>
-                </span>
-                <% } %>
-        </div>
-
-        <div>
-            <br>
-            <label>Fecha de Creacion</label>
-            <input type="date" name="fechaCreacion" id="fechaCreacion">
-            <br>
-            <% if(locals.errors && locals.errors.fechaCreacion){ %>
-                <span style="color: red">
-                    <%= errors.fechaCreacion.msg %>
                 </span>
                 <% } %>
         </div>

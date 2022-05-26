@@ -10,45 +10,51 @@ const administrador = require('../middlewares/admin');
 //Agregar Multer
 const multer = require('multer');
 const storage = multer.diskStorage({
-    destination:(req, file, cb)=> {
-        cb(null, path.join(__dirname,"../public/images/avatars"));
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, "../public/images/avatars"));
     },
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
         const newFile = file.fieldname + Date.now() + "-" + path.extname(file.originalname);
         cb(null, newFile)
     }
-  }) 
-  const upload = multer({ storage: storage });
+})
+const upload = multer({ storage: storage });
 
-//Agregar el controller registro
+//Agregar el controller registro de usuarios
 router.get('/listado-usuarios', userController.list);
 
-//router.get("/registro", userController.registro);
-router.get("/admin" , administrador, userController.admin);
+//vista administrador 
+router.get("/admin", administrador, userController.admin);
 
-//Crear usuario
-router.get('/registro', userController.add);
-/*router.post('/registro', upload.single('img'), userController.create);*/
+//vista de usuario
+router.get('/registro', upload.single('image'), userController.add);
+
+//creacion de usuarios
 router.post('/create', upload.single('image'), userController.create);
 
 //editar usuario
-router.get('/edit/:id', userController.edit); 
-router.patch('/edit/:id', userController.update); 
+router.get('/edit/:id', userController.edit);
+
+//modificacion de usuario
+router.patch('/edit/:id', userController.update);
 
 //eliminar usuario
-//router.delete('/delete/:id', userController.destroy); 
+router.post('/delete/:id', userController.delete);
 
-//Agregar el controller login
+//detalle de usuario
+router.get('/detail/:id', userController.detail);
+
+//login usuario
 router.get("/login", userController.login);
-router.post("/login", userController.processLogin);
-router.get("/perfil",  upload.single('img'), userController.perfil);
 
+//proceso de login usuario
+router.post("/login", userController.processLogin);
+
+//perfil usuario
+router.get("/perfil", upload.single('image'), userController.perfil);
+
+//cerrar sesion usuario
 router.post("/logout", userController.logout);
 
 //TODO: agregar el modulo
-
-
-router.post('/delete/:id', userController.delete);
-router.get('/detail/:id', userController.detail);
-
 module.exports = router;
