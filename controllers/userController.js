@@ -47,7 +47,6 @@ const userController = {
             categoria: req.body.categoria,
             image: req.file ? req.file.filename : "image-default.jpg",
             novedades: req.body.novedades,
-            fechaCreacion: req.body.fechaCreacion,
             administrador: req.body.administrador,
 
         })
@@ -70,18 +69,17 @@ const userController = {
             nombres: req.body.nombres,
             apellidos: req.body.apellidos,
             email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
+            //password: bcrypt.hashSync(req.body.password, 10),
             categoria: req.body.categoria,
             image: req.file ? req.file.filename : "image-default.jpg",
             novedades: req.body.novedades,
             administrador: req.body.administrador,
-
         }, {
             where: {
                 id: req.params.id
             }
         })
-        res.redirect("/user/listado-usuarios")
+        res.redirect("/")
     },
 
     'delete': function (req, res) {
@@ -109,6 +107,7 @@ const userController = {
                         nombres: userFound.nombres,
                         apellidos: userFound.apellidos,
                         image: userFound.image,
+                        categoria: userFound.categoria,
                     }
 
                     req.session.usuarioLogueado = user;
@@ -124,7 +123,8 @@ const userController = {
     },
 
     'perfil': function (req, res) {
-        res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
+      console.log(req.session.usuarioLogueado)
+      res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
     },
 
     'logout': function (req, res) {
