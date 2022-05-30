@@ -21,21 +21,23 @@ const storage = multer.diskStorage({
   }) 
   const upload = multer({ storage: storage });
 
-//TODO: agregar el controller login y registro
-router.get("/detalle-producto/:id", productController.detalleProducto);
-router.get("/carrito-compras", productController.carritoCompras);
-router.get("/listado-productos", productController.listadoProductos);
+router.get('/search', productController.search);
+router.get('/listado-productos', productController.list);
+router.get('/detalle-producto/:id', productController.detail);
+router.get('/carrito-compras/:id', productController.shop);
+router.get('/listado-carrito/', productController.car);
+
 
 //Crear producto
-router.get("/create", productController.create);  
-router.post("/create", upload.single('img'), productController.store); 
+// router.get("/create", productController.create);  
+// router.post("/create", upload.single('img'), productController.store); 
 
 //editar producto
-router.get('/edit/:id', productController.edit); 
-router.patch('/edit/:id', productController.update); 
+// router.get('/edit/:id', productController.edit); 
+// router.patch('/edit/:id', productController.update); 
 
 //eliminar producto
-router.delete('/delete/:id', productController.destroy); 
+// router.delete('/delete/:id', productController.destroy); 
 
 
 //TODO: agregar el modulo

@@ -1,7 +1,6 @@
 const path = require("path")
 const express = require('express');
 const router = express.Router();
-const { body } = require("express-validator");
 const validator = require("../validator/validationForm");
 
 //Agregar el mainController
@@ -11,37 +10,50 @@ const administrador = require('../middlewares/admin');
 //Agregar Multer
 const multer = require('multer');
 const storage = multer.diskStorage({
-    destination:(req, file, cb)=> {
-        cb(null, path.join(__dirname,"../public/images/avatars"));
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, "../public/images/avatars"));
     },
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
         const newFile = file.fieldname + Date.now() + "-" + path.extname(file.originalname);
         cb(null, newFile)
     }
-  }) 
-  const upload = multer({ storage });
+})
+const upload = multer({ storage: storage });
 
-//Agregar el controller registro
-router.get("/registro", userController.registro);
+//Agregar el controller registro de usuarios
+router.get('/listado-usuarios', userController.list);
 
-router.get("/admin" , administrador, userController.admin);
+//vista administrador 
+router.get("/admin", administrador, userController.admin);
 
-//Crear usuario
-router.get("/create", userController.create);  
-router.post("/create", upload.single('img'), validator.registro ,userController.usuario);
+//vista de usuario
+router.get('/registro', upload.single('image'), userController.add);
+
+//creacion de usuarios
+router.post('/create', upload.single('image'), userController.create);
 
 //editar usuario
-router.get('/edit/:id', userController.edit); 
-router.patch('/edit/:id', userController.update); 
+router.get('/edit/:id', userController.edit);
+
+//modificacion de usuario
+router.patch('/edit/:id', userController.update);
 
 //eliminar usuario
-router.delete('/delete/:id', userController.destroy); 
+router.post('/delete/:id', userController.delete);
 
-//Agregar el controller login
+//detalle de usuario
+router.get('/detail/:id', userController.detail);
+
+//login usuario
 router.get("/login", userController.login);
-router.post("/login", validator.login , userController.processLogin);
-router.get("/perfil",  upload.single('img'), userController.perfil);
 
+//proceso de login usuario
+router.post("/login", userController.processLogin);
+
+//perfil usuario
+router.get("/perfil", upload.single('image'), userController.perfil);
+
+//cerrar sesion usuario
 router.post("/logout", userController.logout);
 
 //TODO: agregar el modulo

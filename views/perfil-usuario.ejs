@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <%- include('./partials/head') %>
-    </head>
 
-    <body>
-        <header>
-            <%- include('./partials/header') %>
-        </header>
-        <form class="create-form" action="/user/perfil"  method="GET" >
-        <h2>Mi Perfil</h2>
+<head>
+    <%- include('./partials/head') %>
+</head>
 
-        <div>
-            <br>
-            <label>Nombre</label>
-            <textarea name="nombres" id="nombres" class="form-input"><%= usuario.nombres %></textarea>
-        </div>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <section class="title">
+        <h2>DETALLE DE USUARIO</h2>
+    </section>
 
-        <div>
-            <br>
-            <label>Apellido</label>
-            <textarea name="apellidos" id="apellidos" class="form-input"><%= usuario.apellidos %></textarea>
-        </div>
+    <section class="create-form">
+        <div class="container">
+            <article>
+                <h5>USUARIO</h5>
+                <br>
+                <img src="/images/avatars/<%= usuario.image %>">
+                <br>
 
-        
-        <br>
-        <div>
-            <br>
-            <img src="/images/avatars/<%= usuario.image %>">
-        </div>
-        
-        <br>
-        <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= usuario.id %>">Editar perfil</a></button>
-     </form>
+                <br>
+                <label>Nombres</label>
+                <h5>
+                    <%= usuario.nombres %>
+                </h5>
 
-    </form>
+                <br>
+                <label>Apellidos</label>
+                <h5>
+                    <%= usuario.apellidos %>
+                </h5>
+
+                <br>
+                <label>Categoria</label>
+                <h5>
+                    <%= usuario.categoria %>
+                </h5>
+
+                <br>
+                <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= usuario.id %>">Editar
+                        perfil</a></button>
+                <br>
+
+                <br>
+                <button type="submit" class="boton-personalizado"><a href="/user/delete/<%=usuario.id%>">Eliminar
+                        perfil</a></button>
+                </form>
+                <br>
+
+            </article>
+    </section>
     <footer>
         <%- include('./partials/footer') %>
     </footer>
-    
-</body> 
+</body>

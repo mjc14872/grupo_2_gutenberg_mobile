@@ -9,17 +9,17 @@
             <%- include('./partials/header') %>
         </header>
         <div class="sieteMaridos">
-            <img src="/images/<%= producto.image %>">
+            <img src="/images/<%= libro.imagen %>">
         </div>
         <div class= "titulo">
-            <%= producto.nombre %>
+            <%= libro.titulo %>
         </div>
-        <span class="autor" >Autor:</span><span  style="color: black">Jenkins Reid Taylor</span>
-        <span class= "editorial">Editorial:</span><span style="color: black"><%= producto.editorial %></span> 
+        <span class="autor" >Autor:</span><span  style="color: black"><%= libro.autores.nombres + " " + libro.autores.apellidos  %></span>
+        <span class= "editorial">Editorial:</span><span style="color: black"><%= libro.editorial %></span> 
         
         <div class="compra">
             <div class="precio">
-                <h2>AR$ <%= producto.precio %></h2>
+                <h2>AR$ <%= libro.precio %></h2>
            </div>
            <div class="agregarProducto">
                 <img class="cartmas" width= "80" src="/images/cartmas.svg"> <h2>AGREGAR AL CARRITO</h2>
@@ -34,31 +34,31 @@
     
         <div class="resenia">
             <span class="res" style="color: black">Reseña del libro</span>
-            <span  class= "ress"style="color:#f68c5f" > <%= producto.nombre %></span>
+            <span  class= "ress"style="color:#f68c5f" > <%= libro.titulo %></span>
             <div class="textoRes">
                 <p>
-                    <%= producto.resenia %> 
+                    <%= libro.resenia %> 
                 </p>
             </div>
     
             <div class="detalle">
                 <span class="deta" style="color: black">Detalles de</span>
-                <span class="au" style="color:#f68c5f"><%= producto.nombre %></span>
+                <span class="au" style="color:#f68c5f"><%= libro.titulo %></span>
             </div>
     
             <div class="descripcion">
                 <ul style="list-style: none;">
-                    <li>Número de páginas:<%= producto.paginas %></li>
+                    <li>Número de páginas:<%= libro.paginas %></li>
     
-                    <li>Peso:<%= producto.peso %></li>
+                    <li>Peso:<%= libro.peso %></li>
                     
-                    <li>Formato:<%= producto.formato %></li>
+                    <li>Formato:<%= libro.formato %></li>
                      
-                    <li>Edición:<%= producto.edicion %></li>
+                    <li>Edición:<%= libro.edicion %></li>
                     
-                    <li>Idioma:<%= producto.idioma %></li>
+                    <li>Idioma:<%= libro.idioma %></li>
                     
-                    <li>ISBN:<%= producto.isbn %></li>
+                    <li>ISBN:<%= libro.isbn %></li>
                 </ul>
            </div>    
         </div>

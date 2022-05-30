@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+
+    <section class="title">
+        <h2>LISTADO DE USUARIOS</h2>
+    </section>
+
+    <section class="users">
+        <div class="container">
+            <article>
+                <% for( let i=0; i < usuarios.length; i++ ) { %>
+
+                <a href="/user/detail/<%=usuarios[i].id %>">
+                    <img src="/images/avatars/<%= usuarios[i].image %>" alt=""><br>
+                    <h5>Usuario</h5>
+                    <h5> <%= usuarios[i].nombres %></h5>
+                    <h5> <%= usuarios[i].apellidos %></h5>
+                    <h5> <%= usuarios[i].email %></h5>
+                    <h5> <%= usuarios[i].password %></h5>
+                    <h5> <%= usuarios[i].categoria %></h5>
+                    <h5> <%= usuarios[i].image %></h5>
+                    <h5> <%= usuarios[i].novedades %></h5>
+                    <h5> <%= usuarios[i].fechaCreacion %></h5>
+                    <h5> <%= usuarios[i].administrador %></h5>
+                </a>
+                    <% } %>
+            </article>
+    </section>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+</body>
