@@ -1,30 +1,33 @@
 # Gutenberg - Proyecto integrador Equipo 2
 
-![retro](![Starfish Retrospective](https://user-images.githubusercontent.com/74206062/165710726-a5cc156b-735d-4a97-b9c0-311b86452bec.png)
+![retro](https://user-images.githubusercontent.com/74206062/155082256-feba24da-8573-445a-ac31-37566b591535.png)
 
 
 ### Comenzar a hacer (Start doing): 
 
-* Asignar tareas y tiepos de entrega (preferentemente.
+* Dividir el trabajo con mayor anticipación.
+* Asignar tareas y tiempos de entrega entre nosotros en el tablero de trabajo.
 * No perder el contacto con el equipo. 
-* Programar reuniones y asistir.
+* Saber cómo va el avance de cada integrante.
+* Hacer reuniones tanto con todos los integrantes del equipo, como por las tareas que le corresponden a ciertos integrantes.
+*  De manera personal, hacer un repaso de lo visto en el módulo de JS.
 
 ### Hacer más (More of): 
 
-* Realizar reuniones cada que suja una duda, un avance o alguna situación que pueda retrasar la entrega del proyecto.
-* Tomar el control de alguna actividad si algún compañero tiene algún inconveniente en terminar su tarea.
+* Dominar la dinámica del trabajo colaborativo del código del proyecto.
+* Reunirnos y compartirnos la información conforme se va avanzando en el proyecto.
+* Solicitar y brindar ayuda a quien se encuentre retrasado.
+* Profundizar de forma práctica y teórca en temas de JavaScript, CSS y HTML.
 
 ### Continuar haciendo (Keep doing): 
 
-* Trabajar sobre ramas del proyecto.
-* Seguir dividiendo las tareas según las fortalezas y posiblidades del equipo.
-* Seguir realizando respaldo de la última versión funcional, en la nube.
-* Tomar nota de las dudas que no hemos podido solucionar y solicitar ayuda a los profesores.
+* Respaldos físicos y en la nube, para seguridad informática y del desarrollo del proyecto.
+* División de tareas en base a la fortaleza de cada integrante, pero con feedback para que todos compartamos el flow de trabajo.
+* Solicitar ayuda si nos encontramos retrasados.
 
 ### Hacer menos (Less of): 
 
-* Reunirnos pocas veces.
-* No estar al tanto de lo que falta por hacer.
+* Subir las versiones de proyecto a Drive.
 
 ### Dejar de hacer (Stop doing): 
 

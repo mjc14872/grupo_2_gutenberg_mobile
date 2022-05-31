@@ -17,7 +17,9 @@
     box-shadow: 5px 5px 3px grey;
 }
 
-.books h3, h4, h5 {
+.books h3,
+h4,
+h5 {
     text-align: center;
 }
 

@@ -5,45 +5,38 @@
         <label class="icon-menu" for="menu-bar"></label>
         <nav class="menu">
             <a class="active" href="/">Inicio</a>
-            <% if(locals.userLocals){ %>
-            
-                <a class="nav-link active" aria-current="page" href="/user/perfil">Perfil</a>
-                <a href="/product/carrito-compras">Carrito de compras</a>
-                <!---<a href="/product/detalle-producto">Detalle producto</a>-->
-
-            
-                <% }else{ %>
-            
-                    <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
-            
-            
-                    <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
-            
-                    <% } %>
-           
-            <!--a href="#">Géneros</a-->
             <a href="/ofertas">Ofertas</a>
-            <a href="/product/listado-productos">Listado de Productos</a> 
-           <!---- <a href="#">Crowfounding</a> Se comenta para poder visualizar todo el menu hambuguesa  (vista administrador)-->
-            <!----<a href="/product/detalle-producto">Detalle producto</a>-->
-            <!----<a href="/product/create">Crear Productos</a> implementarlo para la vista de admin-->
+            <a href="/product/listado-productos">Listado de Productos</a>
+
             <% if(locals.userLocals){ %>
-                <form class="create-logout" action="/user/logout" method="post">
-                  <button type="submit">Cerrar Sesion</button> 
-                  <br>
-                </form>    
-                <div>
-                 <p> Bienvenido/a <%= userLocals.nombres %></p> 
-                </div>
-              <% } %>               
+                <a class="nav-link active" aria-current="page" href="/user/perfil">Perfil</a>
+                <a href="/product/carrito-compras/3">Carrito de compras</a>
+
+                <% }else{ %>
+                    <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
+                    <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
+                    <% } %>
+
+                        <% if(locals.userLocals){ %>
+                            <div>
+                                <form class="create-logout" action="/user/logout" method="post">
+                                    <button type="submit" class="menu">Cerrar Sesion</button>
+                                    <br>
+                                </form>
+                            </div>
+                            <div>
+                                <p class="active"> Bienvenido/a <%= userLocals.nombres %>
+                                </p>
+                            </div>
+                            <% } %>
+
         </nav>
     </div>
-    <div class="lowerbar">  
+    <div class="lowerbar">
         <form>
             <input class="searchbox" type="text" placeholder="Buscar">
             <button type="submit" class="fa fa-search"></button>
-          </form>
-          
-        </div>
+        </form>
+    </div>
     </div>
 </header>
