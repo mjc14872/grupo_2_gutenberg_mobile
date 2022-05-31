@@ -1,3 +1,4 @@
+//validaciones desde el backend
 window.addEventListener("load", function() {
     let formulario = document.querySelector("form.create-form");
 
