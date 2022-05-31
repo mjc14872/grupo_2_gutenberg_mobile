@@ -127,6 +127,18 @@ const userController = {
       res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
     },
 
+    'editpassword': function (req, res) {
+        db.Usuario.update({
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 10),
+    }, {
+        where: {
+            id: req.params.id
+        }
+    })
+    res.redirect("/")
+    },
+
     'logout': function (req, res) {
         req.session.destroy();
         res.clearCookie("user");

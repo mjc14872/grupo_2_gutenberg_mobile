@@ -53,6 +53,10 @@ router.post("/login", userController.processLogin);
 //perfil usuario
 router.get("/perfil", upload.single('image'), userController.perfil);
 
+//editar usuario
+router.get('/editar-password', userController.editpassword);
+
+
 //cerrar sesion usuario
 router.post("/logout", userController.logout);
 
