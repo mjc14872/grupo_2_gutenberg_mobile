@@ -52,7 +52,6 @@ const apis = {
                 return {
                     id: libros.id,
                     titulo: libros.titulo,
-                    description: libros.resenia,
                     genero: libros.generos,
                     endpoint: "/api/products/" + libros.id
                 }
@@ -99,10 +98,15 @@ const apis = {
         .then(libros => {
             let dataNew = libros.map(libros => {
                 return {
-                    id: libros.id,
+                    id:libros.id,
                     titulo: libros.titulo,
                     imagen: "http://localhost:3000/product/detalle-producto/" + libros.imagen,
-                    endpoint: "/api/products/" + libros.id
+                    autor: libros.autores,
+                    formato: libros.formatos,
+                    medio: libros.medios,
+                    idioma: libros.idiomas,
+                    description: libros.resenia,
+                    genero: libros.generos,
                 }
             })
             let respuesta = {

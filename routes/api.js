@@ -8,7 +8,7 @@ router.get("/users/:id" , apisController.userDetail);
 //Productos
 router.get('/products', apisController.productsList);
 router.get('/products/:id', apisController.productDetail);
-router.get('/last-products', apisController.lastProducts);
+router.get('/lastProducts', apisController.lastProducts);
 //categorias
 router.get('/generos', apisController.totalGenres);
 router.get('/total-por-genero', apisController.genres);
