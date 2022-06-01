@@ -37,7 +37,6 @@ window.addEventListener("load", function() {
         } else if (campoPassword.value.length < 8) {
             errores.push("Campo Password debe tener al menos 8 caracteres");
         }
-
         if (errores.length > 0) {
             e.preventDefault();
             let ulErrores = document.querySelector("form div.erroresfront ul");

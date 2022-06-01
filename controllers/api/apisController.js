@@ -1,6 +1,6 @@
 const db = require('../../src/database/models');
 const bcrypt = require("bcryptjs");
-
+//comentario
 const apis = {
     usersList: function (req, res) {
         db.Usuario.findAll().then(usuarios => {
