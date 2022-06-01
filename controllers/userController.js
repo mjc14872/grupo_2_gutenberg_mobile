@@ -108,6 +108,7 @@ const userController = {
                         apellidos: userFound.apellidos,
                         image: userFound.image,
                         categoria: userFound.categoria,
+                        isAdmin: userFound.administrador
                     }
 
                     req.session.usuarioLogueado = user;
@@ -115,7 +116,12 @@ const userController = {
                     if (req.body.remember) {
                         res.cookie("user", user.id, { maxAge: 60000 * 24 })
                     }
-                    res.redirect("/")
+                    if (req.session.usuarioLogueado.isAdmin) {
+                        res.redirect("/user/admin")
+                    }
+                    else {
+                        res.redirect("/")
+                    }
                 } else {
                     res.render("login", { errorMsg: "Error credenciales invalidas" })
                 }
@@ -123,20 +129,20 @@ const userController = {
     },
 
     'perfil': function (req, res) {
-      console.log(req.session.usuarioLogueado)
-      res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
+        console.log(req.session.usuarioLogueado)
+        res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
     },
 
     'editpassword': function (req, res) {
         db.Usuario.update({
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-    }, {
-        where: {
-            id: req.params.id
-        }
-    })
-    res.redirect("/")
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/")
     },
 
     'logout': function (req, res) {
