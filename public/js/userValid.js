@@ -38,6 +38,19 @@ window.addEventListener("load", function() {
             errores.push("Campo Password debe tener al menos 8 caracteres");
         }
 
+            let file=req.file.image;
+         
+            let extensionArchivo= (path.extname(file)).toLowerCase();
+            
+            let extensionAUsar= extensionArchivo.toString();
+   
+            if (extensionAUsar == '.jpeg' || extensionAUsar == '.gif' || extensionAUsar == '.jpg' || extensionAUsar == '.png'){
+               return true 
+            } else {
+               throw new Error('formato de imagen Invalido');
+            } 
+         })
+
         if (errores.length > 0) {
             e.preventDefault();
             let ulErrores = document.querySelector("form div.erroresfront ul");

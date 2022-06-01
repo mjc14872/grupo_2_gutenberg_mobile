@@ -30,7 +30,7 @@ router.get("/admin", administrador, userController.admin);
 router.get('/registro', upload.single('image'), userController.add);
 
 //creacion de usuarios
-router.post('/create', upload.single('image'), userController.create);
+router.post('/create', validator.registro, upload.single('image'), userController.create);
 
 //editar usuario
 router.get('/edit/:id', userController.edit);
@@ -48,7 +48,7 @@ router.get('/detail/:id', userController.detail);
 router.get("/login", userController.login);
 
 //proceso de login usuario
-router.post("/login", userController.processLogin);
+router.post("/login", validator.login, userController.processLogin);
 
 //perfil usuario
 router.get("/perfil", upload.single('image'), userController.perfil);
