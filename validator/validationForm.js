@@ -51,9 +51,12 @@
 //        check("categoria")
 //            .notEmpty()
 //            .withMessage("El campo categoria no puede estar vacio"),
+<<<<<<< HEAD
 //        check("fechaCreacion")
 //            .notEmpty()
 //            .withMessage("El campo fechaCreacion no puede estar vacio"),
+=======
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 //    ]
 //}
 //

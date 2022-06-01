@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <section class="title">
+        <h2>DETALLE DE USUARIO</h2>
+    </section>
+    <section class="users">
+        <div class="container">
+            <article>
+                <img src="/images/avatars/<%= usuarios.image %>"><br>
+                <h5>USUARIO</h5>
+                <br>
+                <h5>
+                    <%= usuarios.nombres %>
+                </h5>
+                <h5>
+                    <%= usuarios.apellidos %>
+                </h5>
+                <h5>
+                    <%= usuarios.email %>
+                </h5>
+                <h5>
+                    <%= usuarios.categoria %>
+                </h5>
+                <h5>
+                    <%= usuarios.image %>
+                </h5>
+                <h5>
+                    <%= usuarios.novedades %>
+                </h5>
+                <h5>
+                    <%= usuarios.administrador %>
+                </h5>
+                <a href="/user/edit/<%=usuarios.id %>">
+                    <button>EDITAR USUARIO</button>
+                </a>
+                <form action="/user/delete/<%=usuarios.id %>" method="POST">
+                    <button type="submit">BORRAR USUARIO</button>
+                </form>
+
+            </article>
+    </section>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+</body>

@@ -10,6 +10,7 @@
         <%- include('./partials/header') %>
     </header>
 
+<<<<<<< HEAD
     <form class="create-form" action="/user/edit/<%= usuario.id %> ?_method=PATCH" method="POST">
         <h2>Registro de Usuario</h2>
 
@@ -17,18 +18,34 @@
             <br>
             <label>Nombres</label>
             <textarea name="nombres" id="nombres" class="form-input"><%= usuario.nombres %></textarea>
+=======
+    <section class="title">
+        <h2>EDICION DE USUARIO</h2>
+    </section>
+
+    <form class="create-form" action="/user/edit/<%= usuarios.id %>?_method=PATCH" method="POST">
+        <div>
+            <br>
+            <label>Nombres</label>
+            <textarea name="nombres" id="nombres" class="form-input"><%= usuarios.nombres %></textarea>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
             <br>
         </div>
 
         <div>
             <br>
             <label>Apellidos</label>
+<<<<<<< HEAD
             <textarea name="apellidos" id="apellidos" class="form-input"><%= usuario.apellidos %></textarea>
+=======
+            <textarea name="apellidos" id="apellidos" class="form-input"><%= usuarios.apellidos %></textarea>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
         </div>
 
         <div>
             <br>
             <label>Email</label>
+<<<<<<< HEAD
             <textarea name="email" id="email" class="form-input"><%= usuario.email %></textarea>
         </div>
 
@@ -38,22 +55,42 @@
             <textarea name="password" id="password" class="form-input"><%= usuario.password %></textarea>
             <br>
         </div>
+=======
+            <textarea name="email" id="email" class="form-input"><%= usuarios.email %></textarea>
+        </div>
+
+        <!--div>
+            <br>
+            <label>Password</label>
+            <textarea name="password" id="password" class="form-input"><%= usuarios.password %></textarea>
+            <br>
+        </div-->
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 
         <div>
             <br>
             <label> Perfil:</label>
+<<<<<<< HEAD
             <textarea name="categoria" id="categoria" class="form-input"><%= usuario.categoria %></textarea>
+=======
+            <textarea name="categoria" id="categoria" class="form-input"><%= usuarios.categoria %></textarea>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
         </div>
 
         <div>
             <br>
             <label>Imagen</label>
+<<<<<<< HEAD
             <textarea type="file" name="img" id="img" class="form-control"><%= usuario.imagen %></textarea>
+=======
+            <textarea type="file" name="image" id="image" class="form-control"><%= usuarios.image %></textarea>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
         </div>
 
         <div>
             <br>
             <label>Recibir Novedades:</label>
+<<<<<<< HEAD
             <textarea name="novedades" id="novedades" class="form-input"><%= usuario.novedades %></textarea>
         </div>
 
@@ -61,6 +98,9 @@
             <br>
             <label>Fecha de Creacion:</label>
             <textarea name="fechaCreacion" id="fechaCreacion" class="form-input"><%= usuario.fechaCreacion %></textarea>
+=======
+            <textarea name="novedades" id="novedades" class="form-input"><%= usuarios.novedades %></textarea>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
         </div>
 
         <div>
@@ -68,10 +108,19 @@
             <button type="submit" value="Guardar y volver" class="boton-personalizado">Guardar Cambios</button>
         </div>
 
+<<<<<<< HEAD
     </form>
 
     <form class="create-form" action="/user/delete/<%= usuario.id %>?_method=DELETE" method="post">
         <button class="boton-personalizado" type="delete" value="Borrar">Eliminar Usuario</button>
+=======
+        <br>
+        <button type="submit" class="boton-personalizado"><a href="/user/delete/<%=usuarios.id%>">Eliminar
+                perfil</a></button>
+    </form>
+    <br>
+
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
     </form>
 
     <footer>

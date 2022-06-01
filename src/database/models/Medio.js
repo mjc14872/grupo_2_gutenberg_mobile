@@ -14,16 +14,21 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         tableName: 'medios',
         timestamps: false,
-    
+
     }
-    const Medio = sequelize.define(alias, cols, config); 
+    const Medio = sequelize.define(alias, cols, config);
 
     Medio.associate = function (models) {
-        Medio.hasMany(models.Medio, { 
+        Medio.hasMany(models.Libro, {
             as: 'libros',
-            foreignKey:'medios_id',
+            foreignKey: 'medios_id',
         });
+        Medio.hasMany(models.Carrito, {
+            as: 'carritos',
+            foreignKey: 'medios_id',
+        });
+        
     }
 
-    return Medio
-}
+        return Medio
+    }

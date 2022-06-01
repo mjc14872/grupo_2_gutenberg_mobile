@@ -4,6 +4,7 @@
 <head>
     <%- include('./partials/head') %>
 </head>
+<<<<<<< HEAD
 
 <body>
     <header>
@@ -35,10 +36,61 @@
         <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= Usuario.id %>">Editar
                 perfil</a></button>
     </form>
+=======
 
-    </form>
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <section class="title">
+        <h2>DETALLE DE USUARIO</h2>
+    </section>
+
+    <section class="create-form">
+        <div class="container">
+            <article>
+                <h5>USUARIO</h5>
+                <br>
+                <img src="/images/avatars/<%= usuario.image %>">
+                <br>
+
+                <br>
+                <label>Nombres</label>
+                <h5>
+                    <%= usuario.nombres %>
+                </h5>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
+
+                <br>
+                <label>Apellidos</label>
+                <h5>
+                    <%= usuario.apellidos %>
+                </h5>
+
+                <br>
+                <label>Categoria</label>
+                <h5>
+                    <%= usuario.categoria %>
+                </h5>
+
+                <br>
+                <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= usuario.id %>">Editar
+                        perfil</a></button>
+                <br>
+
+                <br>
+                <button type="submit" class="boton-personalizado"><a href="/user/delete/<%=usuario.id%>">Eliminar
+                        perfil</a></button>
+                </form>
+                <br>
+
+            </article>
+    </section>
     <footer>
         <%- include('./partials/footer') %>
     </footer>
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 </body>

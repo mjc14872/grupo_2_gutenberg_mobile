@@ -11,6 +11,7 @@ const locals = require('./middlewares/locals');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
+const apiRouter = require('./routes/api');
 const { METHODS } = require('http');
 const app = express();
 const LogsMiddleware = require('./middlewares/userLogs.js');
@@ -39,6 +40,9 @@ app.use(LogsMiddleware);
 app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
+app.use('/api', apiRouter);
+
+
 
 
 // catch 404 and forward to error handler
