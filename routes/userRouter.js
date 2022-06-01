@@ -17,6 +17,34 @@ const storage = multer.diskStorage({
         const newFile = file.fieldname + Date.now() + "-" + path.extname(file.originalname);
         cb(null, newFile)
     }
+<<<<<<< HEAD
+  }) 
+  const upload = multer({ storage: storage });
+
+//Agregar el controller registro
+router.get('/listado-usuarios', userController.list);
+
+//router.get("/registro", userController.registro);
+//router.get("/admin" , administrador, userController.admin);
+
+//Crear usuario
+router.get('/registro', userController.add);
+router.post('/registro', upload.single('img'), userController.create);
+
+//editar usuario
+//router.get('/edit/:id', userController.edit); 
+//router.patch('/edit/:id', userController.update); 
+
+//eliminar usuario
+//router.delete('/delete/:id', userController.destroy); 
+
+//Agregar el controller login
+//router.get("/login", userController.login);
+router.post("/login", validator.login , userController.processLogin);
+//router.get("/perfil",  upload.single('img'), userController.perfil);
+
+//router.post("/logout", userController.logout);
+=======
 })
 const upload = multer({ storage: storage });
 
@@ -59,6 +87,7 @@ router.get('/editar-password', userController.editpassword);
 
 //cerrar sesion usuario
 router.post("/logout", userController.logout);
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 
 //TODO: agregar el modulo
 module.exports = router;
