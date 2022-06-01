@@ -10,10 +10,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false
         },
-        editorial: {
-            type: dataTypes.STRING(100),
-            allowNull: false
-        },
         precio_unitario: {
             type: dataTypes.DECIMAL(3, 2).UNSIGNED,
             allowNull: false

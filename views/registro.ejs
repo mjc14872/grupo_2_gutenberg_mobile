@@ -4,6 +4,16 @@
 <head>
     <%- include('./partials/head') %>
 </head>
+<<<<<<< HEAD
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST">
+        <h2>Registro de Usuario</h2>
+
+=======
 
 <body>
     <header>
@@ -19,6 +29,7 @@
     </section>
 
     <form class="create-form" action="/user/create" enctype="multipart/form-data" method="POST">
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
         <div>
             <br>
             <label>Nombres</label>
@@ -73,7 +84,11 @@
             <select name="categoria" id="categoria" class="form-input">
                 <option value="">Elegí</option>
                 <option type="radio" value="publicar libros" required>Publicar Libros</option>
+<<<<<<< HEAD
+                <option type="radio" value="leer libros" required>leer Libros</option>
+=======
                 <option type="radio" value="leer libros" required>Leer Libros</option>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
                 <br>
                 <% if(locals.errors && locals.errors.categoria){ %>
                     <span style="color: red">
@@ -81,16 +96,28 @@
                     </span>
                     <% } %>
             </select>
+<<<<<<< HEAD
         </div>
 
         <div>
             <br>
+            <label for="img" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="img" name="img">
+=======
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
+        </div>
+
+        <div>
+            <br>
+<<<<<<< HEAD
+=======
             <label for="image" class="form-label">Imagen</label>
             <input type="file" class="form-control" id="image" name="image">
         </div>
 
         <div>
             <br>
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
             <label for="novedades" class="form-label">Recibir Novedades:</label>
             <select name="novedades" id="novedades" class="form-input">
                 <option value="">Elegí</option>
@@ -106,6 +133,21 @@
 
         <div>
             <br>
+<<<<<<< HEAD
+            <label>Fecha de Creacion</label>
+            <input type="date" name="fechaCreacion" id="fechaCreacion">
+            <br>
+            <% if(locals.errors && locals.errors.fechaCreacion){ %>
+                <span style="color: red">
+                    <%= errors.fechaCreacion.msg %>
+                </span>
+                <% } %>
+        </div>
+
+        <div>
+            <br>
+=======
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
             <label for="administrador" class="form-label">Es Administrador:</label>
             <select name="administrador" id="administrador" class="form-input">
                 <option value="">Elegí</option>
@@ -123,17 +165,23 @@
             <br>
             <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
         </div>
+<<<<<<< HEAD
+=======
 
         <div class="erroresfront">
             <ul></ul>
         </div>
 
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
     </form>
     
     <footer>
         <%- include('./partials/footer') %>
     </footer>
+<<<<<<< HEAD
+=======
 
     <script src="/js/userValid.js"></script>
 
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 </body>

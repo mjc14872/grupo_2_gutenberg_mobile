@@ -19,14 +19,22 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         password: {
+<<<<<<< HEAD
+            type: dataTypes.STRING(45),
+=======
             type: dataTypes.STRING(100),
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
             allowNull: false
         },
         categoria: {
             type: dataTypes.STRING(45),
             allowNull: false
         },
+<<<<<<< HEAD
+        imagen: {
+=======
         image: {
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
             type: dataTypes.STRING(100),
             allowNull: false
         },
@@ -34,6 +42,14 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BOOLEAN,
             allowNull: false
         },
+<<<<<<< HEAD
+        fechaCreacion: {
+            type: dataTypes.DATE,
+            allowNull: false
+        },
+
+=======
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
         administrador: {
             type: dataTypes.BOOLEAN,
             allowNull: false
@@ -46,11 +62,14 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Usuario = sequelize.define(alias, cols, config);
 
+<<<<<<< HEAD
+=======
     Usuario.associate = function (models) {
         Usuario.hasMany(models.Carrito, {
             as: 'carritos',
             foreignKey: 'usuarios_id',
         });
     }
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
     return Usuario
 }

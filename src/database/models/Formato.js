@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
     const Formato = sequelize.define(alias, cols, config); 
 
     Formato.associate = function (models) {
-        Formato.hasMany(models.Formato, { 
+        Formato.hasMany(models.Libro, { 
             as: 'libros',
             foreignKey:'formatos_id',
         });

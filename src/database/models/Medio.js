@@ -19,11 +19,11 @@ module.exports = (sequelize, dataTypes) => {
     const Medio = sequelize.define(alias, cols, config);
 
     Medio.associate = function (models) {
-        Medio.hasMany(models.Medio, {
+        Medio.hasMany(models.Libro, {
             as: 'libros',
             foreignKey: 'medios_id',
         });
-        Medio.hasMany(models.Medio, {
+        Medio.hasMany(models.Carrito, {
             as: 'carritos',
             foreignKey: 'medios_id',
         });

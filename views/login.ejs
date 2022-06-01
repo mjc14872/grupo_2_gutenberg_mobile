@@ -9,12 +9,18 @@
   <header>
     <%- include('./partials/header') %>
   </header>
+<<<<<<< HEAD
+  <form class="create-formlogin" action="/user/login" method="POST">
+    <h2>Iniciar Sesion</h2>
+
+=======
 
   <section class="title">
     <h2>INICIAR SESION</h2>
   </section>
 
   <form class="create-formlogin" action="/user/login" method="POST">
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
     <div>
       <br>
       <label class="form-label">Email</label>
@@ -53,6 +59,13 @@
 
     <div>
       <br>
+<<<<<<< HEAD
+      <button type="submit" value="Registrarse" class="boton-personalizado"><a
+          href="/user/registro">Registrarme</a></button>
+    </div>
+  </form>
+
+=======
       <button type="submit" value="Registrarme" class="boton-personalizado"><a
           href="/user/registro">Registrarme</a></button>
     </div>
@@ -66,6 +79,7 @@
   </form>
 
 
+>>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
   <% if(locals.errorMsg){ %>
     <span style="color: red;">
       <%= errorMsg %>
