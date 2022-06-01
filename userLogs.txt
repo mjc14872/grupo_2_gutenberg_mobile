@@ -3019,3 +3019,15 @@ El usuario ingreso a la ruta: /api/total-por-genero
 =======
 >>>>>>> af76d8508cbb18cf7e69286266803275a51d2b78
 >>>>>>> 32c00868a7cdf663de9dec0825bab1a25cdc89c6
+El usuario ingreso a la ruta: /
+El usuario ingreso a la ruta: /user/registro
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products
+El usuario ingreso a la ruta: /api/products

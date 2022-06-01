@@ -14,6 +14,7 @@ const productRouter = require('./routes/productRouter');
 const apiRouter = require('./routes/api');
 const { METHODS } = require('http');
 const app = express();
+const cors = require("cors")
 const LogsMiddleware = require('./middlewares/userLogs.js');
 
 // view engine setup
@@ -35,6 +36,7 @@ app.use(methodOverride("_method"));
 app.use(recordame);
 app.use(locals);
 app.use(LogsMiddleware);
+app.use(cors())
 
 // Rutas
 app.use("/", indexRouter);

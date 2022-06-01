@@ -36,7 +36,7 @@ const apis = {
                     nombres: resultado.nombres,
                     apellidos: resultado.apellidos,
                     email: resultado.email,
-                    avatar: "http://localhost:3000/images/avatars/" + resultado.image
+                    avatar: "http://localhost:3001/images/avatars/" + resultado.image
                    
                 }
             }
