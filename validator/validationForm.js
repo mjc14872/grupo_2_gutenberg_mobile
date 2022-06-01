@@ -51,9 +51,6 @@
 //        check("categoria")
 //            .notEmpty()
 //            .withMessage("El campo categoria no puede estar vacio"),
-//        check("fechaCreacion")
-//            .notEmpty()
-//            .withMessage("El campo fechaCreacion no puede estar vacio"),
 //    ]
 //}
 //

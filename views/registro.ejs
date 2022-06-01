@@ -10,6 +10,10 @@
         <%- include('./partials/header') %>
     </header>
 
+    <!--div class="errores">
+        <ul></ul>
+    </div-->
+
     <section class="title">
         <h2>REGISTRO DE USUARIOS</h2>
     </section>
@@ -119,8 +123,17 @@
             <br>
             <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
         </div>
+
+        <div class="erroresfront">
+            <ul></ul>
+        </div>
+
     </form>
+    
     <footer>
         <%- include('./partials/footer') %>
     </footer>
+
+    <script src="/js/userValid.js"></script>
+
 </body>
