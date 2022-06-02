@@ -94,8 +94,8 @@
             <label for="novedades" class="form-label">Recibir Novedades:</label>
             <select name="novedades" id="novedades" class="form-input">
                 <option value="">Elegí</option>
-                <option type="radio" value="si" required>Si</option>
-                <option type="radio" value="no" required>No</option>
+                <option type="radio" value="1" required>Si</option>
+                <option type="radio" value="0" required>No</option>
             </select>
             <% if(locals.errors && locals.errors.novedades){ %>
                 <span style="color: red">
@@ -109,8 +109,8 @@
             <label for="administrador" class="form-label">Es Administrador:</label>
             <select name="administrador" id="administrador" class="form-input">
                 <option value="">Elegí</option>
-                <option type="radio" value="si" required>Si</option>
-                <option type="radio" value="no" required>No</option>
+                <option type="radio" value="1" required>Si</option>
+                <option type="radio" value="0" required>No</option>
             </select>
             <% if(locals.errors && locals.errors.administrador){ %>
                 <span style="color: red">
