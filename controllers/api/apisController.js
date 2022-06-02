@@ -89,24 +89,23 @@ const apis = {
     },
     lastProducts: function(req, res){
         db.Libro.findAll({
-            include:["generos"],
+            include:["generos", "autores"],
             order: [
                 ["id", "DESC"],
             ],
             limit: 3
         })
-        .then(libros => {
-            let dataNew = libros.map(libros => {
+        .then(libros => {  
+            let dataNew = libros.map(libro => {
+                
+                console.log(libros.autores)
                 return {
-                    id:libros.id,
-                    titulo: libros.titulo,
-                    imagen: "http://localhost:3000/product/detalle-producto/" + libros.imagen,
-                    autor: libros.autores,
-                    formato: libros.formatos,
-                    medio: libros.medios,
-                    idioma: libros.idiomas,
-                    description: libros.resenia,
-                    genero: libros.generos,
+                    id: libro.id,
+                    titulo: libro.titulo,
+                    autor:libro.autores,
+                    description: libro.resenia,
+                    imagen: "http://localhost:3000/product/detalle-producto/" + libro.imagen,
+                    endpoint: "/api/products/" + libro.id
                 }
             })
             let respuesta = {
