@@ -94,23 +94,24 @@
             <label for="novedades" class="form-label">Recibir Novedades:</label>
             <select name="novedades" id="novedades" class="form-input">
                 <option value="">Elegí</option>
-                <option value="si" required>Si</option>
-                <option value="no" required>No</option>
+                <option value="1" required>Si</option>
+                <option value="0" required>No</option>
+            
+                <% if(locals.errors && locals.errors.novedades){ %>
+                    <span style="color: red">
+                        <%= errors.novedades.msg %>
+                    </span>
+                    <% } %>
             </select>
-            <% if(locals.errors && locals.errors.novedades){ %>
-                <span style="color: red">
-                    <%= errors.novedades.msg %>
-                </span>
-                <% } %>
-        </div>
+            </div>
 
         <div>
             <br>
             <label for="administrador" class="form-label">Es Administrador:</label>
             <select name="administrador" id="administrador" class="form-input">
                 <option value="">Elegí</option>
-                <option value="si" required>Si</option>
-                <option value="no" required>No</option>
+                <option value="1" required>Si</option>
+                <option value="0" required>No</option>
             </select>
             <% if(locals.errors && locals.errors.administrador){ %>
                 <span style="color: red">
