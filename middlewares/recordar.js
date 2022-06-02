@@ -18,6 +18,7 @@ function recordame (req, res, next){
             nombres: usuarioCookies.nombres,
             apellidos: usuarioCookies.apellidos,
             image: usuarioCookies.image,
+            isAdmin: usuarioCookies.administrador
         }
 
         req.session.usuarioLogueado = user;

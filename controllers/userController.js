@@ -99,27 +99,33 @@ const userController = {
         }
 
         db.Usuario.findOne({ where: { email: req.body.email } })
-            .then(userFound => {
-                if (userFound && bcrypt.compareSync(req.body.password, userFound.password)) {
-                    //proceso session
-                    let user = {
-                        id: userFound.id,
-                        nombres: userFound.nombres,
-                        apellidos: userFound.apellidos,
-                        image: userFound.image,
-                        categoria: userFound.categoria,
-                    }
-
-                    req.session.usuarioLogueado = user;
-
-                    if (req.body.remember) {
-                        res.cookie("user", user.id, { maxAge: 60000 * 24 })
-                    }
-                    res.redirect("/")
-                } else {
-                    res.render("login", { errorMsg: "Error credenciales invalidas" })
+        .then(userFound => {
+            if (userFound && bcrypt.compareSync(req.body.password, userFound.password)) {
+                //proceso session
+                let user = {
+                    id: userFound.id,
+                    nombres: userFound.nombres,
+                    apellidos: userFound.apellidos,
+                    image: userFound.image,
+                    categoria: userFound.categoria,
+                    isAdmin: userFound.administrador
                 }
-            })
+
+                req.session.usuarioLogueado = user;
+
+                if (req.body.remember) {
+                    res.cookie("user", user.id, { maxAge: 60000 * 24 })
+                }
+                if (req.session.usuarioLogueado.isAdmin) {
+                    res.redirect("/user/admin")
+                }
+                else {
+                    res.redirect("/")
+                }
+            } else {
+                res.render("login", { errorMsg: "Error credenciales invalidas" })
+            }
+        })
     },
 
     'perfil': function (req, res) {

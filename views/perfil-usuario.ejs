@@ -4,39 +4,6 @@
 <head>
     <%- include('./partials/head') %>
 </head>
-<<<<<<< HEAD
-
-<body>
-    <header>
-        <%- include('./partials/header') %>
-    </header>
-    <form class="create-form" action="/user/perfil" method="GET">
-        <h2>Mi Perfil</h2>
-
-        <div>
-            <br>
-            <label>Nombre</label>
-            <textarea name="nombres" id="nombres" class="form-input"><%= Usuario.nombres %></textarea>
-        </div>
-
-        <div>
-            <br>
-            <label>Apellido</label>
-            <textarea name="apellidos" id="apellidos" class="form-input"><%= Usuario.apellidos %></textarea>
-        </div>
-
-
-        <br>
-        <div>
-            <br>
-            <img src="/images/avatars/<%= Usuario.imagen %>">
-        </div>
-
-        <br>
-        <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= Usuario.id %>">Editar
-                perfil</a></button>
-    </form>
-=======
 
 <body>
     <header>
@@ -59,7 +26,6 @@
                 <h5>
                     <%= usuario.nombres %>
                 </h5>
->>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 
                 <br>
                 <label>Apellidos</label>
@@ -89,8 +55,4 @@
     <footer>
         <%- include('./partials/footer') %>
     </footer>
-<<<<<<< HEAD
-
-=======
->>>>>>> f6a01e511e55da17f944636a4c159a48e11e2584
 </body>
