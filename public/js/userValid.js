@@ -1,8 +1,11 @@
-//validaciones desde el backend
+//validaciones desde el front
 window.addEventListener("load", function() {
     let formulario = document.querySelector("form.create-form");
+    
 
     formulario.addEventListener("submit", function(e) {
+        
+        avatar = document.querySelector('.form-control').value;
 
         let errores = [];
 
