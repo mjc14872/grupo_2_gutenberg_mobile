@@ -8,60 +8,37 @@
         <header>
             <%- include('./partials/header') %>
         </header>
-        <div class="sieteMaridos">
-            <img src="/images/<%= libro.imagen %>">
-        </div>
-        <div class= "titulo">
-            <%= libro.titulo %>
-        </div>
-        <span class="autor" >Autor:</span><span  style="color: black"><%= libro.autores.nombres + " " + libro.autores.apellidos  %></span>
-        <span class= "editorial">Editorial:</span><span style="color: black"><%= libro.editorial %></span> 
-        
-        <div class="compra">
-            <div class="precio">
-                <h2>AR$ <%= libro.precio %></h2>
-           </div>
-           <div class="agregarProducto">
-                <img class="cartmas" width= "80" src="/images/cartmas.svg"> <h2>AGREGAR AL CARRITO</h2>
-           </div>
-           <div class="envio">
-                <img class="truck" width= "50" src="/images/bx_bxs-truck.svg"><h2>Costos de envío</h2>
-           </div>
-           <div class="metodos">
-                <img class="check" width= "50" src="/images/fa-solid_money-check-alt.svg"> <h2>Métodos de pago</h2>
-           </div>
-        </div>
-    
-        <div class="resenia">
-            <span class="res" style="color: black">Reseña del libro</span>
-            <span  class= "ress"style="color:#f68c5f" > <%= libro.titulo %></span>
-            <div class="textoRes">
-                <p>
-                    <%= libro.resenia %> 
+   
+        <div class="book_card" id="bright">
+            <div class="info_section">
+              <div class="book_header">
+                <img class="bookimg" src="/images/<%= libro.imagen %>"/>
+                <h1><%= libro.titulo %></h1>
+                <h4><%= libro.autores.nombres + " " + libro.autores.apellidos  %></h4>
+                <span class="editorial"><%= libro.editorial %></span>
+                <p class="pages"><%= libro.paginas %> páginas</p>
+              </div>
+              <div class="resenia">
+                <p class="text">
+                  <%= libro.resenia %>
                 </p>
-            </div>
-    
-            <div class="detalle">
-                <span class="deta" style="color: black">Detalles de</span>
-                <span class="au" style="color:#f68c5f"><%= libro.titulo %></span>
-            </div>
-    
-            <div class="descripcion">
-                <ul style="list-style: none;">
-                    <li>Número de páginas:<%= libro.paginas %></li>
-    
-                    <li>Peso:<%= libro.peso %></li>
-                    
-                    <li>Formato:<%= libro.formato %></li>
-                     
-                    <li>Edición:<%= libro.edicion %></li>
-                    
-                    <li>Idioma:<%= libro.idioma %></li>
-                    
-                    <li>ISBN:<%= libro.isbn %></li>
+              </div>
+              <div class="subdetails">
+                <ul>
+                  <li><i class="material-icons"><%= libro.formato %></i></li>
+                  <li><i class="material-icons">ISBN<%= libro.isbn %></i></li>
+                  <li><i class="material-icons"><%= libro.edicion %></i></li>
+                  <li><i class="material-icons"><%= libro.peso %> grs.</i></li>
+                  <li><img class="material-icons" src="/images/cartmas.svg"></li>
+                  <li><img class="material-icons" src="/images/bx_bxs-truck.svg"></li>
+                  <li><img class="material-icons" src="/images/fa-solid_money-check-alt.svg"></li>
                 </ul>
-           </div>    
-        </div>
+              </div>
+            </div>
+            <div class="backimg coverimg">
+              <img class="backimg coverimg" src="/images/bookwp.jpg"/>
+            </div>
+          </div>
         <footer>
             <%- include('./partials/footer') %>
         </footer>

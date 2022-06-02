@@ -7,31 +7,6 @@ const validator = require("../validator/validationForm");
 const userController = require('../controllers/userController');
 const administrador = require('../middlewares/admin');
 
-//Validaciones
-
-// const validacionRegistro=[
-// body('.form-control')
-// .custom((value,{req})=>{
-//    let file=req.file.originalname;
-
-//    let extensionArchivo= (path.extname(file)).toLowerCase();
-   
-//    console.log(extensionArchivo.toString() != '.jpeg')
-
-//    if (extensionArchivo.toString() == '.jpeg' || extensionArchivo.toString() == '.gif'){
-//       return true 
-//    } else {
-//       throw new Error('img format is incorrect');
-//    }
-     
-   
-
-
-
-
-
-
-
 //Agregar Multer
 const multer = require('multer');
 const storage = multer.diskStorage({
