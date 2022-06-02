@@ -3889,3 +3889,9 @@ El usuario ingreso a la ruta: /images/avatars/image1654146777244-.png
 El usuario ingreso a la ruta: /images/avatars/image1654146970178-.png
 El usuario ingreso a la ruta: /user/perfil
 El usuario ingreso a la ruta: /images/avatars/image1654146970178-.png
+El usuario ingreso a la ruta: /user/admin
+El usuario ingreso a la ruta: /
+El usuario ingreso a la ruta: /user/registro
+El usuario ingreso a la ruta: /user/create
+El usuario ingreso a la ruta: /user/login
+El usuario ingreso a la ruta: /user/admin
