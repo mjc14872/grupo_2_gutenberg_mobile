@@ -65,6 +65,49 @@ const productController = {
             .then(carritos => {
                 res.render('listado-carrito.ejs', { carritos });
             })
+    },
+    'create': (req, res) => {
+        db.Genero.findAll()
+        .then(function(generos) {
+            db.Idioma.findAll()
+                .then(function(idiomas) {
+                    db.Formato.findAll()
+                        .then(function(formatos) {
+                            db.Medio.findAll()
+                                .then(function(medios) {
+                                    console.log('generos >>>> '+generos);
+                                    return res.render("crear-producto", {idiomas, generos, formatos, medios});
+                                })
+                        })
+                })
+        })
+    },
+    'store': (req, res) => {
+        console.log('Por guardar '+req.body.titulo+' '+req.body.autor+' '+req.body.editorial+' '+req.body.imagen);
+        x = db.Libro.create({
+            titulo: req.body.titulo,
+            //autor:req.body.autor,
+            editorial: req.body.editorial,
+            precio_unitario: req.body.preciounitario,
+            descuento: req.body.descuento,
+            bestSeller: req.body.bestseller,
+            resenia: req.body.resenia,
+            paginas: req.body.paginas,
+            peso: req.body.peso,
+            edicion: req.body.edicion,
+            isbn: req.body.isbn,
+            cantidad: req.body.cantidad,
+            imagen: req.file ? req.file.filename : "image-default.jpg",
+            generos_id: req.body.genero,
+            idiomas_id: req.body.idioma,
+            formatos_id: req.body.formato,
+            autores_id: req.body.autor,
+            medios_id: req.body.medio
+        });
+        console.log('Redirigiendo a product...'+x);
+        res.redirect("/product");
     }
+
+
 }
 module.exports = productController;

@@ -7,6 +7,9 @@
         <header>
             <%- include('./partials/header') %>
         </header>
+
+        <br><br><br><br>
+
    <form class="create-form" action="/product/create" method= "POST" enctype="multipart/form-data">
        <h2>Crear Producto</h2>
     
@@ -14,7 +17,7 @@
             <br>
             <label>Titulo</label>
             <br>
-            <input type="text" name="nombre" id="nombre" required="">
+            <input type="text" name="titulo" id="nombre" required="">
         </div>
 
         <div>
@@ -38,10 +41,14 @@
             <input type="text" name="resenia" id="resenia" required="">
         </div>
         <div>
-            <br>
-            <label>Genero</label>
-            <br>
-            <input type="text" name="genero" id="genero" required="">
+            <label for="">Género: </label>
+            <select name="genero">
+                <% for (let i = 0; i < generos.length; i++) {%>
+                    <option value="<%=generos[i].id%>">
+                        <%=generos[i].nombre%>
+                    </option>
+                <% } %>
+            </select>
         </div>
         <div>
             <br>
@@ -57,17 +64,41 @@
                     <br>
                     <input type="text" name="peso" id="peso" required="">
                     <br>
-                    <label>Formato</label>
-                    <br>
-                    <input type="text" name="formato" id="formato" required="">
+                    <div>
+                        <label for="">Formato: </label>
+                        <select name="formato">
+                            <% for (let i = 0; i < formatos.length; i++) {%>
+                                <option value="<%=formatos[i].id%>">
+                                    <%=formatos[i].nombre%>
+                                </option>
+                            <% } %>
+                        </select>
+                    </div>
                     <br>
                     <label>Edición</label>
                     <br>
                     <input type="text" name="edicion" id="edicion" required="">
                     <br>
-                    <label>Idioma</label>
-                    <br>
-                    <input type="text" name="idioma" id="idioma" required="">
+                    <div>
+                        <label for="">Idioma: </label>
+                        <select name="idioma">
+                            <% for (let i = 0; i < idiomas.length; i++) {%>
+                                <option value="<%=idiomas[i].id%>">
+                                    <%=idiomas[i].nombre%>
+                                </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">Medio: </label>
+                        <select name="medio">
+                            <% for (let i = 0; i < medios.length; i++) {%>
+                                <option value="<%=medios[i].id%>">
+                                    <%=medios[i].nombre%>
+                                </option>
+                            <% } %>
+                        </select>
+                    </div>
                     <br>
                     <label>ISBN</label>
                     <br>
@@ -82,7 +113,7 @@
             <br>
             <label>Precio</label>
             <br>
-            <input type="number" name="precio" id="precio" required="">
+            <input type="number" name="preciounitario" id="precio" required="">
         </div>
         <div>
             <br>
@@ -108,20 +139,23 @@
         </div>
         <div>
             <br>
-            <label for="bestSeller">Best Seller</label>
+            <label for="bestseller">Best Seller</label>
             <br>
-            <select name="bestSeller" id="bestSeller" class="form-input">
+            <select name="bestseller" id="bestSeller" class="form-input">
                 <option value=" "></option>
                 <option value="si">Si</option>
                 <option value="no">No</option>
             </select>
                 
         </div>
-
+        <div>
+            <label for="cantidad">Cantidad: </label>
+            <input type="number" name="cantidad">
+        </div>
         <div>
             <br>
-            <label for="img" class="form-label">Imagen</label>
-            <input type="file" id="img" name="img" multiple>
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" id="imagen" name="imagen" multiple>
         </div>
 
         <div>

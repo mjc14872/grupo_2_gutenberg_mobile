@@ -29,8 +29,8 @@ router.get('/listado-carrito/', productController.car);
 
 
 //Crear producto
-// router.get("/create", productController.create);  
-// router.post("/create", upload.single('img'), productController.store); 
+ router.get("/create", productController.create);  
+ router.post("/create", upload.single('imagen'), productController.store); 
 
 //editar producto
 // router.get('/edit/:id', productController.edit); 
