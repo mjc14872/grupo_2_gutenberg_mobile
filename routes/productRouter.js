@@ -33,6 +33,8 @@ router.get("/", productController.listar);
  router.post("/create", upload.single('imagen'), productController.store); 
 
 //editar producto
+router.get("/editar/:id", productController.editar);
+router.post("/editar/:id", productController.actualizar);
 // router.get('/edit/:id', productController.edit); 
 // router.patch('/edit/:id', productController.update); 
 

@@ -3,6 +3,8 @@ const db = require('../src/database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
+const session = require("express-session");
+
 // const fetch = require('node-fetch');
 
 
@@ -14,6 +16,8 @@ const Formatos = db.Formato;
 const Idiomas = db.Idioma;
 const Generos = db.Genero;
 const Carritos = db.Carrito;
+// const user = req.session.usuarioLogueado;
+
 
 // const API = 'http://www.omdbapi.com/?apikey=8669f632';
 
@@ -40,13 +44,15 @@ const productController = {
             })
     },
     'detail': (req, res) => {
+        const user = req.session.usuarioLogueado;
         db.Libro.findByPk(req.params.id,
             {
                 include: ["autores"]
             })
             .then(libro => {
-                res.render('detalle-producto.ejs', { libro });
+                res.render('detalle-producto', { libro, user });
             });
+
     },
     'shop': (req, res) => {
         db.Libro.findByPk(req.params.id,
@@ -117,14 +123,55 @@ const productController = {
         // console.log(req.params.id);
         db.Libro.findByPk(req.params.id, {
             include: [{association: "genero"}, {association: "formato"},
-                      {association: "idioma"}, {association: "medio"}]
+                      {association: "idioma"}, {association: "medio"}, {association: "autor"}]
         })
             .then(function(libro) {
-                res.render("detalle_admin", {libro});
+                console.log('ALGO<<<<<<<<<' + Object.keys(libro));
+                res.render("detalle-producto", {libro});
             })
     
     },
+    editar: function(req, res) {
+        let pedidoLibro = db.Libro.findByPk(req.params.id);
+        let pedidoGenero = db.Genero.findAll();
+        let pedidoIdioma = db.Idioma.findAll();
+        let pedidoFormato = db.Formato.findAll();
+        let pedidoMedio = db.Medio.findAll();
+        let pedidoAutor = db.Autor.findAll();
 
+        Promise.all([pedidoLibro, pedidoGenero, pedidoIdioma, pedidoFormato, pedidoMedio, pedidoAutor])
+            .then(function([libro, generos, idiomas, formatos, medios, autores]){
+                res.render("editar_admin", 
+                {libro, generos, idiomas, formatos, medios, autores});
+            })
+    },
+    actualizar: function(req, res){
+        db.Libro.update({
+            titulo: req.body.titulo,
+            autor:req.body.autor,
+            editorial: req.body.editorial,
+            precio_unitario: req.body.preciounitario,
+            descuento: req.body.descuento,
+            bestSeller: req.body.bestseller,
+            resenia: req.body.resenia,
+            paginas: req.body.paginas,
+            peso: req.body.peso,
+            edicion: req.body.edicion,
+            isbn: req.body.isbn,
+            cantidad: req.body.cantidad,
+            imagen: req.file ? req.file.filename : "image-default.jpg",
+            generos_id: req.body.genero,
+            idiomas_id: req.body.idioma,
+            formatos_id: req.body.formato,
+            autores_id: req.body.autor,
+            medios_id: req.body.medio
+        }, {
+            where: {
+                id: req.params.id
+            }
+        });
 
+        res.redirect("/product/" + req.params.id);
+    },
 }
 module.exports = productController;
