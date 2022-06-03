@@ -86,7 +86,7 @@ const productController = {
         console.log('Por guardar '+req.body.titulo+' '+req.body.autor+' '+req.body.editorial+' '+req.body.imagen);
         x = db.Libro.create({
             titulo: req.body.titulo,
-            //autor:req.body.autor,
+            autor:req.body.autor,
             editorial: req.body.editorial,
             precio_unitario: req.body.preciounitario,
             descuento: req.body.descuento,
@@ -106,7 +106,24 @@ const productController = {
         });
         console.log('Redirigiendo a product...'+x);
         res.redirect("/product");
-    }
+    },
+    listar: function(req, res) {
+        db.Libro.findAll()
+            .then(function(libros){
+                res.render("listado-productos", {libros:libros})
+            })
+    },
+    detalle_admin: function(req, res) {
+        // console.log(req.params.id);
+        db.Libro.findByPk(req.params.id, {
+            include: [{association: "genero"}, {association: "formato"},
+                      {association: "idioma"}, {association: "medio"}]
+        })
+            .then(function(libro) {
+                res.render("detalle_admin", {libro});
+            })
+    
+    },
 
 
 }

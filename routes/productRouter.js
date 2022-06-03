@@ -26,7 +26,7 @@ router.get('/listado-productos', productController.list);
 router.get('/detalle-producto/:id', productController.detail);
 router.get('/carrito-compras/:id', productController.shop);
 router.get('/listado-carrito/', productController.car);
-
+router.get("/", productController.listar);
 
 //Crear producto
  router.get("/create", productController.create);  

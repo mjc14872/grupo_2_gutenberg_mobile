@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head') %>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="contenedor">
+            <img class="logo" src="/images/isologomoradosmall.png" alt="gutenberg logo">
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for="menu-bar"></label>
+            <nav class="menu">
+                <a class="active" href="/">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="/profile">Perfil</a>
+                <a href="/product/carrito-compras">Carrito de compras</a>
+                <a href="/product/detalle-producto">Detalle producto</a>
+                <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
+                <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
+                <!--a href="#">Géneros</a-->
+                <a href="/ofertas">Ofertas</a>
+                <a href="/product">Listado de Productos</a>
+                <!---- <a href="#">Crowfounding</a> Se comenta para poder visualizar todo el menu hambuguesa  (vista administrador)-->
+                <!----<a href="/product/detalle-producto">Detalle producto</a>-->
+                <a href="/product/create">Crear Productos</a>
+                <form class="create-logout" action="/user/logout" method="post">
+                    <button type="submit">Cerrar Sesion</button>
+                    <br>
+                </form>
+                <div>
+                    <p> Sos administrador/a </p>
+                </div>
+
+            </nav>
+        </div>
+        <div class="lowerbar">
+            <form>
+                <input class="searchbox" type="text" placeholder="Buscar">
+                <button type="submit" class="fa fa-search"></button>
+            </form>
+        </div>
+    </header>
+   
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>Detalle de Libros</h2>
+    <br>
+        <h3>
+            Libro: <%=libro.titulo%>
+        </h3>
+  
+        <ul>
+            <li>
+                Autor (es): <%=libro.autor%>
+            </li>
+            <li>
+                Editorial: <%=libro.editorial%>
+            </li>
+            <li>
+                Precio unitario: <%=libro.precio_unitario%>
+            </li>
+            <li>
+                Descuento: <%=libro.descuento%>
+            </li>
+            <li>
+                BestSeller: <%=libro.bestSeller%>
+            </li>
+            <li>
+                Reseña: <%=libro.resenia%>
+            </li>
+            <li>
+                Páginas: <%=libro.paginas%>
+            </li>
+            <li>
+                Peso: <%=libro.peso%>
+            </li>
+            <li>
+                Edición: <%=libro.edicion%>
+            </li>
+            <li>
+                ISBN: <%=libro.isbn%>
+            </li>
+            <li>
+                Cantidad: <%=libro.cantidad%>
+            </li>
+            <li>
+                Imagen: <%=libro.imagen%>
+            </li>
+            <li>
+                Género: <%=libro.genero.nombre%>
+            </li>
+            <li>
+                Idioma: <%=libro.idioma.nombre%>
+            </li>
+            <li>
+                Formato: <%=libro.formato.nombre%>
+            </li>
+
+            <li>
+                Medio: <%=libro.medio.nombre%>
+            </li>
+        </ul>
+        <a href="/product/editar/<%=libro.id%>">
+            <button>Editar</button>
+        </a>
+        <form action="/product/borrar/<%=libro.id%>" method="POST">
+            <button type="Submit">Eliminar</button>
+        </form>
+
+        <footer>
+            <%- include('./partials/footer') %>
+
+        </footer>
+
+</body>
+
+</html>
