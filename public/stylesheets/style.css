@@ -112,7 +112,6 @@ footer .bold {
         background: white;
         height: 30px;
         margin-top: 4px;
-        ;
         margin-left: 3px;
         width: 20%;
     }
@@ -132,5 +131,14 @@ footer .bold {
         text-align: center;
         background: rgba(246, 140, 95, 1);
         color: rgb(255, 255, 255);
+    }
+
+    .erroresfront ul {
+        display: table;
+        margin: 0px auto 0px auto;
+        background-color:  rgba(246, 140, 95, 1);
+        padding-inline: 6px;
+        color: white;
+        border-radius: 10px;
     }
 }

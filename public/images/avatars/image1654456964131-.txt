@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <section class="title">
+        <h2>DETALLE DE USUARIO</h2>
+    </section>
+
+    <section class="users">
+
+        <div class="container">
+            <article>
+                <img src="/images/avatars/<%= usuarios.image %>" alt=""><br>
+                <h5>USUARIO</h5>
+                <br>
+                <h5>
+                    <%= usuarios.nombres %>
+                </h5>
+                <h5>
+                    <%= usuarios.apellidos %>
+                </h5>
+                <h5>
+                    <%= usuarios.email %>
+                </h5>
+                <h5>
+                    <%= usuarios.categoria %>
+                </h5>
+                <h5>
+                    <%= usuarios.image %>
+                </h5>
+                <h5>
+                    <%= usuarios.novedades %>
+                </h5>
+                <h5>
+                    <%= usuarios.fechaCreacion %>
+                </h5>
+                <h5>
+                    <%= usuarios.administrador %>
+                </h5>
+                <a href="/user/edit/<%=usuarios.id %>">
+                    <button>EDITAR USUARIO</button>
+                </a>
+                <form action="/user/delete/<%=usuarios.id%>" method="POST">
+                    <button type="submit">BORRAR USUARIO</button>
+                </form>
+
+            </article>
+    </section>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+</body>
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+
+    <section class="title">
+        <h2>Mi Perfil</h2>
+    </section>
+
+    <form class="create-form" action="/user/perfil" method="GET">
+        
+        <div>
+            <br>
+            <label>Nombre</label>
+            <textarea name="nombres" id="nombres" class="form-input"><%= usuario.nombres %></textarea>
+        </div>
+
+        <div>
+            <br>
+            <label>Apellido</label>
+            <textarea name="apellidos" id="apellidos" class="form-input"><%= usuario.apellidos %></textarea>
+        </div>
+
+
+        <br>
+        <div>
+            <br>
+            <img src="/images/avatars/<%= usuario.image %>">
+        </div>
+
+        <br>
+        <button type="submit" class="boton-personalizado"><a href="/user/edit/<%= usuario.id %>">Editar perfil</a></button>
+        <br>
+
+    </form>
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+</body>

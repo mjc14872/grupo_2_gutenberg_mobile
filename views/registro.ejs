@@ -10,10 +10,6 @@
         <%- include('./partials/header') %>
     </header>
 
-    <!--div class="errores">
-        <ul></ul>
-    </div-->
-
     <section class="title">
         <h2>REGISTRO DE USUARIOS</h2>
     </section>
@@ -87,6 +83,12 @@
             <br>
             <label for="image" class="form-label">Imagen</label>
             <input type="file" class="form-control" id="image" name="image">
+            <br>
+            <% if(locals.errors && locals.errors.image){ %>
+                <span style="color: red">
+                    <%= errors.image.msg %>
+                </span>
+                <% } %>
         </div>
 
         <div>
@@ -94,8 +96,8 @@
             <label for="novedades" class="form-label">Recibir Novedades:</label>
             <select name="novedades" id="novedades" class="form-input">
                 <option value="">Elegí</option>
-                <option type="radio" value="si" required>Si</option>
-                <option type="radio" value="no" required>No</option>
+                <option value="1" required>Si</option>
+                <option value="0" required>No</option>
             </select>
             <% if(locals.errors && locals.errors.novedades){ %>
                 <span style="color: red">
@@ -109,8 +111,8 @@
             <label for="administrador" class="form-label">Es Administrador:</label>
             <select name="administrador" id="administrador" class="form-input">
                 <option value="">Elegí</option>
-                <option type="radio" value="si" required>Si</option>
-                <option type="radio" value="no" required>No</option>
+                <option value="1" required>Si</option>
+                <option value="0" required>No</option>
             </select>
             <% if(locals.errors && locals.errors.administrador){ %>
                 <span style="color: red">
@@ -121,12 +123,18 @@
 
         <div>
             <br>
-            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
+            <button type="submit" value="Guardar" class="boton-personalizado">Guardar</button>
         </div>
 
         <div class="erroresfront">
             <ul></ul>
         </div>
+
+        <% if(locals.errorMsg){ %>
+            <span style="color: red;">
+              <%= errorMsg %>
+            </span>
+            <% } %>
 
     </form>
     

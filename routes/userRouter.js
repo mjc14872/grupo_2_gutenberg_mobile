@@ -30,7 +30,7 @@ router.get("/admin", administrador, userController.admin);
 router.get('/registro', upload.single('image'), userController.add);
 
 //creacion de usuarios
-router.post('/create', validator.registro, upload.single('image'), userController.create);
+router.post('/create', upload.single('image'), validator.registro, userController.create);
 
 //editar usuario
 router.get('/edit/:id', userController.edit);

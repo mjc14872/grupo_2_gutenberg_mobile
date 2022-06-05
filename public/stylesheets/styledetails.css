@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+ * {
+	 box-sizing: border-box;
+	 margin: 0;
+}
+ html, body {
+	 margin: 0;
+	 background: rgb(241, 239, 122);
+	 font-family: 'Montserrat', helvetica, arial, sans-serif;
+	 font-size: 14px;
+	 font-weight: 400;
+}
+ .link {
+	 display: block;
+	 text-align: center;
+	 color: #777;
+	 text-decoration: none;
+	 padding: 10px;
+}
+ .book_card {
+	 position: relative;
+	 display: block;
+	 width: 800px;
+	 height: auto;
+	 margin: 80px auto;
+     margin-top: 12rem;
+	 overflow: hidden;
+	 border-radius: 10px;
+	 transition: all 0.4s;
+	 box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
+}
+ .book_card:hover {
+	 transform: scale(1.02);
+	 box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
+	 transition: all 0.4s;
+}
+ .book_card .info_section {
+	 position: relative;
+	 width: 100%;
+	 height: 100%;
+	 background-blend-mode: multiply;
+	 z-index: 2;
+	 border-radius: 10px;
+}
+ .book_card .info_section .book_header {
+	 position: relative;
+	 padding: 25px;
+	 height: 40%;
+}
+ .book_card .info_section .book_header h1 {
+	 color: black;
+	 font-weight: 400;
+}
+ .book_card .info_section .book_header h4 {
+	 color: #555;
+	 font-weight: 400;
+}
+ .book_card .info_section .book_header .editorial {
+	 display: inline-block;
+	 margin-top: 15px;
+	 color: #555;
+	 padding: 5px;
+	 border-radius: 5px;
+	 border: 1px solid rgba(0, 0, 0, 0.05);
+   
+}
+ .book_card .info_section .book_header .pages {
+	 display: inline-block;
+	 color: #959595;
+	 margin-left: 10px;
+}
+ .book_card .info_section .book_header .bookimg {
+	 position: relative;
+	 float: left;
+	 margin-right: 20px;
+	 height: 120px;
+	 box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+}
+ .book_card .info_section .resenia {
+	 padding: 25px;
+	 height: 50%;
+}
+ .book_card .info_section .resenia .text {
+	 color: #545454;
+   overflow: auto;
+}
+ .book_card .info_section .subdetails {
+	 height: 10%;
+	 padding-left: 15px;
+	 padding-bottom: 20px;
+}
+ .book_card .info_section .subdetails ul {
+	 list-style: none;
+	 padding: 0;
+}
+ .book_card .info_section .subdetails ul li {
+	 display: inline-block;
+	 color: rgba(0, 0, 0, 0.3);
+	 transition: color 0.3s;
+	 transition-delay: 0.15s;
+	 margin: 0 10px;
+}
+ .book_card .info_section .subdetails ul li:hover {
+	 transition: color 0.3s;
+	 color: rgba(0, 0, 0, 0.7);
+}
+ .book_card .info_section .subdetails ul li i {
+	 font-size: 19px;
+	 cursor: pointer;
+}
+ .book_card .backimg {
+	 position: absolute;
+	 top: 0;
+	 z-index: 1;
+	 height: 100%;
+	 right: 0;
+	 background-size: cover;
+	 border-radius: 11px;
+}
+ @media screen and (min-width: 768px) {
+	 .book_header {
+		 width: 65%;
+	}
+	 .resenia {
+		 width: 50%;
+	}
+	 .info_section {
+		 background: linear-gradient(to right, rgb(167,216,244) 50%, transparent 100%);
+	}
+	 .backimg {
+		 width: 80%;
+		 background-position: -100% 10% !important;
+	}
+}
+ @media screen and (max-width: 768px) {
+	 .book_card {
+		 width: 95%;
+		 margin: 70px auto;
+		 min-height: 350px;
+		 height: auto;
+	}
+	 .backimg {
+		 width: 100%;
+		 background-position: 50% 50% !important;
+	}
+	 .book_header {
+		 width: 100%;
+		 margin-top: 85px;
+	}
+	 .resenia {
+		 width: 100%;
+	}
+	 .info_section {
+		 background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
+		 display: inline-grid;
+	}
+}
+ .coverimg {
+	 background-size: cover;
+}
