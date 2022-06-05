@@ -45,7 +45,7 @@ const productController = {
                 include: ["autores"]
             })
             .then(libro => {
-                res.render('detalle-producto.ejs', { libro });
+                res.render('detalle-producto', { libro });
             });
     },
     'shop': (req, res) => {

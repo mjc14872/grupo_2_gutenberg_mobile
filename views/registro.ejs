@@ -10,10 +10,6 @@
         <%- include('./partials/header') %>
     </header>
 
-    <!--div class="errores">
-        <ul></ul>
-    </div-->
-
     <section class="title">
         <h2>REGISTRO DE USUARIOS</h2>
     </section>
@@ -87,6 +83,12 @@
             <br>
             <label for="image" class="form-label">Imagen</label>
             <input type="file" class="form-control" id="image" name="image">
+            <br>
+            <% if(locals.errors && locals.errors.image){ %>
+                <span style="color: red">
+                    <%= errors.image.msg %>
+                </span>
+                <% } %>
         </div>
 
         <div>
@@ -121,12 +123,18 @@
 
         <div>
             <br>
-            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
+            <button type="submit" value="Guardar" class="boton-personalizado">Guardar</button>
         </div>
 
         <div class="erroresfront">
             <ul></ul>
         </div>
+
+        <% if(locals.errorMsg){ %>
+            <span style="color: red;">
+              <%= errorMsg %>
+            </span>
+            <% } %>
 
     </form>
     

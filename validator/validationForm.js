@@ -8,7 +8,7 @@ const db = require('../src/database/models');
 
 const validator = {
     login:[
-        check("email")
+        body("email")
             .notEmpty()
             .withMessage("El campo email no puede estar vacio")
             .bail()
@@ -27,7 +27,7 @@ const validator = {
                         }
                     })
                 }),
-        check("password")
+        body("password")
             .notEmpty()
             .withMessage("El campo password no puede estar vacio")
     ],
@@ -43,16 +43,17 @@ const validator = {
             .isEmail()
             .withMessage("Formato de Email valido")
             .bail()
-            .custom((emailUnico, {req})=>{
+            .custom(function(value){
                 return db.Usuario.findOne({
-                where: {email: req.body.email }
+                    where:{
+                        email: value
+                    }
+                }).then(usuario => {
+                    if(usuario){
+                        return Promise.reject("Email ya esta registrado!")
+                    }
                 })
-            .then((user)=>{
-                if (user){
-                    return Promise.reject('Email ya registrado!');
-                }
-                })
-        }),
+            }),
         body("password")
             .notEmpty()
             .withMessage("El campo Password no puede estar vacio")
@@ -63,17 +64,17 @@ const validator = {
             .notEmpty()
             .withMessage("El campo categoria no puede estar vacio"),
         body('image')
-            .custom(function(value, {req}){
-                return req.file;
-                })
-            .withMessage("Imagen Obligatoria")
-            .bail()
-            .custom(function(value, {req} ){
+        .custom(function(value, {req}){
+            return req.file;
+        })
+        .withMessage("La Imagen es Obligatoria")
+        .bail()
+        .custom(function(value, {req} ){
             const imagenesValidas = [".jpg", ".jpeg", ".png"]
             const extencion = path.extname(req.file.originalname);
             return imagenesValidas.includes(extencion);               
         })
-        .withMessage("archivo no valido")
+        .withMessage("La extension del archivo no es valida")
     ]
 }
 

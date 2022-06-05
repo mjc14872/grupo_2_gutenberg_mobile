@@ -39,6 +39,12 @@ const userController = {
     },
 
     'create': (req, res) => {
+   
+        const errors = validationResult(req);
+        if (errors.errors.length > 0) {
+            return res.render("registro", { errors: errors.mapped() })
+        }
+
         db.Usuario.create({
             nombres: req.body.nombres,
             apellidos: req.body.apellidos,
@@ -99,50 +105,50 @@ const userController = {
         }
 
         db.Usuario.findOne({ where: { email: req.body.email } })
-        .then(userFound => {
-            if (userFound && bcrypt.compareSync(req.body.password, userFound.password)) {
-                //proceso session
-                let user = {
-                    id: userFound.id,
-                    nombres: userFound.nombres,
-                    apellidos: userFound.apellidos,
-                    image: userFound.image,
-                    categoria: userFound.categoria,
-                    isAdmin: userFound.administrador
-                }
+            .then(userFound => {
+                if (userFound && bcrypt.compareSync(req.body.password, userFound.password)) {
+                    //proceso session
+                    let user = {
+                        id: userFound.id,
+                        nombres: userFound.nombres,
+                        apellidos: userFound.apellidos,
+                        image: userFound.image,
+                        categoria: userFound.categoria,
+                        isAdmin: userFound.administrador
+                    }
 
-                req.session.usuarioLogueado = user;
+                    req.session.usuarioLogueado = user;
 
-                if (req.body.remember) {
-                    res.cookie("user", user.id, { maxAge: 60000 * 24 })
+                    if (req.body.remember) {
+                        res.cookie("user", user.id, { maxAge: 60000 * 24 })
+                    }
+                    if (req.session.usuarioLogueado.isAdmin) {
+                        res.redirect("/user/admin")
+                    }
+                    else {
+                        res.redirect("/")
+                    }
+                } else {
+                    res.render("login", { errorMsg: "Error credenciales invalidas" })
                 }
-                if (req.session.usuarioLogueado.isAdmin) {
-                    res.redirect("/user/admin")
-                }
-                else {
-                    res.redirect("/")
-                }
-            } else {
-                res.render("login", { errorMsg: "Error credenciales invalidas" })
-            }
-        })
+            })
     },
 
     'perfil': function (req, res) {
-      console.log(req.session.usuarioLogueado)
-      res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
+        console.log(req.session.usuarioLogueado)
+        res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
     },
 
     'editpassword': function (req, res) {
         db.Usuario.update({
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-    }, {
-        where: {
-            id: req.params.id
-        }
-    })
-    res.redirect("/")
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/")
     },
 
     'logout': function (req, res) {
