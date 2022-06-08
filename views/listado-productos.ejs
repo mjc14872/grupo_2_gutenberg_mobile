@@ -16,8 +16,8 @@
           
         <section class="books">
                     <div class="container">
-                        <article>
                         <% for( let i = 0; i < libros.length; i++ ) { %>
+                        <article>
                             <a href="/product/detalle-producto/<%= libros[i].id %>">
                             <img src="../images/<%= libros[i].imagen %>" alt=""><br>
                             <h3><%= libros[i].titulo %></h3>
@@ -25,8 +25,8 @@
                             <h5>Libro</h5>
                             <h5> $ <%= libros[i].precio_unitario %></h5>
                         </a>
+                    </article>                   
                         <% } %>
-                        </article>                   
         </section>
         <footer>
             <%- include('./partials/footer') %>

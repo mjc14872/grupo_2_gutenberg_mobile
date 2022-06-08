@@ -11,7 +11,7 @@ const mainController = {
 
     ofertas: function(req, res){
         const user = req.session.usuarioLogueado;
-        db.Libro.findAll({include: ['autores'], attributes: ['imagen', 'titulo', 'autores.nombres', 'autores.apellidos','precio_unitario'], where: {descuento: 1}})
+        db.Libro.findAll({include: ['autores'], attributes: ['id','imagen', 'titulo', 'autores.nombres', 'autores.apellidos','precio_unitario'], where: {descuento: 1}})
         .then(function(libros){
             // console.log('===== libros: '+(libros[0][6]))
             res.render("ofertas", { user, libros });

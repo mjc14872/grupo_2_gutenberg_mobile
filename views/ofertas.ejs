@@ -11,11 +11,13 @@
                     <div class="container">
                         <% for (libro of libros){ %>
                         <article>
+                            <a href="/product/detalle-producto/<%=libro.id %>">
                             <img src="/images/<%=libro.imagen %>" alt=""><br>
                             <h3><%= libro.titulo %></h3>
                             <h4> <%= libro.autores.nombres + " " + libro.autores.apellidos %></h4>
                             <h5>Libro</h5>
                             <h5>AR$ <%= libro.precio_unitario%></h5>
+                            </a>
                         </article>
                         <% } %>
                         <!-- <article>
