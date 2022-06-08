@@ -163,5 +163,13 @@ const productController = {
 
         res.redirect("/product/");
     },
+    borrar: function(req, res) {
+        db.Libro.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect("/product");
+    }
 }
 module.exports = productController;

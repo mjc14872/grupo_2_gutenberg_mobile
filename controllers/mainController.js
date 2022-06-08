@@ -5,8 +5,17 @@ const db = require('../src/database/models');
 
 //TODO: crear el mainController
 const mainController = {
+    // index: function(req, res){
+    //     res.render("index");
+    // },
+    
+
     index: function(req, res){
-        res.render("index");
+        const user = req.session.usuarioLogueado;
+        db.Libro.findAll({include: ['autores'], attributes: ['id', 'imagen', 'titulo', 'autores.nombres', 'autores.apellidos', 'precio_unitario'], where: {bestSeller: 1}})
+        .then(function(libros){
+            res.render('index', { user, libros });
+        })
     },
 
     ofertas: function(req, res){
@@ -14,10 +23,11 @@ const mainController = {
         db.Libro.findAll({include: ['autores'], attributes: ['id','imagen', 'titulo', 'autores.nombres', 'autores.apellidos','precio_unitario'], where: {descuento: 1}})
         .then(function(libros){
             // console.log('===== libros: '+(libros[0][6]))
-            res.render("ofertas", { user, libros });
+            res.render('ofertas', { user, libros });
         })
     },
 };
 
 //Exportar el modulo
 module.exports = mainController;
+

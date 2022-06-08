@@ -39,7 +39,7 @@ router.post("/editar/:id", productController.actualizar);
 // router.patch('/edit/:id', productController.update); 
 
 //eliminar producto
-// router.delete('/delete/:id', productController.destroy); 
+router.post('/delete/:id', productController.borrar); 
 
 
 //TODO: agregar el modulo
