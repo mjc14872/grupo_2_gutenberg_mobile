@@ -4,6 +4,7 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
 const session = require("express-session");
+const Libro = require('../src/database/models/Libro');
 
 // const fetch = require('node-fetch');
 
@@ -47,7 +48,7 @@ const productController = {
         const user = req.session.usuarioLogueado;
         db.Libro.findByPk(req.params.id,
             {
-                include: ["autores"]
+                include: [ 'autores', 'generos', 'formatos', 'medios', 'idiomas']
             })
             .then(libro => {
                 res.render('detalle-producto', { libro, user });
@@ -81,8 +82,11 @@ const productController = {
                         .then(function(formatos) {
                             db.Medio.findAll()
                                 .then(function(medios) {
-                                    console.log('generos >>>> '+generos);
-                                    return res.render("crear-producto", {idiomas, generos, formatos, medios});
+                                    db.Autor.findAll()
+                                        .then(function(autores){
+                                            console.log('autores >>>> '+autores);
+                                            return res.render("crear-producto", {idiomas, generos, formatos, medios, autores});
+                                        })
                                 })
                         })
                 })
@@ -92,7 +96,6 @@ const productController = {
         console.log('Por guardar '+req.body.titulo+' '+req.body.autor+' '+req.body.editorial+' '+req.body.imagen);
         x = db.Libro.create({
             titulo: req.body.titulo,
-            autor:req.body.autor,
             editorial: req.body.editorial,
             precio_unitario: req.body.preciounitario,
             descuento: req.body.descuento,
@@ -119,18 +122,7 @@ const productController = {
                 res.render("listado-productos", {libros:libros})
             })
     },
-    detalle_admin: function(req, res) {
-        // console.log(req.params.id);
-        db.Libro.findByPk(req.params.id, {
-            include: [{association: "genero"}, {association: "formato"},
-                      {association: "idioma"}, {association: "medio"}, {association: "autor"}]
-        })
-            .then(function(libro) {
-                console.log('ALGO<<<<<<<<<' + Object.keys(libro));
-                res.render("detalle-producto", {libro});
-            })
     
-    },
     editar: function(req, res) {
         let pedidoLibro = db.Libro.findByPk(req.params.id);
         let pedidoGenero = db.Genero.findAll();
@@ -148,7 +140,6 @@ const productController = {
     actualizar: function(req, res){
         db.Libro.update({
             titulo: req.body.titulo,
-            autor:req.body.autor,
             editorial: req.body.editorial,
             precio_unitario: req.body.preciounitario,
             descuento: req.body.descuento,
@@ -159,7 +150,6 @@ const productController = {
             edicion: req.body.edicion,
             isbn: req.body.isbn,
             cantidad: req.body.cantidad,
-            imagen: req.file ? req.file.filename : "image-default.jpg",
             generos_id: req.body.genero,
             idiomas_id: req.body.idioma,
             formatos_id: req.body.formato,
@@ -171,7 +161,7 @@ const productController = {
             }
         });
 
-        res.redirect("/product/" + req.params.id);
+        res.redirect("/product/");
     },
 }
 module.exports = productController;

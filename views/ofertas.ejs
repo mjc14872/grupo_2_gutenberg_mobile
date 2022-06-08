@@ -5,18 +5,20 @@
     <body>
         <%- include('./partials/header') %>
         <section class="title">
-            <h2>OFERTAS DE LA SEMANA</h2>
+            <h2>OFERTILLAS DE LA SEMANA</h2>
         </section>   
         <section class="books">
                     <div class="container">
+                        <% for (libro of libros){ %>
                         <article>
-                            <img src="../images/sieteMaridos_1.svg" alt=""><br>
-                            <h3>LOS 7 MARIDOS DE EVELYN HUGO</h3>
-                            <h4>Taylor Jenkins Reid</h4>
+                            <img src="/images/<%=libro.imagen %>" alt=""><br>
+                            <h3><%= libro.titulo %></h3>
+                            <h4> <%= libro.autores.nombres + " " + libro.autores.apellidos %></h4>
                             <h5>Libro</h5>
-                            <h5>AR$ 2.190</h5>
+                            <h5>AR$ <%= libro.precio_unitario%></h5>
                         </article>
-                        <article>
+                        <% } %>
+                        <!-- <article>
                             <img src="../images/heartstopper_1.svg" alt=""><br>
                             <h3>HEARTSTOPPER</h3>
                             <h4>Alice Oseman</h4>
@@ -36,7 +38,7 @@
                             <h4>Rosario Oyhanarte</h4>
                             <h5>Libro</h5>
                             <h5>AR$ 2.600</h5>
-                        </article>
+                        </article> -->
                     </div>
         </section>
         <%- include('./partials/footer') %>

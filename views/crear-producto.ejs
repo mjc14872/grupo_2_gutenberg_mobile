@@ -15,34 +15,44 @@
     
         <div>
             <br>
-            <label>Titulo</label>
+            <label>Titulo:</label>
             <br>
             <input type="text" name="titulo" id="nombre" required="">
         </div>
 
         <div>
             <br>
-            <label>Autor</label>
+            <label for="">Autor: </label>
             <br>
-            <input type="text" name="autor" id="autor" required="">
+            <select name="autor">
+                <option value="">-- Elige un autor --</option>
+                <% for (let i = 0; i < autores.length; i++) {%>
+                    <option value="<%=autores[i].id%>">
+                        <%=autores[i].nombres + " " + autores[i].apellidos%>
+                    </option>
+                <% } %>
+            </select>
         </div>
-        
+
         <div>
             <br>
-            <label>Editorial</label>
+            <label>Editorial:</label>
             <br>
             <input type="text" name="editorial" id="editorial" required="">
         </div>
 
         <div>
             <br>
-            <label>Reseña</label>
+            <label>Reseña:</label>
             <br>
             <input type="text" name="resenia" id="resenia" required="">
         </div>
         <div>
+            <br>
             <label for="">Género: </label>
+            <br>
             <select name="genero">
+                <option value="">-- Elige un género --</option>
                 <% for (let i = 0; i < generos.length; i++) {%>
                     <option value="<%=generos[i].id%>">
                         <%=generos[i].nombre%>
@@ -56,17 +66,20 @@
               <li><label>Detalle</label>
                  <ol>
                     <br>
-                    <label>Número de páginas</label>
+                    <label>Número de páginas:</label>
                     <br>
                     <input type="text" name="paginas" id="paginas" required="">
-                    <br>
-                    <label>Peso</label>
+                    <br><br>
+                    <label>Peso:</label>
                     <br>
                     <input type="text" name="peso" id="peso" required="">
                     <br>
                     <div>
+                        <br>
                         <label for="">Formato: </label>
+                        <br>
                         <select name="formato">
+                            <option value="">-- Elige un formato --</option>
                             <% for (let i = 0; i < formatos.length; i++) {%>
                                 <option value="<%=formatos[i].id%>">
                                     <%=formatos[i].nombre%>
@@ -75,13 +88,15 @@
                         </select>
                     </div>
                     <br>
-                    <label>Edición</label>
+                    <label>Edición:</label>
                     <br>
                     <input type="text" name="edicion" id="edicion" required="">
                     <br>
                     <div>
+                        <br>
                         <label for="">Idioma: </label>
                         <select name="idioma">
+                            <option value="">-- Elige un idioma --</option>
                             <% for (let i = 0; i < idiomas.length; i++) {%>
                                 <option value="<%=idiomas[i].id%>">
                                     <%=idiomas[i].nombre%>
@@ -90,8 +105,10 @@
                         </select>
                     </div>
                     <div>
+                        <br>
                         <label for="">Medio: </label>
                         <select name="medio">
+                            <option value="">-- Elige un medio --</option>
                             <% for (let i = 0; i < medios.length; i++) {%>
                                 <option value="<%=medios[i].id%>">
                                     <%=medios[i].nombre%>
@@ -100,7 +117,7 @@
                         </select>
                     </div>
                     <br>
-                    <label>ISBN</label>
+                    <label>ISBN:</label>
                     <br>
                     <input type="text" name="isbn" id="isbn" required="">
                     <br>
@@ -111,44 +128,42 @@
 
         <div>
             <br>
-            <label>Precio</label>
+            <label>Precio:</label>
             <br>
             <input type="number" name="preciounitario" id="precio" required="">
         </div>
         <div>
             <br>
-            <label for="descuento">Oferta</label>
-            <br>
+            <label for="descuento">Oferta:</label>
             <select name="descuento" id="descuento" class="form-input">
                 <option value=" "></option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
+                <option value="1">Si</option>
+                <option value="0">No</option>
             </select>
                 
         </div>
         <div>
             <br>
-            <label for="crowfounding">Crowfounding</label>
-            <br>
+            <label for="crowfounding">Crowfounding:</label>
             <select name="crowfounding" id="crowfounding" class="form-input">
                 <option value=" "></option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
+                <option value="1">Si</option>
+                <option value="0">No</option>
             </select>
                 
         </div>
         <div>
             <br>
-            <label for="bestseller">Best Seller</label>
-            <br>
+            <label for="bestseller">Best Seller:</label>
             <select name="bestseller" id="bestSeller" class="form-input">
                 <option value=" "></option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
+                <option value="1">Si</option>
+                <option value="0">No</option>
             </select>
                 
         </div>
         <div>
+            <br>
             <label for="cantidad">Cantidad: </label>
             <input type="number" name="cantidad">
         </div>

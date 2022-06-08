@@ -8,7 +8,8 @@ const mainController = require('../controllers/mainController');
 
 //TODO: agregar el controller home, carrito de compras y detalle producto
 router.get("/", function(req, res){
-    res.render("index", {title:'express'});
+    const user = req.session.usuarioLogueado;
+    res.render("index", { user });
 });
 router.get("/ofertas", mainController.ofertas);
 

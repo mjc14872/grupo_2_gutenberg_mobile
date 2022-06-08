@@ -3,16 +3,20 @@ const path = require('path');
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require('../src/database/models');
+const session = require('express-session')
 const { Op } = require("sequelize");
 const sequelize = db.sequelize;
 
 const userController = {
     'login': function (req, res) {
+        req.session
         res.render("login");
     },
 
     'admin': function (req, res) {
-        res.render("vistaAdmin");
+        console.log('::::::::: usuario logueado' + Object.keys(req.session.usuarioLogueado));
+        const user = req.session.usuarioLogueado
+        res.render("index", { user });
     },
 
     'list': (req, res) => {
@@ -50,11 +54,12 @@ const userController = {
             administrador: req.body.administrador,
 
         })
-        db.Usuario.findAll({
-        })
-            .then(usuarios => {
-                res.render('login', { usuarios })
-            })
+        // db.Usuario.findAll({
+
+        // })
+            // .then(usuarios => {
+            //     res.render('login', { usuarios })
+            // })
     },
 
     'edit': function (req, res) {
@@ -117,10 +122,14 @@ const userController = {
                     res.cookie("user", user.id, { maxAge: 60000 * 24 })
                 }
                 if (req.session.usuarioLogueado.isAdmin) {
-                    res.redirect("/user/admin")
+                    console.log('>>>> usuario admin');
+                    res.redirect("/")
+                    // res.render('index', user)
                 }
                 else {
-                    res.redirect("/")
+                    console.log('<<<< Usuario no admin');
+                    // res.render("index",{ user })
+                    res.redirect('/')
                 }
             } else {
                 res.render("login", { errorMsg: "Error credenciales invalidas" })

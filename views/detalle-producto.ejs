@@ -7,40 +7,9 @@
 
 <body>
     <header>
-        <div class="contenedor">
-            <img class="logo" src="/images/isologomoradosmall.png" alt="gutenberg logo">
-            <input type="checkbox" id="menu-bar">
-            <label class="icon-menu" for="menu-bar"></label>
-            <nav class="menu">
-                <a class="active" href="/">Inicio</a>
-                <a class="nav-link active" aria-current="page" href="/profile">Perfil</a>
-                <a href="/product/carrito-compras">Carrito de compras</a>
-                <a href="/product/detalle-producto">Detalle producto</a>
-                <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
-                <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
-                <!--a href="#">Géneros</a-->
-                <a href="/ofertas">Ofertas</a>
-                <a href="/product">Listado de Productos</a>
-                <!---- <a href="#">Crowfounding</a> Se comenta para poder visualizar todo el menu hambuguesa  (vista administrador)-->
-                <!----<a href="/product/detalle-producto">Detalle producto</a>-->
-                <a href="/product/create">Crear Productos</a>
-                <form class="create-logout" action="/user/logout" method="post">
-                    <button type="submit">Cerrar Sesion</button>
-                    <br>
-                </form>
-                <div>
-                    <p> Sos administrador/a </p>
-                </div>
-
-            </nav>
-        </div>
-        <div class="lowerbar">
-            <form>
-                <input class="searchbox" type="text" placeholder="Buscar">
-                <button type="submit" class="fa fa-search"></button>
-            </form>
-        </div>
+        <%- include('./partials/header') %>
     </header>
+
     <div class="sieteMaridos">
         <img src="/images/<%= libro.imagen %>">
     </div>
@@ -93,37 +62,41 @@
 
         <div class="descripcion">
             <ul style="list-style: none;">
-                <li>Número de páginas:<%= libro.paginas %>
+                <li>Número de páginas: <%= libro.paginas %>
                 </li>
 
-                <li>Peso:<%= libro.peso %>
+                <li>Peso: <%= libro.peso %>
                 </li>
 
-                <li>Formato:<%= libro.formato %>
+                <li>Formatosisi: <%= libro.formatos.nombre %>
                 </li>
 
-                <li>Edición:<%= libro.edicion %>
+                <li>Edición: <%= libro.edicion %>
                 </li>
 
-                <li>Idioma:<%= libro.idioma %>
+                <li>Idioma: <%= libro.idiomas.nombre %>
                 </li>
 
-                <li>ISBN:<%= libro.isbn %>
+                <li>ISBN: <%= libro.isbn %>
+                </li>
+
+                <li><b>Medio:</b> <%= libro.medios.nombre %>
+
                 </li>
             </ul>
         </div>
     </div>
 
-    <% if (user.isAdmin) {%>
+    <% if (user && user.isAdmin) {%>
 
         <a href="/product/editar/<%=libro.id%>">
-            <button>
+            <button class="boton-personalizado">
                 Editar
             </button>
         </a>
-
+        <br><br>
         <form action="/product/borrar/<%=libro.id%>" method="POST">
-            <button type="Submit">Eliminar</button>
+            <button type="Submit" class="boton-personalizado">Eliminar</button>
         </form>
     <% } %>
 

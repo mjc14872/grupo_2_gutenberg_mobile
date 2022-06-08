@@ -9,133 +9,125 @@
 <body>
 
     <header>
-        <div class="contenedor">
-            <img class="logo" src="/images/isologomoradosmall.png" alt="gutenberg logo">
-            <input type="checkbox" id="menu-bar">
-            <label class="icon-menu" for="menu-bar"></label>
-            <nav class="menu">
-                <a class="active" href="/">Inicio</a>
-                <a class="nav-link active" aria-current="page" href="/profile">Perfil</a>
-                <a href="/product/carrito-compras">Carrito de compras</a>
-                <a href="/product/detalle-producto">Detalle producto</a>
-                <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
-                <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
-                <!--a href="#">Géneros</a-->
-                <a href="/ofertas">Ofertas</a>
-                <a href="/product">Listado de Productos</a>
-                <!---- <a href="#">Crowfounding</a> Se comenta para poder visualizar todo el menu hambuguesa  (vista administrador)-->
-                <!----<a href="/product/detalle-producto">Detalle producto</a>-->
-                <a href="/product/create">Crear Productos</a>
-                <form class="create-logout" action="/user/logout" method="post">
-                    <button type="submit">Cerrar Sesion</button>
-                    <br>
-                </form>
-                <div>
-                    <p> Sos administrador/a </p>
-                </div>
-
-            </nav>
-        </div>
-        <div class="lowerbar">
-            <form>
-                <input class="searchbox" type="text" placeholder="Buscar">
-                <button type="submit" class="fa fa-search"></button>
-            </form>
-        </div>
+        <%- include('./partials/header') %>
     </header>
     
-<br><br><br><br><br><br><br>
-    <form action="/product/editar/<%=libro.id%>" method="POST">
+    <br><br><br><br><br><br><br>
+    <form class="create-form" action="/product/editar/<%=libro.id%>" method="POST">
+
         <div>
             <br>
-            <label>Titulo</label>
+            <label>Titulo:</label>
             <br>
             <input type="text" name="titulo" id="nombre" value="<%=libro.titulo%>">
         </div>
 
+
         <div>
             <br>
-            <label>Autor</label>
-            <br>
-            <input type="text" name="autor" id="autor" required="">
+            <label for="">Autor: </label>
+            <select name="autor">
+                <% for (let i=0; i < autores.length; i++) {%>
+                    <% if (autores[i].id==libro.autores_id) { %>
+                        <option value="<%=autores[i].id%>" selected>
+                            <%=autores[i].nombres + " " + autores[i].apellidos%>
+                        </option>
+                        <% } else { %>
+                            <option value="<%=autores[i].id%>">
+                                <%=autores[i].nombres%>
+                            </option>
+                            <% } %>
+                                <% } %>
+            </select>
         </div>
         
         <div>
             <br>
-            <label>Editorial</label>
+            <label>Editorial:</label>
             <br>
-            <input type="text" name="editorial" id="editorial" required="">
+            <input type="text" name="editorial" value="<%=libro.editorial%>">
         </div>
 
         <div>
             <br>
-            <label>Reseña</label>
+            <label>Reseña:</label>
             <br>
-            <input type="text" name="resenia" id="resenia" required="">
+            <input type="text" name="resenia" value="<%=libro.resenia%>">
         </div>
-        <div>
-            <label for="">Género: </label>
-            <select name="genero">
-                <% for (let i = 0; i < generos.length; i++) {%>
-                    <option value="<%=generos[i].id%>">
-                        <%=generos[i].nombre%>
-                    </option>
-                <% } %>
-            </select>
-        </div>
+        
         <div>
             <br>
             <ul>
-              <li><label>Detalle</label>
+              <li><label><b>Detalle</b></label>
                  <ol>
                     <br>
-                    <label>Número de páginas</label>
+                    <label>Número de páginas:</label>
                     <br>
-                    <input type="text" name="paginas" id="paginas" required="">
+                    <input type="number" name="paginas" value="<%=libro.paginas%>">
+                    <br><br>
+                    <label>Peso:</label>
                     <br>
-                    <label>Peso</label>
-                    <br>
-                    <input type="text" name="peso" id="peso" required="">
+                    <input type="number" name="peso" value="<%=libro.peso%>">
                     <br>
                     <div>
+                        <br>
                         <label for="">Formato: </label>
                         <select name="formato">
-                            <% for (let i = 0; i < formatos.length; i++) {%>
-                                <option value="<%=formatos[i].id%>">
-                                    <%=formatos[i].nombre%>
-                                </option>
-                            <% } %>
+                            <% for (let i=0; i < formatos.length; i++) {%>
+                                <% if (formatos[i].id==libro.formatos_id) { %>
+                                    <option value="<%=formatos[i].id%>" selected>
+                                        <%=formatos[i].nombre%>
+                                    </option>
+                                    <% } else { %>
+                                        <option value="<%=formatos[i].id%>">
+                                            <%=formatos[i].nombre%>
+                                        </option>
+                                        <% } %>
+                                            <% } %>
                         </select>
                     </div>
                     <br>
-                    <label>Edición</label>
+                    <label>Edición:</label>
                     <br>
-                    <input type="text" name="edicion" id="edicion" required="">
-                    <br>
+                    <input type="number" name="edicion" value="<%=libro.edicion%>">
+                    <br><br>
                     <div>
                         <label for="">Idioma: </label>
                         <select name="idioma">
-                            <% for (let i = 0; i < idiomas.length; i++) {%>
-                                <option value="<%=idiomas[i].id%>">
-                                    <%=idiomas[i].nombre%>
-                                </option>
+                            <% for (let i=0; i < idiomas.length; i++) {%>
+                                <% if (idiomas[i].id==libro.idiomas_id) { %>
+                                    <option value="<%=idiomas[i].id%>" selected>
+                                        <%=idiomas[i].nombre%>
+                                    </option>
+                                <% } else { %>
+                                    <option value="<%=idiomas[i].id%>">
+                                        <%=idiomas[i].nombre%>
+                                    </option>
+                                <% } %>
                             <% } %>
                         </select>
                     </div>
                     <div>
+                        <br>
                         <label for="">Medio: </label>
                         <select name="medio">
-                            <% for (let i = 0; i < medios.length; i++) {%>
-                                <option value="<%=medios[i].id%>">
-                                    <%=medios[i].nombre%>
-                                </option>
-                            <% } %>
+                            <% for (let i=0; i < medios.length; i++) {%>
+                                <% if (medios[i].id==libro.medios_id) { %>
+                                    <option value="<%=medios[i].id%>" selected>
+                                        <%=medios[i].nombre%>
+                                    </option>
+                                    <% } else { %>
+                                        <option value="<%=medios[i].id%>">
+                                            <%=medios[i].nombre%>
+                                        </option>
+                                        <% } %>
+                                            <% } %>
                         </select>
                     </div>
                     <br>
                     <label>ISBN</label>
                     <br>
-                    <input type="text" name="isbn" id="isbn" required="">
+                    <input type="number" name="isbn" value="<%=libro.isbn%>">
                     <br>
                  </ol>
               </li>
@@ -144,60 +136,58 @@
 
         <div>
             <br>
-            <label>Precio</label>
+            <label>Precio:</label>
             <br>
-            <input type="number" name="preciounitario" id="precio" required="">
+            <input type="number" name="preciounitario" value="<%=libro.precio_unitario%>">
         </div>
         <div>
             <br>
-            <label for="descuento">Oferta</label>
-            <br>
+            <label for="descuento">Oferta:</label>
             <select name="descuento" id="descuento" class="form-input">
-                <option value=" "></option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
+                <option value="1" <%= libro.descuento == true? 'selected' : '' %> >Si</option>
+                <option value="0" <%= libro.descuento == false? 'selected' : '' %> >No</option>
             </select>
+                
+            <div>
+                <br>
+                <label for="">Género: </label>
+                <select name="genero">
+                    <% for (let i=0; i < generos.length; i++) {%>
+                        <% if (generos[i].id==libro.generos_id) { %>
+                            <option value="<%=generos[i].id%>" selected>
+                                <%=generos[i].nombre%>
+                            </option>
+                            <% } else { %>
+                                <option value="<%=generos[i].id%>">
+                                    <%=generos[i].nombre%>
+                                </option>
+                                <% } %>
+                                    <% } %>
+                </select>
+            </div>
+
+            <div>
+            <br>
                 
         </div>
         <div>
             <br>
-            <label for="crowfounding">Crowfounding</label>
-            <br>
-            <select name="crowfounding" id="crowfounding" class="form-input">
-                <option value=" "></option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
-            </select>
-                
-        </div>
-        <div>
-            <br>
-            <label for="bestseller">Best Seller</label>
-            <br>
+            <label for="bestseller">Best Seller:</label>
             <select name="bestseller" id="bestSeller" class="form-input">
-                <option value=" "></option>
-                <option value="si">Si</option>
-                <option value="no">No</option>
+                <option value="1" <%= libro.bestSeller == true? 'selected' : '' %> >Si</option>
+                <option value="0" <%= libro.bestSeller == false? 'selected' : '' %> >No</option>
             </select>
                 
         </div>
         <div>
-            <label for="cantidad">Cantidad: </label>
-            <input type="number" name="cantidad">
-        </div>
-        <div>
             <br>
-            <label for="imagen" class="form-label">Imagen</label>
-            <input type="file" id="imagen" name="imagen" multiple>
+            <label for="cantidad">Cantidad: </label>
+            <input type="number" name="cantidad" value="<%=libro.cantidad%>">
         </div>
-
-        <button type="submit">Actualizar</button>
-
+        <br>
+        <button type="submit" class="boton-personalizado">Actualizar</button>
     </form>
-
-
-
-
+    
     <footer>
         <%- include('./partials/footer') %>
 
