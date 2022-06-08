@@ -1,3 +1,10 @@
+<!-- 
+    INICIO, OFERTAS, LISTADO DE PRODUCTOS, LOGIN, REGISTRO -- INVITADO - GUEST
+    INICIO, OFERTAS, LISTADO DE PRODUCTOS, PERFIL, CARRITO DE COMPRAS, CERRAR SESIÓN, BIENVENIDO - LOGUEADO NO ADMIN
+    INICIO, OFERTAS, LISTADO DE PRODUCTOS, PERFIL, CREAR PRODUCTOS, LISTAR USUARIOS, CERRAR SESIÓN, ADMINISTRADOR - ADMIN 
+-->
+
+
 <header>
     <div class="contenedor">
         <img class="logo" src="/images/isologomoradosmall.png" alt="gutenberg logo">
@@ -8,28 +15,36 @@
             <a href="/ofertas">Ofertas</a>
             <a href="/product/listado-productos">Listado de Productos</a>
 
-            <% if(locals.userLocals){ %>
+            <% if(typeof user!='undefined'){ %>
                 <a class="nav-link active" aria-current="page" href="/user/perfil">Perfil</a>
+            <% } %>
+
+            <% if(typeof user == 'undefined'){ %>
+                <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
+                <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
+            <% } %>
+            
+            <%  if(typeof user != 'undefined' && user.isAdmin){ %>
+                <a href="/product/crear_autor">Crear Autor</a>
+                <a href="/product/create">Crear Productos</a>
+                <a href="/user/listado-usuarios">Listado de Usuarios</a>
+            <% } %>
+
+            <% if(typeof user != 'undefined' && !user.isAdmin){ %>
                 <a href="/product/carrito-compras/3">Carrito de compras</a>
-
-                <% }else{ %>
-                    <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
-                    <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
-                    <% } %>
-
-                        <% if(locals.userLocals){ %>
-                            <div>
-                                <form class="create-logout" action="/user/logout" method="post">
-                                    <button type="submit" class="menu">Cerrar Sesion</button>
-                                    <br>
-                                </form>
-                            </div>
-                            <div>
-                                <p class="active"> Bienvenido/a <%= userLocals.nombres %>
-                                </p>
-                            </div>
-                            <% } %>
-
+            <% } %>
+                
+            <% if(typeof user != 'undefined'){ %>
+                <div>
+                    <form class="create-logout" action="/user/logout" method="post">
+                        <button type="submit" class="menu">Cerrar Sesion</button>
+                        <br>
+                    </form>
+                </div>
+                <div>
+                    <p class="active"> Bienvenido/a <%= userLocals.nombres %></p>
+                </div>
+            <% } %>
         </nav>
     </div>
     <div class="lowerbar">

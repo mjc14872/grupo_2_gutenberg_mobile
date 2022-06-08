@@ -1,69 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <%- include('./partials/head') %>
-    </head>
 
-    <body>
-        <header>
-            <%- include('./partials/header') %>
-        </header>
-        <div class="sieteMaridos">
-            <img src="/images/<%= libro.imagen %>">
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+
+    <div class="sieteMaridos">
+        <img src="/images/<%= libro.imagen %>">
+    </div>
+    <div class="titulo">
+        <%= libro.titulo %>
+    </div>
+    <span class="autor">Autor:</span><span style="color: black">
+        <%= libro.autores.nombres + " " + libro.autores.apellidos %>
+    </span>
+    <span class="editorial">Editorial:</span><span style="color: black">
+        <%= libro.editorial %>
+    </span>
+
+    <div class="compra">
+        <div class="precio">
+            <h2>AR$ <%= libro.precio %>
+            </h2>
         </div>
-        <div class= "titulo">
+        <div class="agregarProducto">
+            <img class="cartmas" width="80" src="/images/cartmas.svg">
+            <h2>AGREGAR AL CARRITO</h2>
+        </div>
+        <div class="envio">
+            <img class="truck" width="50" src="/images/bx_bxs-truck.svg">
+            <h2>Costos de envío</h2>
+        </div>
+        <div class="metodos">
+            <img class="check" width="50" src="/images/fa-solid_money-check-alt.svg">
+            <h2>Métodos de pago</h2>
+        </div>
+    </div>
+
+    <div class="resenia">
+        <span class="res" style="color: black">Reseña del libro</span>
+        <span class="ress" style="color:#f68c5f">
             <%= libro.titulo %>
+        </span>
+        <div class="textoRes">
+            <p>
+                <%= libro.resenia %>
+            </p>
         </div>
-        <span class="autor" >Autor:</span><span  style="color: black"><%= libro.autores.nombres + " " + libro.autores.apellidos  %></span>
-        <span class= "editorial">Editorial:</span><span style="color: black"><%= libro.editorial %></span> 
-        
-        <div class="compra">
-            <div class="precio">
-                <h2>AR$ <%= libro.precio %></h2>
-           </div>
-           <div class="agregarProducto">
-                <img class="cartmas" width= "80" src="/images/cartmas.svg"> <h2>AGREGAR AL CARRITO</h2>
-           </div>
-           <div class="envio">
-                <img class="truck" width= "50" src="/images/bx_bxs-truck.svg"><h2>Costos de envío</h2>
-           </div>
-           <div class="metodos">
-                <img class="check" width= "50" src="/images/fa-solid_money-check-alt.svg"> <h2>Métodos de pago</h2>
-           </div>
+
+        <div class="detalle">
+            <span class="deta" style="color: black">Detalles de</span>
+            <span class="au" style="color:#f68c5f">
+                <%= libro.titulo %>
+            </span>
         </div>
-    
-        <div class="resenia">
-            <span class="res" style="color: black">Reseña del libro</span>
-            <span  class= "ress"style="color:#f68c5f" > <%= libro.titulo %></span>
-            <div class="textoRes">
-                <p>
-                    <%= libro.resenia %> 
-                </p>
-            </div>
-    
-            <div class="detalle">
-                <span class="deta" style="color: black">Detalles de</span>
-                <span class="au" style="color:#f68c5f"><%= libro.titulo %></span>
-            </div>
-    
-            <div class="descripcion">
-                <ul style="list-style: none;">
-                    <li>Número de páginas:<%= libro.paginas %></li>
-    
-                    <li>Peso:<%= libro.peso %></li>
-                    
-                    <li>Formato:<%= libro.formato %></li>
-                     
-                    <li>Edición:<%= libro.edicion %></li>
-                    
-                    <li>Idioma:<%= libro.idioma %></li>
-                    
-                    <li>ISBN:<%= libro.isbn %></li>
-                </ul>
-           </div>    
+
+        <div class="descripcion">
+            <ul style="list-style: none;">
+                <li>Número de páginas: <%= libro.paginas %>
+                </li>
+
+                <li>Peso: <%= libro.peso %>
+                </li>
+
+                <li>Formatosisi: <%= libro.formatos.nombre %>
+                </li>
+
+                <li>Edición: <%= libro.edicion %>
+                </li>
+
+                <li>Idioma: <%= libro.idiomas.nombre %>
+                </li>
+
+                <li>ISBN: <%= libro.isbn %>
+                </li>
+
+                <li><b>Medio:</b> <%= libro.medios.nombre %>
+
+                </li>
+            </ul>
         </div>
-        <footer>
-            <%- include('./partials/footer') %>
-        </footer>
-        
-    </body>
+    </div>
+
+    <% if (user && user.isAdmin) {%>
+
+        <a href="/product/editar/<%=libro.id%>">
+            <button class="boton-personalizado">
+                Editar
+            </button>
+        </a>
+        <br><br>
+        <form action="/product/delete/<%=libro.id%>" method="POST">
+            <button type="Submit" class="boton-personalizado">Eliminar</button>
+        </form>
+    <% } %>
+
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+</body>

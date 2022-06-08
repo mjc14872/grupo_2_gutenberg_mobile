@@ -26,19 +26,22 @@ router.get('/listado-productos', productController.list);
 router.get('/detalle-producto/:id', productController.detail);
 router.get('/carrito-compras/:id', productController.shop);
 router.get('/listado-carrito/', productController.car);
-
+router.get("/", productController.listar);
 
 //Crear producto
-// router.get("/create", productController.create);  
-// router.post("/create", upload.single('img'), productController.store); 
+ router.get("/create", productController.create);  
+ router.post("/create", upload.single('imagen'), productController.store); 
 
 //editar producto
-// router.get('/edit/:id', productController.edit); 
-// router.patch('/edit/:id', productController.update); 
+router.get("/editar/:id", productController.editar);
+router.post("/editar/:id", productController.actualizar);
 
 //eliminar producto
-// router.delete('/delete/:id', productController.destroy); 
+router.post('/delete/:id', productController.borrar); 
 
+//creacion de autores
+router.get('/crear_autor', productController.crear_autor);
+router.post('/crear_autor', productController.guardar_autor);
 
 //TODO: agregar el modulo
 module.exports = router;
