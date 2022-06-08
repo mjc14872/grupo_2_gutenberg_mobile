@@ -64,11 +64,11 @@ const validator = {
             .notEmpty()
             .withMessage("El campo categoria no puede estar vacio"),
         body('image')
-        .custom(function(value, {req}){
-            return req.file;
-        })
-        .withMessage("La Imagen es Obligatoria")
-        .bail()
+        // // .custom(function(value, {req}){
+        // //     return req.file;
+        // // })
+        // .withMessage("La Imagen es Obligatoria")
+        // .bail()
         .custom(function(value, {req} ){
             const imagenesValidas = [".jpg", ".jpeg", ".png"]
             const extencion = path.extname(req.file.originalname);
