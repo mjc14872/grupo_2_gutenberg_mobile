@@ -39,6 +39,9 @@ router.post("/editar/:id", productController.actualizar);
 //eliminar producto
 router.post('/delete/:id', productController.borrar); 
 
+//creacion de autores
+router.get('/crear_autor', productController.crear_autor);
+router.post('/crear_autor', productController.guardar_autor);
 
 //TODO: agregar el modulo
 module.exports = router;

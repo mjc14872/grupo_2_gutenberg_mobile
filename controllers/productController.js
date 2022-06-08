@@ -99,7 +99,7 @@ const productController = {
     'store': (req, res) => {
         // console.log('Por guardar '+req.body.titulo+' '+req.body.autor+' '+req.body.editorial+' '+req.body.imagen);
         const user = req.session.usuarioLogueado
-        x = db.Libro.create({
+        db.Libro.create({
             titulo: req.body.titulo,
             editorial: req.body.editorial,
             precio_unitario: req.body.preciounitario,
@@ -177,6 +177,22 @@ const productController = {
             }
         })
         res.redirect("/product");
+    },
+    crear_autor: (req, res) => {
+        const user = req.session.usuarioLogueado
+        res.render("crear-autor", { user });
+    },
+    guardar_autor: (req, res) => {
+        const user = req.session.usuarioLogueado
+        db.Autor.create({
+            nombres: req.body.nombres,
+            apellidos: req.body.apellidos
+        })
+        .then(function(autor){
+            res.redirect("/product/create")
+        });
+
     }
 }
 module.exports = productController;
+

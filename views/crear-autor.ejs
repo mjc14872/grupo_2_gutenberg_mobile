@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head') %>
+</head>
+    <body>
+        <header>
+            <%- include('./partials/header') %>
+        </header>
+
+        <br><br><br><br>
+
+   <form class="create-form" action="/product/crear_autor" method= "POST">
+       <h2>Crear Autores</h2>
+    
+        <div>
+            <br>
+            <label>Nombre:</label>
+            <br>
+            <input type="text" name="nombres" id="nombres" required="">
+        </div>
+
+        <div>
+            <br>
+            <label>Apellidos:</label>
+            <br>
+            <input type="text" name="apellidos" id="apellidos" required="">
+        </div>
+
+        <div>
+            <br>
+            <button type="submit" value="Guardar y volver al Home" class="boton-personalizado">Guardar</button>
+        </div>
+    </form>
+    <footer>
+        <%- include('./partials/footer') %>
+        
+    </footer>
+    
+ </body>
+</html>
