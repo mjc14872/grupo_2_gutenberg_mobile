@@ -36,12 +36,13 @@ const productController = {
             })
     },
     'list': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Libro.findAll({
             include: ["autores"]
 
         })
             .then(libros => {
-                res.render('listado-productos.ejs', { libros });
+                res.render('listado-productos.ejs', { libros, user });
             })
     },
     'detail': (req, res) => {
@@ -56,24 +57,27 @@ const productController = {
 
     },
     'shop': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Libro.findByPk(req.params.id,
             {
                 include: ["autores"]
             })
             .then(libro => {
-                res.render('carrito-compras.ejs', { libro });
+                res.render('carrito-compras.ejs', { libro, user});
             });
     },
     'car': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Carrito.findAll({
             include: ["medios", "usuarios"]
 
         })
             .then(carritos => {
-                res.render('listado-carrito.ejs', { carritos });
+                res.render('listado-carrito.ejs', { carritos, user });
             })
     },
     'create': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Genero.findAll()
         .then(function(generos) {
             db.Idioma.findAll()
@@ -85,7 +89,7 @@ const productController = {
                                     db.Autor.findAll()
                                         .then(function(autores){
                                             console.log('autores >>>> '+autores);
-                                            return res.render("crear-producto", {idiomas, generos, formatos, medios, autores});
+                                            return res.render("crear-producto", {idiomas, generos, formatos, medios, autores, user});
                                         })
                                 })
                         })
@@ -93,7 +97,8 @@ const productController = {
         })
     },
     'store': (req, res) => {
-        console.log('Por guardar '+req.body.titulo+' '+req.body.autor+' '+req.body.editorial+' '+req.body.imagen);
+        // console.log('Por guardar '+req.body.titulo+' '+req.body.autor+' '+req.body.editorial+' '+req.body.imagen);
+        const user = req.session.usuarioLogueado
         x = db.Libro.create({
             titulo: req.body.titulo,
             editorial: req.body.editorial,
@@ -113,17 +118,19 @@ const productController = {
             autores_id: req.body.autor,
             medios_id: req.body.medio
         });
-        console.log('Redirigiendo a product...'+x);
-        res.redirect("/product");
+        // console.log('Redirigiendo a product...'+x);
+        res.redirect("/product", { user });
     },
     listar: function(req, res) {
+        const user = req.session.usuarioLogueado
         db.Libro.findAll()
             .then(function(libros){
-                res.render("listado-productos", {libros:libros})
+                res.render("listado-productos", { libros:libros, user })
             })
     },
     
     editar: function(req, res) {
+        const user = req.session.usuarioLogueado
         let pedidoLibro = db.Libro.findByPk(req.params.id);
         let pedidoGenero = db.Genero.findAll();
         let pedidoIdioma = db.Idioma.findAll();
@@ -134,7 +141,7 @@ const productController = {
         Promise.all([pedidoLibro, pedidoGenero, pedidoIdioma, pedidoFormato, pedidoMedio, pedidoAutor])
             .then(function([libro, generos, idiomas, formatos, medios, autores]){
                 res.render("editar_admin", 
-                {libro, generos, idiomas, formatos, medios, autores});
+                {libro, generos, idiomas, formatos, medios, autores, user});
             })
     },
     actualizar: function(req, res){

@@ -14,35 +14,39 @@ const userController = {
     },
 
     'admin': function (req, res) {
-        console.log('::::::::: usuario logueado' + Object.keys(req.session.usuarioLogueado));
+        // console.log('::::::::: usuario logueado' + Object.keys(req.session.usuarioLogueado));
         const user = req.session.usuarioLogueado
         res.render("index", { user });
     },
 
     'list': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Usuario.findAll({
         })
             .then(usuarios => {
-                res.render('listado-usuarios.ejs', { usuarios })
+                res.render('listado-usuarios.ejs', { usuarios, user })
             })
     },
 
     'detail': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Usuario.findByPk(req.params.id)
             .then(function (usuarios) {
-                res.render('detalle-usuario.ejs', { usuarios });
+                res.render('detalle-usuario.ejs', { usuarios, user });
             });
     },
 
     'add': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Usuario.findAll()
             .then(function (usuarios) {
-                res.render('registro', { usuarios });
+                res.render('registro', { usuarios, user });
             })
         return res.render('registro');
     },
 
     'create': (req, res) => {
+        const user = req.session.usuarioLogueado
         db.Usuario.create({
             nombres: req.body.nombres,
             apellidos: req.body.apellidos,
@@ -63,9 +67,10 @@ const userController = {
     },
 
     'edit': function (req, res) {
+        const user = req.session.usuarioLogueado
         db.Usuario.findByPk(req.params.id)
             .then(function (usuarios) {
-                res.render('editar-usuario.ejs', { usuarios })
+                res.render('editar-usuario.ejs', { usuarios, user })
             })
     },
 
@@ -138,8 +143,9 @@ const userController = {
     },
 
     'perfil': function (req, res) {
-      console.log(req.session.usuarioLogueado)
-      res.render("perfil-usuario", { usuario: req.session.usuarioLogueado })
+    //   console.log(req.session.usuarioLogueado)
+    const user = req.session.usuarioLogueado
+      res.render("perfil-usuario", { user, usuario: req.session.usuarioLogueado })
     },
 
     'editpassword': function (req, res) {

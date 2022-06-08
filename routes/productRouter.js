@@ -35,8 +35,6 @@ router.get("/", productController.listar);
 //editar producto
 router.get("/editar/:id", productController.editar);
 router.post("/editar/:id", productController.actualizar);
-// router.get('/edit/:id', productController.edit); 
-// router.patch('/edit/:id', productController.update); 
 
 //eliminar producto
 router.post('/delete/:id', productController.borrar); 

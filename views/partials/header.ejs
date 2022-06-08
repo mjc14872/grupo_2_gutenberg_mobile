@@ -23,14 +23,9 @@
                 <a class="nav-link active" aria-current="page" href="/user/login">Login</a>
                 <a class="nav-link active" aria-current="page" href="/user/registro">Registro</a>
             <% } %>
-
-            <% if(typeof user != 'undefined'){ %>
-                <a class="nav-link active" aria-current="page" href="/user/perfil">Perfil</a>
-            <% } %>
             
             <%  if(typeof user != 'undefined' && user.isAdmin){ %>
                 <a href="/product/create">Crear Productos</a>
-                <a href="/product/listado-productos">Listado de Productos</a>
                 <a href="/user/listado-usuarios">Listado de Usuarios</a>
             <% } %>
 
