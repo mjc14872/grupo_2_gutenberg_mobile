@@ -58,12 +58,12 @@ const userController = {
             administrador: req.body.administrador,
 
         })
-        // db.Usuario.findAll({
+        db.Usuario.findAll({
 
-        // })
-            // .then(usuarios => {
-            //     res.render('login', { usuarios })
-            // })
+        })
+            .then(usuarios => {
+                res.render('login', { usuarios })
+            })
     },
 
     'edit': function (req, res) {
