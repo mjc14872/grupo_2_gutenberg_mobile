@@ -119,7 +119,7 @@ const productController = {
             medios_id: req.body.medio
         });
         // console.log('Redirigiendo a product...'+x);
-        res.redirect("/product", { user });
+        res.redirect("/product");
     },
     listar: function(req, res) {
         const user = req.session.usuarioLogueado
