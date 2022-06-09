@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2022 a las 04:24:39
+-- Tiempo de generación: 01-06-2022 a las 03:56:56
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -327,9 +327,9 @@ CREATE TABLE `usuarios` (
   `nombres` varchar(45) DEFAULT NULL,
   `apellidos` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `categoria` varchar(45) DEFAULT NULL,
-  `image` longblob DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
   `novedades` tinyint(1) DEFAULT NULL,
   `administrador` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -339,9 +339,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombres`, `apellidos`, `email`, `password`, `categoria`, `image`, `novedades`, `administrador`) VALUES
-(1, 'Liz', 'Moran', 'l@gmail.com', '$2a$10$BYiIUmZn7YWvQpIJ8V4aa.WXD9k9SyjkdBlkQ8', 'publicar libros', 0x696d67313634383432333230353333392e706e67, 1, 0),
-(2, 'Sarai', 'Franco', 's@gmail.com', '$2a$10$MlUlnSec9r7Jvmi88C/xVuq40lJocG2YuSKbKB', 'leer libros', 0x696d67313634393034303639303634392e706e67, 0, 1),
-(3, 'Maggi', 'Molina', 'm@gmail.com', '$2a$10$QE9VEmxJF3oQh.dhBGqp8.uzBbRLu7ps9zjNWE', 'publicar libros', 0x696d67313634383432333230353333392e706e67, 0, 1);
+(19, 'maggiii', 'Molina', 'm@gmail.com', '$2a$10$0f0ke2VxFDn8osmeTjzA8e.Akx53q3FY1LLBxLmXs5jpksVfiY2fq', 'publicar libros', 'image-default.jpg', 0, 0),
+(21, 'Sarai', 'Franco', 's@gmail.com', '$2a$10$Xezln/x7qM0NtvwP7uRbuOAzzgjWUl/lZ03rcIRRvtmBtuMEg1Qba', 'publicar libros', 'image-default', 0, 0),
+(22, 'Luis', 'Molina', 'lu@gmail.com', '$2a$10$G5t/Y5BMBs57GAkhRauX..V6psfTZRKudoTAiDWzkfSPBsq/uNy4m', 'leer libros', 'image-default', 0, 0),
+(24, 'Pedro', 'Perez', 'p@gmail.com', '$2a$10$sYuaT5k3mwPNyW90Kv7P..pfjGjxoUdcPl32/e8lWmltd120Yr0vm', 'publicar libros', 'image-default.jpg', 0, 0),
+(28, 'pedro', 'Molina', 'pm@gmail.com', '$2a$10$K8j.CX7jmpYgVHhVsVKuWeQ9T75h.dtpFjnW0W4lfnFF0wIAi7Cym', '', 'image1654043024444-.pdf', 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -402,8 +404,8 @@ ALTER TABLE `libros`
   ADD KEY `fk_libros_generos_idx` (`generos_id`),
   ADD KEY `fk_libros_idiomas1_idx` (`idiomas_id`),
   ADD KEY `fk_libros_formatos1_idx` (`formatos_id`),
-  ADD KEY `fk_libros_autores1_idx` (`autores_id`),
-  ADD KEY `fk_libros_medios1_idx` (`medios_id`);
+  ADD KEY `fk_libros_medios1_idx` (`medios_id`),
+  ADD KEY `fk_libros_autores1` (`autores_id`);
 
 --
 -- Indices de la tabla `medios`
@@ -485,7 +487,7 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Restricciones para tablas volcadas
